@@ -1,8 +1,8 @@
 use anyhow::Result;
 
-mod two_sum;
+pub mod two_sum;
 
-pub trait Solution {
+pub trait Solution: Send + Sync {
     fn problem_id(&self) -> usize;
     fn name(&self) -> String;
     fn test(&self) -> Result<()>;

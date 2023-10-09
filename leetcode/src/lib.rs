@@ -1,4 +1,4 @@
 //! Collections of problems and solutions in LeetCode
 
-mod problems;
-mod solutions;
+pub mod problems;
+pub mod solutions;
