@@ -1,3 +1,5 @@
+mod two_sum;
+
 pub enum Difficulty {
     Easy,
     Medium,
@@ -14,4 +16,5 @@ pub trait Problem {
     fn difficulty(&self) -> Difficulty;
     fn topic(&self) -> Topic;
     fn title(&self) -> String;
+    fn description(&self) -> String;
 }
