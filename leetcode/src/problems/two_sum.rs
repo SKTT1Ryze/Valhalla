@@ -21,6 +21,6 @@ You may assume that each input would have exactly one solution, and you may not 
         .into()
     }
     fn labels(&self) -> Vec<String> {
-        [].into()
+        ["array".into(), "hashmap".into()].into()
     }
 }
