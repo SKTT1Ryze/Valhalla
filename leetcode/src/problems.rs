@@ -17,4 +17,5 @@ pub trait Problem {
     fn topic(&self) -> Topic;
     fn title(&self) -> String;
     fn description(&self) -> String;
+    fn labels(&self) -> Vec<String>;
 }
