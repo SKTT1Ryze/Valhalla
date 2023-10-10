@@ -5,18 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions-rs/toolchain@v1
+      - uses: dtolnay/rust-toolchain@stable
         with:
-            toolchain: nightly
-            components: clippy
-            override: true
-      # switch to original when merged https://github.com/actions-rs/clippy-check/pull/158
-      - uses: reinismu/clippy-check@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: ./leetcode
-      # switch to original when merged https://github.com/actions-rs/clippy-check/pull/158
-      - uses: reinismu/clippy-check@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: ./runtime
+          toolchain: nightly
+      - name: Clippy Check in LeetCode
+        run: |
+          cd ./leetcode
+          cargo clippy --all-targets --all-features -- -D warnings
+      - name: Clippy Check in Runtime
+        run: |
+          cd ./runtime
+          cargo clippy --all-targets --all-features -- -D warnings
+
