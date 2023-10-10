@@ -11,10 +11,10 @@ jobs:
       - name: Setup Rustfmt
         run: rustup component add rustfmt
       - name: Format Check in LeetCode
-        run: |
-          cd ./leetcode
-          cargo fmt --all -- --check
+        run: cargo fmt --all -- --check
+        working-directory: ./leetcode
+          
       - name: Format Check in Runtime
-        run: |
-          cd ./runtime
-          cargo fmt --all -- --check
+        run: cargo fmt --all -- --check
+        working-directory: ./runtime
+          

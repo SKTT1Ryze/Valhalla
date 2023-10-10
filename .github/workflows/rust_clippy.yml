@@ -11,11 +11,11 @@ jobs:
       - name: Setup Clippy
         run: rustup component add clippy
       - name: Clippy Check in LeetCode
-        run: |
-          cd ./leetcode
-          cargo clippy --all-targets --all-features -- -D warnings
+        run: cargo clippy --all-targets --all-features -- -D warnings
+        working-directory: ./leetcode
+          
       - name: Clippy Check in Runtime
-        run: |
-          cd ./runtime
-          cargo clippy --all-targets --all-features -- -D warnings
+        run: cargo clippy --all-targets --all-features -- -D warnings
+        working-directory: ./runtime
+          
 

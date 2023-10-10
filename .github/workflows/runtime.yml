@@ -9,6 +9,5 @@ jobs:
         with:
           toolchain: nightly
       - name: Execute Runtime
-        run: |
-          cd ./runtime
-          cargo run
+        run: cargo run
+        working-directory: ./runtime
