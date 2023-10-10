@@ -10,13 +10,13 @@ jobs:
             toolchain: nightly
             components: clippy
             override: true
-      - name: Change workspace to leetcode
-        run: cd ./leetcode
-      - uses: actions-rs/clippy-check@v1
+      # switch to original when merged https://github.com/actions-rs/clippy-check/pull/158
+      - uses: reinismu/clippy-check@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Change workspace to runtime
-        run: cd ../runtime
-      - uses: actions-rs/clippy-check@v1
+          working-directory: ./leetcode
+      # switch to original when merged https://github.com/actions-rs/clippy-check/pull/158
+      - uses: reinismu/clippy-check@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: ./runtime
