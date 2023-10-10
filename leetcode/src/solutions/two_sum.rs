@@ -43,6 +43,6 @@ impl TwoSum {
             }
         }
 
-        return result;
+        result
     }
 }
