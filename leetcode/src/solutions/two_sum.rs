@@ -17,9 +17,17 @@ impl Solution for TwoSum {
             (vec![3, 3], 6, [0, 1]),
         ];
 
-        for (input, target, output) in testcases {
-            if Self::two_sum(input.clone(), target) != output {
-                anyhow::bail!("test failed for input={input:?} and target={target}");
+        for (input, target, expect) in testcases {
+            let mut output = Self::two_sum(input.clone(), target);
+
+            // sort output then compare
+            output.sort();
+
+            if expect[0] != output[0] || expect[1] != output[1] {
+                anyhow::bail!(
+                    "test failed for input={input:?} and target={target}. expect={expect:?}, \
+                     output={output:?}"
+                );
             }
         }
 

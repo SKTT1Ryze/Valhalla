@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 leetcode = { path = "../leetcode" }
 anyhow = "1.0.75"
+log = "0.4.20"
+simple_logger = "4.2.0"
