@@ -1,0 +1,20 @@
+on: [push, pull_request]
+name: Rust Format Check
+jobs:
+  clippy_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly
+      - name: Setup Rustfmt
+        run: rustup component add rustfmt
+      - name: Format Check in LeetCode
+        run: |
+          cd ./leetcode
+          cargo fmt --all -- --check
+      - name: Format Check in Runtime
+        run: |
+          cd ./runtime
+          cargo fmt --all -- --check
