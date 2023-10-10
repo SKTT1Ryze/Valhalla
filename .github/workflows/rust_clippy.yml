@@ -8,6 +8,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly
+      - name: Setup Clippy
+        run: rustup component add clippy
       - name: Clippy Check in LeetCode
         run: |
           cd ./leetcode
