@@ -11,10 +11,10 @@ jobs:
             components: clippy
             override: true
       - uses: actions-rs/clippy-check@v1
-        working-directory: ./leetcode
         with:
+          working-directory: ./leetcode
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions-rs/clippy-check@v1
-        working-directory: ./runtime
         with:
+          working-directory: ./runtime
           token: ${{ secrets.GITHUB_TOKEN }}
