@@ -1,0 +1,14 @@
+on: [push, pull_request]
+name: Runtime Check
+jobs:
+  runtime_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly
+      - name: Execute Runtime
+        run: |
+          cd ./runtime
+          cargo run
