@@ -1,5 +1,6 @@
 use anyhow::Result;
 
+pub mod add_two_numbers;
 pub mod two_sum;
 
 pub trait Solution: Send + Sync {
