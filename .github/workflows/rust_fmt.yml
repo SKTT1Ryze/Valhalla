@@ -1,4 +1,4 @@
-on: [push, pull_request]
+on: [pull_request]
 name: Rust Format Check
 jobs:
   clippy_check:
@@ -17,4 +17,3 @@ jobs:
       - name: Format Check in Runtime
         run: cargo fmt --all -- --check
         working-directory: ./runtime
-          
