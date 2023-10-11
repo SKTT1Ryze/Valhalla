@@ -1,13 +1,17 @@
 on: [pull_request]
-name: Runtime Check
+name: Rust Test
 jobs:
-  runtime_check:
+  clippy_check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly
-      - name: Execute Runtime
-        run: cargo run
+      - name: Test in LeetCode
+        run: cargo test
+        working-directory: ./leetcode
+          
+      - name: Test in Runtime
+        run: cargo test
         working-directory: ./runtime
