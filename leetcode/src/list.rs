@@ -49,7 +49,7 @@ mod tests {
     #[test]
     fn test_create_list() {
         let v = [1, 3, 2];
-        let list = ListNode::create_list(v.clone());
+        let list = ListNode::create_list(v);
 
         let mut head = &list;
         let mut v = Vec::from(v);
