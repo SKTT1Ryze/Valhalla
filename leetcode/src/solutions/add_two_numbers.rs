@@ -46,9 +46,48 @@ impl Solution for AddTwoNumbers {
 
 impl AddTwoNumbers {
     pub fn add_two_numbers(
-        l1: Option<Box<ListNode<i32>>>,
-        l2: Option<Box<ListNode<i32>>>,
+        mut l1: Option<Box<ListNode<i32>>>,
+        mut l2: Option<Box<ListNode<i32>>>,
     ) -> Option<Box<ListNode<i32>>> {
-        todo!()
+        let mut head = None;
+        let mut p = &mut head;
+        let mut residue = 0;
+
+        while let (Some(node1), Some(node2)) = (l1.as_ref(), l2.as_ref()) {
+            let val = (node1.val + node2.val + residue) % 10;
+            residue = (node1.val + node2.val + residue) / 10;
+
+            *p = Some(Box::new(ListNode::new(val)));
+            p = &mut p.as_mut().unwrap().next;
+
+            l1 = l1.take().unwrap().next;
+            l2 = l2.take().unwrap().next;
+        }
+
+        while let Some(node) = l1.take() {
+            let val = (node.val + residue) % 10;
+            residue = (node.val + residue) / 10;
+
+            *p = Some(Box::new(ListNode::new(val)));
+            p = &mut p.as_mut().unwrap().next;
+
+            l1 = node.next;
+        }
+
+        while let Some(node) = l2.take() {
+            let val = (node.val + residue) % 10;
+            residue = (node.val + residue) / 10;
+
+            *p = Some(Box::new(ListNode::new(val)));
+            p = &mut p.as_mut().unwrap().next;
+
+            l2 = node.next;
+        }
+
+        if residue > 0 {
+            *p = Some(Box::new(ListNode::new(residue)));
+        }
+
+        head
     }
 }

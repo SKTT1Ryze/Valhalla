@@ -7,7 +7,7 @@ pub struct ListNode<T: PartialEq + Eq> {
 
 impl<T: PartialEq + Eq> ListNode<T> {
     #[inline]
-    fn new(val: T) -> Self {
+    pub fn new(val: T) -> Self {
         ListNode { next: None, val }
     }
 
