@@ -1,8 +1,9 @@
-use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::{
+    collections::HashMap,
+    sync::{Arc, Mutex},
+};
 
-use leetcode::problems::Problem;
-use leetcode::solutions::Solution;
+use leetcode::{problems::Problem, solutions::Solution};
 
 #[derive(Default)]
 pub struct Container {
