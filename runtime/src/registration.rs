@@ -6,5 +6,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::two_sum::TwoSum)?;
     handle.register_solution(|_| solutions::two_sum::TwoSum)?;
 
+    handle.register_problem(|_| problems::add_two_numbers::AddTwoNumbers)?;
+    handle.register_solution(|_| solutions::add_two_numbers::AddTwoNumbers)?;
+
     Ok(())
 }
