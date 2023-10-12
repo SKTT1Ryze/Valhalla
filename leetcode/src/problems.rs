@@ -1,4 +1,5 @@
 pub mod add_two_numbers;
+pub mod longest_substring;
 pub mod two_sum;
 
 #[allow(dead_code)]
