@@ -1,6 +1,7 @@
 use anyhow::Result;
 
 pub mod add_two_numbers;
+pub mod longest_substring;
 pub mod two_sum;
 
 pub trait Solution: Send + Sync {
