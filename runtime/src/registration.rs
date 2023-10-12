@@ -11,6 +11,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     handle.register_problem(|_| problems::longest_substring::LongestSubstring)?;
     handle.register_solution(|_| solutions::longest_substring::LongestSubstring)?;
+    handle.register_solution(|_| solutions::longest_substring::LongestSubstringHashMap)?;
 
     Ok(())
 }
