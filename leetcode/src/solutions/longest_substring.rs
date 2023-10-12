@@ -32,6 +32,29 @@ impl Solution for LongestSubstring {
 
 impl LongestSubstring {
     pub fn length_of_longest_substring(s: String) -> i32 {
-        todo!()
+        let chars: Vec<char> = s.chars().collect();
+        let len = chars.len();
+
+        if len <= 1 {
+            return len as i32;
+        }
+
+        let mut max = 1;
+        let mut head = 0;
+
+        while head < len - 1 {
+            let mut tail = head + 1;
+            while tail < len {
+                if !chars[head..tail].contains(&chars[tail]) {
+                    tail += 1;
+                } else {
+                    break;
+                }
+                max = max.max(chars[head..tail].len());
+            }
+            head += 1;
+        }
+
+        max as i32
     }
 }
