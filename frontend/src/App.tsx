@@ -10,18 +10,28 @@ interface Item {
 }
 
 const items: Item[] = [
-  {id: 1, difficulty: "", topic: "", title: "Two Numbers", description: "", labels: []}
+  {
+    id: 1,
+    difficulty: "",
+    topic: "",
+    title: "Two Numbers",
+    description: "",
+    labels: [],
+  },
 ];
 
 function App() {
   return (
     <div className={styles.container}>
-    <div>LeetCode Solutions of CCC</div>
-    {
-      items.map(item => <div>{item.title}</div>)
-    }
+      <div className={styles.title}>Valhalla</div>
+      <div className={styles.subtitle}>
+        Valhalla of coder, collections of solutions of LeetCode problems.
+      </div>
+      {items.map((item) => (
+        <div>{item.title}</div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
