@@ -1,3 +1,5 @@
+import { FileDoneOutlined } from "@ant-design/icons";
+import { Tag } from "antd";
 import classNames from "classnames";
 
 import styles from "./App.module.scss";
@@ -18,7 +20,7 @@ const items: Item[] = [
     topic: "Algorithm",
     title: "Two Sum",
     description: "",
-    labels: [],
+    labels: ["Hash Map", "Link List"],
   },
   {
     id: 2,
@@ -63,12 +65,28 @@ function App() {
           >
             <div className={styles.id}>{item.id}</div>
             <div className={styles["problem-title"]}>{item.title}</div>
-            <div className={styles.solution}>Solution</div>
-            <div className={styles["problem-difficulty"]}>
+            <div className={styles.solution}>
+              <a href="https://github.com/SKTT1Ryze/Valhalla">
+                <FileDoneOutlined />
+              </a>
+            </div>
+            <div
+              className={classNames(styles["problem-difficulty"], {
+                [styles.easy]: item.difficulty === "Easy",
+                [styles.medium]: item.difficulty === "Medium",
+                [styles.hard]: item.difficulty === "Hard",
+              })}
+            >
               {item.difficulty}
             </div>
             <div className={styles.topic}>{item.topic}</div>
-            <div className={styles.labels}>labels</div>
+            <div className={styles.labels}>
+              {item.labels.map((label) => (
+                <Tag bordered className={styles.tag}>
+                  {label}
+                </Tag>
+              ))}
+            </div>
           </div>
         ))}
       </div>

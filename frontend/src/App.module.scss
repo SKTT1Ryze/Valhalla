@@ -43,6 +43,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 60%;
+    border-top: solid #ffffff12;
 
     .item {
       display: flex;
@@ -65,11 +66,27 @@
       .problem-difficulty {
         flex: 1;
       }
+      .easy {
+        color: green;
+      }
+      .medium {
+        color: yellow;
+      }
+      .hard {
+        color: red;
+      }
       .topic {
         flex: 1;
+        color: #00d8ffab;
       }
       .labels {
         flex: 2;
+        
+        .tag {
+          color: green;
+          background: #2c9b7747;
+          border: none;
+        }
       }
     }
 
