@@ -12,7 +12,7 @@ pub enum Difficulty {
 impl From<Difficulty> for String {
     fn from(val: Difficulty) -> Self {
         match val {
-            Difficulty::Easy => "easy".into(),
+            Difficulty::Easy => "Easy".into(),
             Difficulty::Medium => "Medium".into(),
             Difficulty::Hard => "Hard".into(),
         }
