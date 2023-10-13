@@ -9,12 +9,12 @@ pub enum Difficulty {
     Hard,
 }
 
-impl Into<String> for Difficulty {
-    fn into(self) -> String {
-        match self {
-            Self::Easy => "easy".into(),
-            Self::Medium => "Medium".into(),
-            Self::Hard => "Hard".into(),
+impl From<Difficulty> for String {
+    fn from(val: Difficulty) -> Self {
+        match val {
+            Difficulty::Easy => "easy".into(),
+            Difficulty::Medium => "Medium".into(),
+            Difficulty::Hard => "Hard".into(),
         }
     }
 }
@@ -25,11 +25,11 @@ pub enum Topic {
     DataBase,
 }
 
-impl Into<String> for Topic {
-    fn into(self) -> String {
-        match self {
-            Self::DataBase => "DataBase".into(),
-            Self::Algorithms => "Algorithms".into(),
+impl From<Topic> for String {
+    fn from(val: Topic) -> Self {
+        match val {
+            Topic::DataBase => "DataBase".into(),
+            Topic::Algorithms => "Algorithms".into(),
         }
     }
 }
