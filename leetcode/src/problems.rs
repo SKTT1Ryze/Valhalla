@@ -6,13 +6,32 @@ pub mod two_sum;
 pub enum Difficulty {
     Easy,
     Medium,
-    Diffcult,
+    Hard,
+}
+
+impl From<Difficulty> for String {
+    fn from(val: Difficulty) -> Self {
+        match val {
+            Difficulty::Easy => "easy".into(),
+            Difficulty::Medium => "Medium".into(),
+            Difficulty::Hard => "Hard".into(),
+        }
+    }
 }
 
 #[allow(dead_code)]
 pub enum Topic {
     Algorithms,
     DataBase,
+}
+
+impl From<Topic> for String {
+    fn from(val: Topic) -> Self {
+        match val {
+            Topic::DataBase => "DataBase".into(),
+            Topic::Algorithms => "Algorithms".into(),
+        }
+    }
 }
 
 pub trait Problem: Send + Sync {

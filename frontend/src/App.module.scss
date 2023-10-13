@@ -1,0 +1,99 @@
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  .langs {
+    margin-top: 1rem;
+    img {
+      width: 4rem;
+    }
+  }
+
+  .items-header {
+    display: flex;
+    width: 60%;
+    padding: 1rem 0;
+    opacity: 0.8;
+  }
+
+  .items-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    border-top: solid #ffffff12;
+
+    .item {
+      display: flex;
+      width: 100%;
+      height: 2.5rem;
+      align-items: center;
+      border-radius: 0.2rem;
+
+      .id {
+        flex: 0.5;
+        position: relative;
+        left: 1rem;
+      }
+      .problem-title {
+        flex: 4;
+      }
+      .solution {
+        flex: 1;
+      }
+      .problem-difficulty {
+        flex: 1;
+      }
+      .easy {
+        color: green;
+      }
+      .medium {
+        color: yellow;
+      }
+      .hard {
+        color: red;
+      }
+      .topic {
+        flex: 1;
+        color: #00d8ffab;
+      }
+      .labels {
+        flex: 2;
+        
+        .tag {
+          color: green;
+          background: #2c9b7747;
+          border: none;
+        }
+      }
+    }
+
+    .item-double {
+      background: #ffffff12;
+    }
+  }
+
+  
+}

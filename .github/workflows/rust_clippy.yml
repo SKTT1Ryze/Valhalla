@@ -13,9 +13,6 @@ jobs:
       - name: Clippy Check in LeetCode
         run: cargo clippy --all-targets --all-features -- -D warnings
         working-directory: ./leetcode
-          
       - name: Clippy Check in Runtime
         run: cargo clippy --all-targets --all-features -- -D warnings
         working-directory: ./runtime
-          
-

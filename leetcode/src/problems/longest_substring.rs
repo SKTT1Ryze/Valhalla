@@ -22,6 +22,6 @@ substring without repeating characters.
         .into()
     }
     fn labels(&self) -> Vec<String> {
-        ["string".into(), "hashmap".into()].into()
+        ["String".into(), "Hash Map".into()].into()
     }
 }

@@ -1,9 +1,15 @@
-use std::sync::{Arc, Mutex};
-
 use simple_logger::SimpleLogger;
+use std::{
+    fs::File,
+    io::Write,
+    sync::{Arc, Mutex},
+};
 
 mod container;
 mod registration;
+mod serder;
+
+const JSON_OUTPUT: &str = "undeads.json";
 
 fn main() -> anyhow::Result<()> {
     // init logger
@@ -18,6 +24,7 @@ fn main() -> anyhow::Result<()> {
 
     // execute all the testcase in solutions
     let problems = handle.get_problems()?;
+    let mut undeads: Vec<serder::Undead> = Vec::new();
     for (id, problem) in problems {
         log::info!(
             "Finding solutions for problem No.{id}, title: {} ...",
@@ -36,8 +43,17 @@ fn main() -> anyhow::Result<()> {
                 log::info!("Solution {} test passed!", solution.name());
                 // TODO: bencmark
             }
+            // serde as json
+            undeads.push(problem.into());
         }
     }
+
+    let json = serde_json::to_string(&undeads)?;
+
+    log::info!("Writing {JSON_OUTPUT} ...");
+    let mut f = File::create(JSON_OUTPUT)?;
+    f.write_all(json.as_bytes())?;
+    log::info!("Write {JSON_OUTPUT} succeed!");
 
     Ok(())
 }

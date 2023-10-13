@@ -23,6 +23,6 @@ You may assume the two numbers do not contain any leading zero, except the numbe
             .into()
     }
     fn labels(&self) -> Vec<String> {
-        ["link list".into()].into()
+        ["Link List".into()].into()
     }
 }
