@@ -1,4 +1,4 @@
-import './App.css'
+import styles from "./App.module.scss";
 
 interface Item {
   id: number;
@@ -15,12 +15,12 @@ const items: Item[] = [
 
 function App() {
   return (
-    <>
+    <div className={styles.container}>
     <div>LeetCode Solutions of CCC</div>
     {
       items.map(item => <div>{item.title}</div>)
     }
-    </>
+    </div>
   )
 }
 
