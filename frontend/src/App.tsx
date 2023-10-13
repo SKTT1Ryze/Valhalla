@@ -2,6 +2,7 @@ import { FileDoneOutlined } from "@ant-design/icons";
 import { Tag } from "antd";
 import classNames from "classnames";
 
+import Undeads from "../undeads.json";
 import styles from "./App.module.scss";
 
 interface Item {
@@ -13,24 +14,8 @@ interface Item {
   labels: string[];
 }
 
-const items: Item[] = [
-  {
-    id: 1,
-    difficulty: "Easy",
-    topic: "Algorithm",
-    title: "Two Sum",
-    description: "",
-    labels: ["Hash Map", "Link List"],
-  },
-  {
-    id: 2,
-    difficulty: "Medium",
-    topic: "Algorithm",
-    title: "Add Two Numbers",
-    description: "",
-    labels: [],
-  },
-];
+// @ts-ignore
+const items: Item[] = Undeads.sort((a, b) => a.id - b.id);
 
 function App() {
   return (

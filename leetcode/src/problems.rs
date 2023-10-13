@@ -14,7 +14,7 @@ impl Into<String> for Difficulty {
         match self {
             Self::Easy => "easy".into(),
             Self::Medium => "Medium".into(),
-            Self::Hard => "Hard".into()
+            Self::Hard => "Hard".into(),
         }
     }
 }
@@ -29,7 +29,7 @@ impl Into<String> for Topic {
     fn into(self) -> String {
         match self {
             Self::DataBase => "DataBase".into(),
-            Self::Algorithms => "Algorithms".into()
+            Self::Algorithms => "Algorithms".into(),
         }
     }
 }
