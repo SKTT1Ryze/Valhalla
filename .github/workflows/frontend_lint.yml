@@ -1,0 +1,17 @@
+on: [pull_request]
+name: Front Lint Check
+jobs:
+  clippy_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+      - uses: bahmutov/npm-install@v1
+      with:
+        useLockFile: true
+        working-directory: ./frontend
+      - name: Lint Check
+        run: yarn lint
+        working-directory: ./frontend
