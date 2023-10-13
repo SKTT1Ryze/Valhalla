@@ -1,0 +1,17 @@
+on: [pull_request]
+name: Frontend Build Check
+jobs:
+  frontend_build_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: true
+          working-directory: ./frontend
+      - name: Build Check
+        run: yarn build
+        working-directory: ./frontend
