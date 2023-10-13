@@ -30,6 +30,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 3a49159509ead63f611cec6e748eea47
-          projectName: Valhalla
+          projectName: valhalla
           directory: ./frontend/dist
           branch: main
