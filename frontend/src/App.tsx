@@ -12,10 +12,14 @@ interface Item {
   title: string;
   description: string;
   labels: string[];
+  solutions: string[];
 }
 
 // @ts-ignore
 const items: Item[] = Undeads.sort((a, b) => a.id - b.id);
+
+const SolutionUrlBase =
+  "https://github.com/SKTT1Ryze/Valhalla/blob/main/leetcode/src/solutions/";
 
 function App() {
   return (
@@ -51,9 +55,11 @@ function App() {
             <div className={styles.id}>{item.id}</div>
             <div className={styles["problem-title"]}>{item.title}</div>
             <div className={styles.solution}>
-              <a href="https://github.com/SKTT1Ryze/Valhalla">
-                <FileDoneOutlined />
-              </a>
+              {item.solutions.map((solution) => (
+                <a href={SolutionUrlBase + solution}>
+                  <FileDoneOutlined />
+                </a>
+              ))}
             </div>
             <div
               className={classNames(styles["problem-difficulty"], {

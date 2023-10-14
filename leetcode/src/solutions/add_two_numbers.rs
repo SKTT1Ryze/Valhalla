@@ -1,6 +1,5 @@
 use super::Solution;
 use crate::list::{assert_eq_list, ListNode};
-
 pub struct AddTwoNumbers;
 
 impl Solution for AddTwoNumbers {
@@ -9,6 +8,9 @@ impl Solution for AddTwoNumbers {
     }
     fn problem_id(&self) -> usize {
         2
+    }
+    fn location(&self) -> String {
+        crate::location!();
     }
     fn test(&self) -> anyhow::Result<()> {
         let testcases = [

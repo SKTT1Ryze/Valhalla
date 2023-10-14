@@ -5,6 +5,8 @@ use std::{
     sync::{Arc, Mutex},
 };
 
+use crate::serder::Undead;
+
 mod container;
 mod registration;
 mod serder;
@@ -43,8 +45,14 @@ fn main() -> anyhow::Result<()> {
                 log::info!("Solution {} test passed!", solution.name());
                 // TODO: bencmark
             }
+
             // serde as json
-            undeads.push(problem.into());
+            let mut undead: Undead = problem.into();
+            undead.solutions = solutions
+                .into_iter()
+                .map(|solution| solution.location())
+                .collect();
+            undeads.push(undead);
         }
     }
 
