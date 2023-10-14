@@ -35,6 +35,7 @@
   .items-header {
     display: flex;
     width: 60%;
+    min-width: 800px;
     padding: 1rem 0;
     opacity: 0.8;
   }
@@ -43,6 +44,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 60%;
+    min-width: 800px;
     border-top: solid #ffffff12;
 
     .item {
