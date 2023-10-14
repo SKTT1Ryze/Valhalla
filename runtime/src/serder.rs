@@ -3,7 +3,7 @@ use std::sync::Arc;
 use leetcode::problems::Problem;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Default)]
 pub struct Undead {
     id: usize,
     difficulty: String,
@@ -11,6 +11,7 @@ pub struct Undead {
     title: String,
     description: String,
     labels: Vec<String>,
+    pub solutions: Vec<String>,
 }
 
 impl From<Arc<dyn Problem>> for Undead {
@@ -22,6 +23,7 @@ impl From<Arc<dyn Problem>> for Undead {
             title: value.title(),
             description: value.description(),
             labels: value.labels(),
+            ..Default::default()
         }
     }
 }

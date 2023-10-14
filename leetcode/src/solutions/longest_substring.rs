@@ -13,6 +13,9 @@ impl Solution for LongestSubstring {
     fn problem_id(&self) -> usize {
         3
     }
+    fn location(&self) -> String {
+        crate::location!();
+    }
     fn test(&self) -> anyhow::Result<()> {
         for (input, expect) in TESTCASES {
             let output = Self::length_of_longest_substring(input.to_string());
@@ -65,6 +68,9 @@ impl Solution for LongestSubstringHashMap {
     }
     fn problem_id(&self) -> usize {
         3
+    }
+    fn location(&self) -> String {
+        crate::location!();
     }
     fn test(&self) -> anyhow::Result<()> {
         for (input, expect) in TESTCASES {

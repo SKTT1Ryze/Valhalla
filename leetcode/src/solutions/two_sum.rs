@@ -10,6 +10,9 @@ impl Solution for TwoSum {
     fn problem_id(&self) -> usize {
         1
     }
+    fn location(&self) -> String {
+        crate::location!();
+    }
     fn test(&self) -> anyhow::Result<()> {
         let testcases = [
             (vec![2, 7, 11, 15], 9, [0, 1]),
