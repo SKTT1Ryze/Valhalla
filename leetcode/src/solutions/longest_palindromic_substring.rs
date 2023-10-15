@@ -1,4 +1,5 @@
 use super::Solution;
+use std::collections::HashMap;
 
 pub struct LongestPalindromicSubstring;
 
@@ -32,6 +33,41 @@ impl Solution for LongestPalindromicSubstring {
 
 impl LongestPalindromicSubstring {
     pub fn longest_palindrome(s: String) -> String {
-        todo!()
+        let mut max = "";
+        let mut map: HashMap<char, Vec<_>> = HashMap::new();
+
+        for (end, ch) in s.chars().enumerate() {
+            map.entry(ch).or_default().push(end);
+
+            for &start in map.get(&ch).unwrap_or(&vec![]) {
+                let subs = &s[start..end + 1];
+
+                if Self::check_palindromic(subs) {
+                    if subs.len() > max.len() {
+                        max = subs;
+                    }
+                    break;
+                }
+            }
+        }
+
+        max.into()
+    }
+
+    fn check_palindromic(s: &str) -> bool {
+        let chars: Vec<_> = s.chars().collect();
+        let len = chars.len();
+        let mut p1 = 0;
+        let mut p2 = len - 1;
+
+        while p1 < p2 {
+            if chars[p1] != chars[p2] {
+                return false;
+            }
+            p1 += 1;
+            p2 -= 1;
+        }
+
+        true
     }
 }

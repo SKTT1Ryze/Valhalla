@@ -19,6 +19,6 @@ impl Problem for LongestPalindromicSubstring {
         r#"Given a string s, return the longest palindromic substring in s."#.into()
     }
     fn labels(&self) -> Vec<String> {
-        ["String".into()].into()
+        ["String".into(), "DP".into()].into()
     }
 }
