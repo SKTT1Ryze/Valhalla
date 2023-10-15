@@ -19,6 +19,9 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| {
         problems::longest_palindromic_substring::LongestPalindromicSubstring
     })?;
+    handle.register_solution(|_| {
+        solutions::longest_palindromic_substring::LongestPalindromicSubstring
+    })?;
 
     Ok(())
 }
