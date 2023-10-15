@@ -27,7 +27,7 @@ impl Solution for LongestPalindromicSubstring {
         Ok(())
     }
     fn benchmark(&self) -> anyhow::Result<usize> {
-        todo!()
+        anyhow::bail!("TODO");
     }
 }
 
