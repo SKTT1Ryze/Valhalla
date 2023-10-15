@@ -2,6 +2,7 @@ use anyhow::Result;
 
 pub mod add_two_numbers;
 pub mod longest_substring;
+pub mod median_of_two_sorted_arrays;
 pub mod two_sum;
 
 pub trait Solution: Send + Sync {
