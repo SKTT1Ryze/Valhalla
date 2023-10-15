@@ -16,7 +16,8 @@ impl Problem for MedianOfTwoSortedArrays {
         "Median of Two Sorted Arrays".into()
     }
     fn description(&self) -> String {
-        todo!()
+        r#"Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+The overall run time complexity should be O(log (m+n))."#.into()
     }
     fn labels(&self) -> Vec<String> {
         ["Array".into()].into()
