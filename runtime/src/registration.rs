@@ -16,6 +16,9 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::median_of_two_sorted_arrays::MedianOfTwoSortedArrays)?;
     handle
         .register_solution(|_| solutions::median_of_two_sorted_arrays::MedianOfTwoSortedArrays)?;
+    handle.register_problem(|_| {
+        problems::longest_palindromic_substring::LongestPalindromicSubstring
+    })?;
 
     Ok(())
 }
