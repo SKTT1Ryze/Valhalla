@@ -38,6 +38,33 @@ impl Solution for MedianOfTwoSortedArrays {
 
 impl MedianOfTwoSortedArrays {
     pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
-        todo!()
+        let mut sorted = Vec::new();
+        let m = nums1.len();
+        let n = nums2.len();
+        let mut p1 = 0;
+        let mut p2 = 0;
+
+        while p1 < m && p2 < n {
+            let num1 = nums1[p1];
+            let num2 = nums2[p2];
+
+            if num1 <= num2 {
+                sorted.push(num1);
+                p1 += 1;
+            } else {
+                sorted.push(num2);
+                p2 += 1;
+            }
+        }
+
+        sorted.extend(&nums1[p1..]);
+        sorted.extend(&nums2[p2..]);
+
+        let len = m + n;
+        if len % 2 == 0 {
+            (sorted[len / 2 - 1] + sorted[len / 2]) as f64 / 2_f64
+        } else {
+            sorted[len / 2] as f64
+        }
     }
 }
