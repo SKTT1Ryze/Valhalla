@@ -1,8 +1,8 @@
 use super::Solution;
 use crate::list::{assert_eq_list, ListNode};
-pub struct AddTwoNumbers;
+pub struct SolutionImpl;
 
-impl Solution for AddTwoNumbers {
+impl Solution for SolutionImpl {
     fn name(&self) -> String {
         "Add Two Numbers Solution".into()
     }
@@ -46,7 +46,7 @@ impl Solution for AddTwoNumbers {
     }
 }
 
-impl AddTwoNumbers {
+impl SolutionImpl {
     pub fn add_two_numbers(
         mut l1: Option<Box<ListNode<i32>>>,
         mut l2: Option<Box<ListNode<i32>>>,

@@ -1,8 +1,8 @@
 use super::{Difficulty, Problem, Topic};
 
-pub struct LongestPalindromicSubstring;
+pub struct ProblemImpl;
 
-impl Problem for LongestPalindromicSubstring {
+impl Problem for ProblemImpl {
     fn id(&self) -> usize {
         5
     }

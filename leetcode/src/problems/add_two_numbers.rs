@@ -1,8 +1,8 @@
 use super::{Difficulty, Problem, Topic};
 
-pub struct AddTwoNumbers;
+pub struct ProblemImpl;
 
-impl Problem for AddTwoNumbers {
+impl Problem for ProblemImpl {
     fn id(&self) -> usize {
         2
     }

@@ -1,9 +1,9 @@
 use super::Solution;
 use std::collections::HashMap;
 
-pub struct TwoSum;
+pub struct SolutionImpl;
 
-impl Solution for TwoSum {
+impl Solution for SolutionImpl {
     fn name(&self) -> String {
         "Two Sum Solution using Map".into()
     }
@@ -41,7 +41,7 @@ impl Solution for TwoSum {
     }
 }
 
-impl TwoSum {
+impl SolutionImpl {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map = HashMap::<i32, usize>::new();
         let mut result = Vec::new();
