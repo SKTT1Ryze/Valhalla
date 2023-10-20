@@ -1,8 +1,8 @@
 use super::{Difficulty, Problem, Topic};
 
-pub struct LongestSubstring;
+pub struct ProblemImpl;
 
-impl Problem for LongestSubstring {
+impl Problem for ProblemImpl {
     fn id(&self) -> usize {
         3
     }

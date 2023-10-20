@@ -1,8 +1,8 @@
 use super::{Difficulty, Problem, Topic};
 
-pub struct MedianOfTwoSortedArrays;
+pub struct ProblemImpl;
 
-impl Problem for MedianOfTwoSortedArrays {
+impl Problem for ProblemImpl {
     fn id(&self) -> usize {
         4
     }

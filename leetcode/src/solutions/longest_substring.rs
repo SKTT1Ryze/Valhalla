@@ -2,11 +2,11 @@ use std::collections::HashMap;
 
 use super::Solution;
 
-pub struct LongestSubstring;
+pub struct SolutionImpl;
 
 const TESTCASES: [(&str, i32); 3] = [("abcabcbb", 3), ("bbbbb", 1), ("pwwkew", 3)];
 
-impl Solution for LongestSubstring {
+impl Solution for SolutionImpl {
     fn name(&self) -> String {
         "Solution for Longest Substring Without Repeating Characters".into()
     }
@@ -31,7 +31,7 @@ impl Solution for LongestSubstring {
     }
 }
 
-impl LongestSubstring {
+impl SolutionImpl {
     pub fn length_of_longest_substring(s: String) -> i32 {
         let chars: Vec<char> = s.chars().collect();
         let len = chars.len();
@@ -60,9 +60,9 @@ impl LongestSubstring {
     }
 }
 
-pub struct LongestSubstringHashMap;
+pub struct SolutionImplHashMap;
 
-impl Solution for LongestSubstringHashMap {
+impl Solution for SolutionImplHashMap {
     fn name(&self) -> String {
         "Solution for Longest Substring Without Repeating Characters using HashMap".into()
     }
@@ -87,7 +87,7 @@ impl Solution for LongestSubstringHashMap {
     }
 }
 
-impl LongestSubstringHashMap {
+impl SolutionImplHashMap {
     pub fn length_of_longest_substring(s: String) -> i32 {
         let mut max = 0usize;
 

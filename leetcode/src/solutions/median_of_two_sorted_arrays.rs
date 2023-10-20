@@ -1,8 +1,8 @@
 use super::Solution;
 
-pub struct MedianOfTwoSortedArrays;
+pub struct SolutionImpl;
 
-impl Solution for MedianOfTwoSortedArrays {
+impl Solution for SolutionImpl {
     fn name(&self) -> String {
         "Solutoin for Median of Two Sorted Arrays".into()
     }
@@ -36,7 +36,7 @@ impl Solution for MedianOfTwoSortedArrays {
     }
 }
 
-impl MedianOfTwoSortedArrays {
+impl SolutionImpl {
     pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
         let mut sorted = Vec::new();
         let m = nums1.len();

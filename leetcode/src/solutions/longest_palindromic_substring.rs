@@ -1,9 +1,9 @@
 use super::Solution;
 use std::collections::HashMap;
 
-pub struct LongestPalindromicSubstring;
+pub struct SolutionImpl;
 
-impl Solution for LongestPalindromicSubstring {
+impl Solution for SolutionImpl {
     fn name(&self) -> String {
         "Solution for Longest Palindromic Substring".into()
     }
@@ -31,7 +31,7 @@ impl Solution for LongestPalindromicSubstring {
     }
 }
 
-impl LongestPalindromicSubstring {
+impl SolutionImpl {
     pub fn longest_palindrome(s: String) -> String {
         let mut max = "";
         let mut map: HashMap<char, Vec<_>> = HashMap::new();
