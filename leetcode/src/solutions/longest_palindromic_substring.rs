@@ -1,6 +1,8 @@
 use super::Solution;
 use std::collections::HashMap;
 
+const TEST_CASES: [(&str, &str); 2] = [("babad", "bab"), ("cbbd", "bb")];
+
 pub struct SolutionImpl;
 
 impl Solution for SolutionImpl {
@@ -14,9 +16,7 @@ impl Solution for SolutionImpl {
         crate::location!()
     }
     fn test(&self) -> anyhow::Result<()> {
-        let testcases = [("babad", "bab"), ("cbbd", "bb")];
-
-        for (input, expect) in testcases {
+        for (input, expect) in TEST_CASES {
             let output = Self::longest_palindrome(input.into());
 
             if expect != output {
@@ -69,5 +69,39 @@ impl SolutionImpl {
         }
 
         true
+    }
+}
+
+pub struct SolutionImplDP;
+
+impl Solution for SolutionImplDP {
+    fn name(&self) -> String {
+        "Solution for Longest Palindromic Substring with Dynamic Programming".into()
+    }
+    fn problem_id(&self) -> usize {
+        5
+    }
+    fn location(&self) -> String {
+        crate::location!();
+    }
+    fn test(&self) -> anyhow::Result<()> {
+        for (input, expect) in TEST_CASES {
+            let output = Self::longest_palindrome(input.into());
+
+            if expect != output {
+                anyhow::bail!("test failed for input={input}, expect={expect}, output={output}");
+            }
+        }
+
+        Ok(())
+    }
+    fn benchmark(&self) -> anyhow::Result<usize> {
+        anyhow::bail!("TODO");
+    }
+}
+
+impl SolutionImplDP {
+    pub fn longest_palindrome(s: String) -> String {
+        todo!()
     }
 }
