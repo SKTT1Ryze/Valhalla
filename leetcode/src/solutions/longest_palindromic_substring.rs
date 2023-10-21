@@ -1,7 +1,7 @@
 use super::Solution;
 use std::collections::HashMap;
 
-const TEST_CASES: [(&str, &str); 2] = [("babad", "bab"), ("cbbd", "bb")];
+const TEST_CASES: [(&str, &str); 3] = [("babad", "bab"), ("cbbd", "bb"), ("aaaaa", "aaaaa")];
 
 pub struct SolutionImpl;
 
@@ -102,6 +102,33 @@ impl Solution for SolutionImplDP {
 
 impl SolutionImplDP {
     pub fn longest_palindrome(s: String) -> String {
-        todo!()
+        let chars: Vec<char> = s.chars().collect();
+        let len = chars.len();
+        let mut result = "";
+        let mut dp = vec![vec![false; len]; len];
+
+        for i in 0..len {
+            dp[i][i] = true;
+        }
+
+        for i in 0..len - 1 {
+            dp[i][i + 1] = chars[i] == chars[i + 1];
+        }
+
+        for diff in 0..len {
+            for i in 0..len - diff {
+                let j = i + diff;
+
+                if j - i > 1 {
+                    dp[i][j] = dp[i + 1][j - 1] && chars[i] == chars[j];
+                }
+
+                if dp[i][j] && j - i + 1 > result.len() {
+                    result = &s[i..j + 1];
+                }
+            }
+        }
+
+        result.into()
     }
 }
