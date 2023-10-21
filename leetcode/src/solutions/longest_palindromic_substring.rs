@@ -107,12 +107,12 @@ impl SolutionImplDP {
         let mut result = "";
         let mut dp = vec![vec![false; len]; len];
 
-        for i in 0..len {
-            dp[i][i] = true;
+        for (i, row) in dp.iter_mut().enumerate() {
+            row[i] = true;
         }
 
-        for i in 0..len - 1 {
-            dp[i][i + 1] = chars[i] == chars[i + 1];
+        for (i, row) in dp.iter_mut().enumerate().take(len - 1) {
+            row[i + 1] = chars[i] == chars[i + 1];
         }
 
         for diff in 0..len {
