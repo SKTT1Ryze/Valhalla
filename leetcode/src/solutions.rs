@@ -5,6 +5,7 @@ pub mod longest_palindromic_substring;
 pub mod longest_substring;
 pub mod median_of_two_sorted_arrays;
 pub mod two_sum;
+pub mod zigzag_conversion;
 
 pub trait Solution: Send + Sync {
     fn problem_id(&self) -> usize;
