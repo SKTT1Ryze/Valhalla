@@ -21,6 +21,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_solution(|_| solutions::longest_palindromic_substring::SolutionImplDP)?;
 
     handle.register_problem(|_| problems::zigzag_conversion::ProblemImpl)?;
+    handle.register_solution(|_| solutions::zigzag_conversion::SolutionImpl)?;
 
     Ok(())
 }
