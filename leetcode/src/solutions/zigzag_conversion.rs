@@ -58,13 +58,11 @@ impl SolutionImpl {
                 } else {
                     y += 1;
                 }
+            } else if y == 0 {
+                y += 1;
+                down = true;
             } else {
-                if y == 0 {
-                    y += 1;
-                    down = true;
-                } else {
-                    y -= 1;
-                }
+                y -= 1;
             }
         }
 
