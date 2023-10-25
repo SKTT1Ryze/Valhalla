@@ -23,5 +23,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::zigzag_conversion::ProblemImpl)?;
     handle.register_solution(|_| solutions::zigzag_conversion::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::reverse_integer::ProblemImpl)?;
+
     Ok(())
 }
