@@ -45,3 +45,29 @@ pub trait Problem: Send + Sync {
     fn description(&self) -> String;
     fn labels(&self) -> Vec<String>;
 }
+
+#[macro_export]
+macro_rules! derive_problem {
+    ($struct:ident, $id:expr, $difficulty:expr, $topic:expr, $title:expr, $desc:expr, $( $label:expr ), *) => {
+        impl Problem for $struct {
+            fn id(&self) -> usize {
+                $id
+            }
+            fn difficulty(&self) -> Difficulty {
+                $difficulty
+            }
+            fn topic(&self) -> Topic {
+                $topic
+            }
+            fn title(&self) -> String {
+                $title.into()
+            }
+            fn description(&self) -> String {
+                $desc.into()
+            }
+            fn labels(&self) -> Vec<String> {
+                [$( $label, )*].into()
+            }
+        }
+    };
+}
