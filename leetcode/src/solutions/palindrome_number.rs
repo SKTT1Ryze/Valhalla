@@ -31,7 +31,33 @@ impl Solution for SolutionImpl {
 }
 
 impl SolutionImpl {
-    pub fn is_palindrome(x: i32) -> bool {
-        todo!()
+    pub fn is_palindrome(mut x: i32) -> bool {
+        if x < 0 {
+            false
+        } else if x < 10 {
+            true
+        } else {
+            let mut v = Vec::new();
+            while x > 0 {
+                let residue = x % 10;
+                x /= 10;
+
+                v.push(residue);
+            }
+
+            let mut start = 0;
+            let mut end = v.len() - 1;
+
+            while start < end {
+                if v[start] != v[end] {
+                    return false;
+                }
+
+                start += 1;
+                end -= 1;
+            }
+
+            true
+        }
     }
 }
