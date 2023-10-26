@@ -29,5 +29,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::string_to_integer::ProblemImpl)?;
     handle.register_solution(|_| solutions::string_to_integer::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::palindrome_number::ProblemImpl)?;
+
     Ok(())
 }
