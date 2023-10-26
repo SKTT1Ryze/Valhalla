@@ -37,30 +37,30 @@ impl Solution for SolutionImpl {
 
 #[derive(PartialEq, PartialOrd)]
 enum State {
-    PositiveUnMatched,
-    PositiveMatched,
-    DigitMatched,
+    BeforePositive,
+    Positive,
+    Digit,
 }
 
 impl SolutionImpl {
     pub fn my_atoi(s: String) -> i32 {
-        let mut state = State::PositiveUnMatched;
+        let mut state = State::BeforePositive;
         let mut positive = true;
         let mut v = Vec::new();
 
         for ch in s.chars() {
             match ch {
                 '-' | '+' => {
-                    if state == State::PositiveUnMatched {
+                    if state == State::BeforePositive {
                         positive = ch == '+';
-                        state = State::PositiveMatched;
+                        state = State::Positive;
                     } else {
                         break;
                     }
                 }
                 '0'..='9' => {
-                    if state != State::DigitMatched {
-                        state = State::DigitMatched;
+                    if state != State::Digit {
+                        state = State::Digit;
                     }
 
                     if ch == '0' && v.is_empty() {
@@ -70,13 +70,13 @@ impl SolutionImpl {
                     v.push(ch as i32 - 48);
                 }
                 ' ' => {
-                    if state != State::PositiveUnMatched {
+                    if state != State::BeforePositive {
                         break;
                     }
                     // or ignore
                 }
                 _ => {
-                    if state == State::DigitMatched {
+                    if state == State::Digit {
                         break;
                     } else {
                         return 0;
