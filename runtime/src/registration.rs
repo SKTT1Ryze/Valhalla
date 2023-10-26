@@ -27,6 +27,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_solution(|_| solutions::reverse_integer::SolutionImpl)?;
 
     handle.register_problem(|_| problems::string_to_integer::ProblemImpl)?;
+    handle.register_solution(|_| solutions::string_to_integer::SolutionImpl)?;
 
     Ok(())
 }
