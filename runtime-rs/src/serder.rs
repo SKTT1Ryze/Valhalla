@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use leetcode::problems::Problem;
+use leetcode_rs::problems::Problem;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Default)]

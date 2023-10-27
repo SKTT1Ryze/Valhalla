@@ -8,10 +8,10 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly
-      - name: Test in LeetCode
+      - name: Test in Rust LeetCode
         run: cargo test
-        working-directory: ./leetcode
+        working-directory: ./leetcode-rs
           
-      - name: Test in Runtime
+      - name: Test in Rust Runtime
         run: cargo test
-        working-directory: ./runtime
+        working-directory: ./runtime-rs

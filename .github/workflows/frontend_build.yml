@@ -10,7 +10,7 @@ jobs:
           toolchain: nightly
       - name: Generate Undeads Json
         run: cargo run && cp ./undeads.json ../frontend/
-        working-directory: ./runtime
+        working-directory: ./runtime-rs
       - uses: actions/setup-node@v3
         with:
           node-version: 18

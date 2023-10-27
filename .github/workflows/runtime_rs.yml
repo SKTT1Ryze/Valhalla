@@ -1,5 +1,5 @@
 on: [pull_request]
-name: Runtime Check
+name: Rust Runtime Check
 jobs:
   runtime_check:
     runs-on: ubuntu-latest
@@ -8,6 +8,6 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly
-      - name: Execute Runtime
+      - name: Execute Rust Runtime
         run: cargo run
-        working-directory: ./runtime
+        working-directory: ./runtime-rs
