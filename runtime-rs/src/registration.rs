@@ -32,5 +32,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::palindrome_number::ProblemImpl)?;
     handle.register_solution(|_| solutions::palindrome_number::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::regular_expression_matching::ProblemImpl)?;
+
     Ok(())
 }
