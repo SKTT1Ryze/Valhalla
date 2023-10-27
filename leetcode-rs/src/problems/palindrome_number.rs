@@ -9,5 +9,5 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Palindrome Number",
     "Given an integer x, return true if x is a palindrome, and false otherwise.",
-    "Match".into()
+    "Math".into()
 );

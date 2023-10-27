@@ -10,9 +10,9 @@ jobs:
           toolchain: nightly
       - name: Setup Clippy
         run: rustup component add clippy
-      - name: Clippy Check in LeetCode
+      - name: Clippy Check in Rust LeetCode
         run: cargo clippy --all-targets --all-features -- -D warnings
-        working-directory: ./leetcode
-      - name: Clippy Check in Runtime
+        working-directory: ./leetcode-rs
+      - name: Clippy Check in Rust Runtime
         run: cargo clippy --all-targets --all-features -- -D warnings
-        working-directory: ./runtime
+        working-directory: ./runtime-rs

@@ -3,7 +3,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 
-use leetcode::{problems::Problem, solutions::Solution};
+use leetcode_rs::{problems::Problem, solutions::Solution};
 
 #[derive(Default)]
 pub struct Container {

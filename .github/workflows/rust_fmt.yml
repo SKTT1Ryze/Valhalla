@@ -10,10 +10,10 @@ jobs:
           toolchain: nightly
       - name: Setup Rustfmt
         run: rustup component add rustfmt
-      - name: Format Check in LeetCode
+      - name: Format Check in Rust LeetCode
         run: cargo fmt --all -- --check
-        working-directory: ./leetcode
+        working-directory: ./leetcode-rs
           
-      - name: Format Check in Runtime
+      - name: Format Check in Rust Runtime
         run: cargo fmt --all -- --check
-        working-directory: ./runtime
+        working-directory: ./runtime-rs

@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ../runtime
+cd ../runtime-rs
 cargo run
 cp undeads.json ../frontend/
 cd ../frontend
