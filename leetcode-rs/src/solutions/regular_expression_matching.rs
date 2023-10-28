@@ -71,6 +71,6 @@ impl SolutionImpl {
         }
 
         dp[i][j] = if ans { State::True } else { State::False };
-        return ans;
+        ans
     }
 }
