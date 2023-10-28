@@ -10,5 +10,6 @@ crate::derive_problem!(
     "Regular Expression Matching",
     "",
     "String".into(),
-    "DP".into()
+    "DP".into(),
+    "Recursion".into()
 );
