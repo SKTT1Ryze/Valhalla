@@ -36,67 +36,41 @@ impl Solution for SolutionImpl {
     }
 }
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum State {
+    Unknown,
+    True,
+    False,
+}
+
 impl SolutionImpl {
     pub fn is_match(s: String, p: String) -> bool {
-        let len = p.len();
+        let mut dp = vec![vec![State::Unknown; p.len() + 1]; s.len() + 1];
+        let s: Vec<_> = s.chars().collect();
+        let p: Vec<_> = p.chars().collect();
 
-        for i in 0..len {
-            for j in i + 1..len + 1 {
-                if Self::is_full_match(&s, &p[i..j]) {
-                    return true;
-                }
-            }
-        }
-
-        false
+        Self::r#match(&mut dp, 0, 0, &s, &p)
     }
 
-    fn is_full_match(s: &str, p: &str) -> bool {
-        let mut i = 0;
-        let mut j = 0;
-        let s: Vec<char> = s.chars().collect();
-        let p: Vec<char> = p.chars().collect();
-
-        while i < s.len() {
-            if !Self::recursion_match(&s, &p, i, &mut j) {
-                return false;
-            } else {
-                i += 1;
-            }
+    fn r#match(dp: &mut Vec<Vec<State>>, i: usize, j: usize, s: &[char], p: &[char]) -> bool {
+        if dp[i][j] != State::Unknown {
+            return dp[i][j] == State::True;
         }
-
-        true
-    }
-
-    fn recursion_match(s: &[char], p: &[char], i: usize, j: &mut usize) -> bool {
-        let ch_x = s[i];
-        if let Some(&ch_p) = p.get(*j) {
-            match ch_p {
-                '.' => {
-                    *j += 1;
-                    true
-                }
-                '*' => {
-                    if let Some(&prev) = p.get(j.wrapping_sub(1)) {
-                        if ch_x == prev || prev == '.' {
-                            true
-                        } else if let Some(_) = p.get(*j + 1) {
-                            *j += 1;
-                            Self::recursion_match(s, p, i, j)
-                        } else {
-                            false
-                        }
-                    } else {
-                        false
-                    }
-                }
-                _ => {
-                    *j += 1;
-                    ch_x == ch_p
-                }
-            }
+        let ans;
+        if j == p.len() {
+            ans = i == s.len();
         } else {
-            false
+            let first_match = i < s.len() && (s[i] == p[j] || p[j] == '.');
+
+            if j < p.len() - 1 && p[j + 1] == '*' {
+                ans = Self::r#match(dp, i, j + 2, s, p)
+                    || first_match && Self::r#match(dp, i + 1, j, s, p);
+            } else {
+                ans = first_match && Self::r#match(dp, i + 1, j + 1, s, p);
+            }
         }
+
+        dp[i][j] = if ans { State::True } else { State::False };
+        return ans;
     }
 }
