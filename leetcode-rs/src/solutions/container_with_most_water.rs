@@ -34,6 +34,24 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn max_area(height: Vec<i32>) -> i32 {
-        todo!()
+        let n = height.len();
+        if n <= 1 {
+            return 0;
+        }
+        let mut res = 0;
+        let mut left = 0;
+        let mut right = n - 1;
+
+        while left < right {
+            res = res.max((right - left) as i32 * height[left].min(height[right]));
+
+            if height[left] < height[right] {
+                left += 1;
+            } else {
+                right -= 1;
+            }
+        }
+
+        res
     }
 }
