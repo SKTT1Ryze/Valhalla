@@ -1,6 +1,7 @@
 use anyhow::Result;
 
 pub mod add_two_numbers;
+pub mod container_with_most_water;
 pub mod longest_palindromic_substring;
 pub mod longest_substring;
 pub mod median_of_two_sorted_arrays;

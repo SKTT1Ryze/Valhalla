@@ -36,6 +36,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_solution(|_| solutions::regular_expression_matching::SolutionImpl)?;
 
     handle.register_problem(|_| problems::container_with_most_water::ProblemImpl)?;
+    handle.register_solution(|_| solutions::container_with_most_water::SolutionImpl)?;
 
     Ok(())
 }
