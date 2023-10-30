@@ -18,8 +18,10 @@ jobs:
       - name: Generate Rust Undeads Json
         run: cargo run && cp ./undeads.json ../frontend/undeads_rust.json
         working-directory: ./runtime-rs
-      - name: Generate C++ Undeads Json
-        run: make & ./build/runtime && cp ./undeads.json ../frontend/undeads_cpp.json
+      - name: Execute C++ Runtime
+        uses: ./runtime_cc.yml
+      - name: Copy C++ Undeads Json
+        run: cp ./undeads.json ../frontend/undeads_cpp.json
         working-directory: ./runtime-cc
       - uses: actions/setup-node@v3
         with:
