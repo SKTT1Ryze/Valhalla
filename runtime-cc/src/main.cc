@@ -1,3 +1,8 @@
 #include <iostream>
 
-int main() { std::cout << "Execute C++ runtime..." << std::endl; }
+#include "container.h"
+
+int main() {
+  std::cout << "Execute C++ runtime..." << std::endl;
+  auto container = Container();
+}
