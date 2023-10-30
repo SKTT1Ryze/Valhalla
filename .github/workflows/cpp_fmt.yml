@@ -1,0 +1,19 @@
+on: [pull_request]
+name: C++ Format Check
+jobs:
+  fmt_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run clang-format style check for leetcode-cc.
+        uses: jidicula/clang-format-action@v4.11.0
+        with:
+          clang-format-version: '13'
+          check-path: 'leetcode-cc'
+          fallback-style: 'google'
+      - name: Run clang-format style check for runtime-cc.
+        uses: jidicula/clang-format-action@v4.11.0
+        with:
+          clang-format-version: '13'
+          check-path: 'runtime-cc'
+          fallback-style: 'google'

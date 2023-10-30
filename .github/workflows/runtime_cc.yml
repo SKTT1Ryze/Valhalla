@@ -1,0 +1,16 @@
+on: [pull_request]
+name: C++ Runtime Check
+jobs:
+  runtime_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "13.0"
+      - name: Install Libs
+        run: sudo apt install libncurses5
+      - name: Execute C++ Runtime
+        run: make && ./build/runtime
+        working-directory: ./runtime-cc

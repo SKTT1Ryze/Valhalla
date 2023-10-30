@@ -2,14 +2,28 @@
 
 B = build
 S = src
+L = ../leetcode-cc
 
 CC = clang++
 CFLAGS = -std=c++20
 CFLAGS += -Wall -O2 -D_GNU_SOURCE
+CFLAGS += -I$L
+
+FORMAT = clang-format
+FFLAGS = --style=google -i
 
 RUNTIME	= $B/runtime
 RUNTIME_SRC = $(shell echo $S/*.cc)
+LEETCODE_SRC = $(shell echo $L/*.cc)
+SRC = $(RUNTIME_SRC) $(LEETCODE_SRC)
 
-$(RUNTIME): $(RUNTIME_SRC)
+$(RUNTIME): $(SRC)
 	@if [ ! -d $B ]; then mkdir $B; fi
-	$(CC) $(CFLAGS) $(RUNTIME_SRC) -o $(RUNTIME)
+	$(CC) $(CFLAGS) $(SRC) -o $(RUNTIME)
+
+clean:
+	rm -rf $B
+
+format:
+	@$(FORMAT) $(FFLAGS) $S/*
+	@$(FORMAT) $(FFLAGS) $L/*
