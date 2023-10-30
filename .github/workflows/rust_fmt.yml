@@ -1,7 +1,7 @@
 on: [pull_request]
 name: Rust Format Check
 jobs:
-  clippy_check:
+  fmt_check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
