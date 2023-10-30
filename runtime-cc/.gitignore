@@ -1,2 +1,8 @@
 # product
 build
+
+.DS_Store
+
+*/.DS_Store
+
+undeads.json

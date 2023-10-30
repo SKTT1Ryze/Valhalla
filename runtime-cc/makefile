@@ -3,11 +3,13 @@
 B = build
 S = src
 L = ../leetcode-cc
+I = ./include
 
 CC = clang++
 CFLAGS = -std=c++20
 CFLAGS += -Wall -O2 -D_GNU_SOURCE
 CFLAGS += -I$L
+CFLAGS += -I$I
 
 FORMAT = clang-format
 FFLAGS = --style=google -i
