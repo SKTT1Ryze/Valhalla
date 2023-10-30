@@ -21,3 +21,17 @@ const int Container::registerSolution(std::function<ArcSolution()> f) {
   this->mtx.unlock();
   return 0;
 }
+
+ProblemsMap Container::getProblems() {
+  this->mtx.lock();
+  auto newMap = this->problems;
+  this->mtx.unlock();
+  return newMap;
+}
+
+std::vector<ArcSolution> Container::getSolutionsById(std::size_t id) {
+  this->mtx.lock();
+  auto solutions = this->solutions.at(id);
+  this->mtx.unlock();
+  return solutions;
+}

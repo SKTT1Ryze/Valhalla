@@ -17,8 +17,8 @@ class Container {
  public:
   const int registerProblem(std::function<ArcProblem()> f);
   const int registerSolution(std::function<ArcSolution()> f);
-  std::shared_ptr<ProblemsMap> getProblems();
-  std::shared_ptr<SolutionsMap> getSolutionsById(std::size_t id);
+  ProblemsMap getProblems();
+  std::vector<ArcSolution> getSolutionsById(std::size_t id);
 
  private:
   ProblemsMap problems;
