@@ -2,7 +2,8 @@ import { FileDoneOutlined } from "@ant-design/icons";
 import { Tag } from "antd";
 import classNames from "classnames";
 
-import Undeads from "../undeads.json";
+import CppUndeads from "../undeads_cpp.json";
+import RustUndeads from "../undeads_rust.json";
 import styles from "./App.module.scss";
 
 interface Item {
@@ -13,10 +14,13 @@ interface Item {
   description: string;
   labels: string[];
   solutions: string[];
+  lang: "Rust" | "C++";
 }
 
 // @ts-ignore
-const items: Item[] = Undeads.sort((a, b) => a.id - b.id);
+const items: Item[] = RustUndeads.map((item) => ({ lang: "Rust", ...item }))
+  .concat(CppUndeads.map((item) => ({ lang: "C++", ...item })))
+  .sort((a, b) => a.id - b.id);
 
 const SolutionUrlBase =
   "https://github.com/SKTT1Ryze/Valhalla/blob/main/leetcode/src/solutions/";
