@@ -11,7 +11,7 @@
 #define TOPIC_ALGORITHMS 1
 #define TOPIC_DATABASE 2
 
-class Problem {
+class IProblem {
  public:
   virtual std::size_t id() const = 0;
   virtual int difficulty() const = 0;
@@ -19,4 +19,5 @@ class Problem {
   virtual std::string title() const = 0;
   virtual std::string description() const = 0;
   virtual std::vector<std::string> labels() const = 0;
+  virtual ~IProblem() {}
 };

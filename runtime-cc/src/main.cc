@@ -17,7 +17,7 @@ int main() {
   for (const auto& [id, problem] : problems) {
     auto title = problem->title();
     std::cout << "Finding solutions for problem No." << id
-              << ", title: " << title << std::endl;
+              << ", title: " << title << "..." << std::endl;
 
     auto solutions = containerHandle->getSolutionsById(id);
     if (solutions.empty()) {
@@ -29,11 +29,11 @@ int main() {
       for (const auto& solution : solutions) {
         auto ret = solution->test();
         if (ret != 0) {
-          std::cerr << "Test for solution=" << solution->name() << "failed"
+          std::cerr << "Test for solution=" << solution->name() << " failed!"
                     << std::endl;
           return ret;
         } else {
-          std::cout << "Test for solution=" << solution->name() << "passed"
+          std::cout << "Test for solution=" << solution->name() << " passed!"
                     << std::endl;
         }
       }

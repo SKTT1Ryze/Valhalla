@@ -7,8 +7,8 @@
 #include "../leetcode-cc/problem.h"
 #include "../leetcode-cc/solution.h"
 
-using ArcProblem = std::shared_ptr<Problem>;
-using ArcSolution = std::shared_ptr<Solution>;
+using ArcProblem = std::shared_ptr<IProblem>;
+using ArcSolution = std::shared_ptr<ISolution>;
 using ProblemsMap = std::unordered_map<std::size_t, ArcProblem>;
 using SolutionsMap = std::unordered_map<std::size_t, std::vector<ArcSolution>>;
 
