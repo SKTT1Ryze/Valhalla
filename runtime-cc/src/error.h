@@ -1,0 +1,4 @@
+#define ERR_REGI_PROB 1
+#define ERR_REGI_SOLU 2
+#define ERR_NO_SOLU 3
+#define ERR_TEST_FAILED 4

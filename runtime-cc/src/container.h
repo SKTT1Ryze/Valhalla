@@ -1,12 +1,11 @@
+#pragma once
+
 #include <functional>
 #include <mutex>
 #include <unordered_map>
 
 #include "../leetcode-cc/problem.h"
 #include "../leetcode-cc/solution.h"
-
-#define ERROR_REGI_PROB 1
-#define ERROR_REGI_SOLU 2
 
 using ArcProblem = std::shared_ptr<Problem>;
 using ArcSolution = std::shared_ptr<Solution>;
