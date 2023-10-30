@@ -15,5 +15,5 @@ jobs:
         uses: jidicula/clang-format-action@v4.11.0
         with:
           clang-format-version: '13'
-          check-path: 'runtime-cc'
+          check-path: 'runtime-cc/src'
           fallback-style: 'google'
