@@ -5,8 +5,7 @@
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
       []() -> ArcProblem { return std::make_shared<PExample>(); });
-  handle->registerSolution(
-      []() -> ArcSolution { return std::make_shared<SExample>(); });
+  handle->registerSolution([]() -> ArcSolution { return std::make_shared<SExample>(); });
 
   return 0;
 }
