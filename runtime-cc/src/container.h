@@ -8,14 +8,15 @@
 #define ERROR_REGI_PROB 1
 #define ERROR_REGI_SOLU 2
 
-using ProblemsMap = std::unordered_map<std::size_t, std::shared_ptr<Problem>>;
-using SolutionsMap =
-    std::unordered_map<std::size_t, std::vector<std::shared_ptr<Solution>>>;
+using ArcProblem = std::shared_ptr<Problem>;
+using ArcSolution = std::shared_ptr<Solution>;
+using ProblemsMap = std::unordered_map<std::size_t, ArcProblem>;
+using SolutionsMap = std::unordered_map<std::size_t, std::vector<ArcSolution>>;
 
 class Container {
  public:
-  const int registerProblem(std::function<Problem()> f);
-  const int registerSolution(std::function<Solution()> f);
+  const int registerProblem(std::function<ArcProblem()> f);
+  const int registerSolution(std::function<ArcSolution()> f);
   std::shared_ptr<ProblemsMap> getProblems();
   std::shared_ptr<SolutionsMap> getSolutionsById(std::size_t id);
 
