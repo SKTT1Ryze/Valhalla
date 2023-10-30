@@ -26,4 +26,4 @@ dist-ssr
 # scss type
 *.module.scss.d.ts
 
-undeads.json
+undeads*.json
