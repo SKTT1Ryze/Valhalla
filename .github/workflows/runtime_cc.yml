@@ -9,6 +9,8 @@ jobs:
         uses: KyleMayes/install-llvm-action@v1
         with:
           version: "13.0"
+      - name: Install Libs
+        run: sudo apt install libncurses5
       - name: Execute C++ Runtime
         run: make && ./build/runtime
         working-directory: ./runtime-cc
