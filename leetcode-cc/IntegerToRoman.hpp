@@ -11,7 +11,7 @@ class PIntToRoman : public IProblem {
   std::string title() const override { return "Integer to Romain"; }
   std::string description() const override { return ""; }
   std::vector<std::string> labels() const override {
-    return {"Hash Map", "Math", "String"};
+    return {"Math", "String"};
   }
 };
 
