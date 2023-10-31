@@ -36,11 +36,11 @@ int main() {
       for (const auto& solution : solutions) {
         auto ret = solution->test();
         if (ret != 0) {
-          std::cerr << "Test for solution=" << solution->name() << " failed!"
+          std::cerr << "Test for solution [" << solution->name() << "] failed!"
                     << std::endl;
           return ret;
         } else {
-          std::cout << "Test for solution=" << solution->name() << " passed!"
+          std::cout << "Test for solution [" << solution->name() << "] passed!"
                     << std::endl;
 
           undead.solutions.push_back(solution->location());
