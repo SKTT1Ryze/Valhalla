@@ -17,7 +17,7 @@ class SIntToRoman : public ISolution {
  public:
   std::size_t problemId() const override { return 12; }
   std::string name() const override { return "Solution for Integer to Romain"; }
-  std::string location() const override { return __FILE__; }
+  std::string location() const override { return __FILE_NAME__; }
   int test() const override { return 0; }
   int benchmark() const override { return 0; }
 };
