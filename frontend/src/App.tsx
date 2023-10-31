@@ -64,7 +64,9 @@ function App() {
                 <a
                   href={(item.lang === "Rust" ? RustBase : CppBase) + solution}
                 >
-                  <FileDoneOutlined />
+                  <FileDoneOutlined
+                    style={{ color: item.lang === "Rust" ? "orange" : "blue" }}
+                  />
                 </a>
               ))}
             </div>
