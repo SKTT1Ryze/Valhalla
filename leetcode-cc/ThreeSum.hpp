@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <set>
+#include <unordered_set>
 #include <utility>
 
 #include "problem.h"
@@ -42,7 +44,37 @@ class SThreeSum : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> threeSum(const vector<int>& nums) const {}
+  vector<vector<int>> threeSum(const vector<int>& nums) const {
+    // TODO: use the two pointer
+    auto len = nums.size();
+    if (len < 3) {
+      return {};
+    }
+    unordered_set<int> map = {};
+    set<vector<int>> res = {};
+    vector<vector<int>> output = {};
+
+    auto sortedNums = nums;
+    sort(sortedNums.begin(), sortedNums.end());
+    vector<int> prev = {};
+
+    for (int i = 0; i < len - 1; i++) {
+      for (int j = i + 1; j < len; j++) {
+        auto left = 0 - sortedNums[i] - sortedNums[j];
+
+        if (map.contains(left)) {
+          vector<int> v = {sortedNums[i], sortedNums[j], left};
+
+          res.insert(v);
+        }
+      }
+      map.insert(sortedNums[i]);
+    }
+
+    for (const auto& v : res) output.push_back(v);
+
+    return output;
+  }
   static bool compareVectors(const vector<int>& v1, const vector<int>& v2) {
     if (v1.size() != v2.size()) {
       return false;
