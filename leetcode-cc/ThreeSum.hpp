@@ -14,7 +14,7 @@ class PThreeSum : public IProblem {
   int topic() const override { return TOPIC_ALGORITHMS; }
   string title() const override { return "3Sum"; }
   string description() const override { return ""; }
-  vector<string> labels() const override { return {"Array", "DP"}; }
+  vector<string> labels() const override { return {"Array", "Math"}; }
 };
 
 class SThreeSum : public ISolution {
