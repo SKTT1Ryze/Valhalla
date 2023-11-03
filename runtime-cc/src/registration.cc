@@ -1,6 +1,7 @@
 #include "registration.h"
 
 #include "../leetcode-cc/IntegerToRoman.hpp"
+#include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
@@ -31,6 +32,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PThreeSumClosest>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SThreeSumClosest>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PLetterCombsOfAPhoneNum>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SLetterCombsOfAPhoneNum>();
+  });
 
   return 0;
 }
