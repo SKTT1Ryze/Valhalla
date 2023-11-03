@@ -13,7 +13,9 @@ class PLetterCombsOfAPhoneNum : public IProblem {
     return "Letter Combinations of a Phone Number";
   }
   string description() const override { return ""; }
-  vector<string> labels() const override { return {"String", "Hash Map"}; }
+  vector<string> labels() const override {
+    return {"String", "Recursion", "Backtrace"};
+  }
 };
 
 class SLetterCombsOfAPhoneNum : public ISolution {
