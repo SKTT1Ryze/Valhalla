@@ -1,3 +1,5 @@
+#include <numeric>
+#include <set>
 #include <tuple>
 
 #include "problem.h"
@@ -26,7 +28,7 @@ class SFourSum : public ISolution {
             {1, 0, -1, 0, -2, 2}, 0,
             {{-2, -1, 1, 2}, {-2, 0, 0, 2}, {-1, 0, 0, 1}}),
         std::make_tuple<vector<int>, int, vector<vector<int>>>(
-            {2, 2, 2, 2, 2}, 8, {{2, 2, 2, 2, 2}}),
+            {2, 2, 2, 2, 2}, 8, {{2, 2, 2, 2}}),
 
     };
 
@@ -45,5 +47,37 @@ class SFourSum : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> fourSum(const vector<int>& nums, int target) const {}
+  vector<vector<int>> fourSum(const vector<int>& nums, int target) const {
+    auto len = nums.size();
+    if (len < 4) return {};
+    auto sortedNums = nums;
+    sort(sortedNums.begin(), sortedNums.end());
+    set<vector<int>> res = {};
+
+    for (int i = 0; i < len - 3; i++) {
+      for (int j = i + 1; j < len - 2; j++) {
+        int k = j + 1;
+        int l = len - 1;
+
+        while (k < l) {
+          vector<long long> v = {sortedNums[i], sortedNums[j], sortedNums[k],
+                                 sortedNums[l]};
+          long long sum = 0;
+          for (const auto& e : v) sum += e;
+
+          if (sum == target) {
+            res.insert(vector<int>(v.begin(), v.end()));
+          }
+
+          if (sum < target) {
+            k++;
+          } else {
+            l--;
+          }
+        }
+      }
+    }
+
+    return vector<vector<int>>(res.begin(), res.end());
+  }
 };

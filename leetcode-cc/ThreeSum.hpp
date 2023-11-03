@@ -48,9 +48,7 @@ class SThreeSum : public ISolution {
   vector<vector<int>> threeSum(const vector<int>& nums) const {
     // TODO: use the two pointer
     auto len = nums.size();
-    if (len < 3) {
-      return {};
-    }
+    if (len < 3) return {};
     unordered_set<int> map = {};
     set<vector<int>> res = {};
     vector<vector<int>> output = {};
