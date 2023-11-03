@@ -5,6 +5,7 @@
 
 #include "problem.h"
 #include "solution.h"
+#include "util.h"
 
 using namespace std;
 
@@ -34,7 +35,7 @@ class SThreeSum : public ISolution {
 
       if (expect.size() != output.size() ||
           !is_permutation(expect.begin(), expect.end(), output.begin(),
-                          this->compareVectors)) {
+                          compareVectors)) {
         return 1;
       }
     }
@@ -47,9 +48,7 @@ class SThreeSum : public ISolution {
   vector<vector<int>> threeSum(const vector<int>& nums) const {
     // TODO: use the two pointer
     auto len = nums.size();
-    if (len < 3) {
-      return {};
-    }
+    if (len < 3) return {};
     unordered_set<int> map = {};
     set<vector<int>> res = {};
     vector<vector<int>> output = {};
@@ -74,17 +73,5 @@ class SThreeSum : public ISolution {
     for (const auto& v : res) output.push_back(v);
 
     return output;
-  }
-  static bool compareVectors(const vector<int>& v1, const vector<int>& v2) {
-    if (v1.size() != v2.size()) {
-      return false;
-    }
-
-    vector<int> sortedV1 = v1;
-    vector<int> sortedV2 = v2;
-    sort(sortedV1.begin(), sortedV1.end());
-    sort(sortedV2.begin(), sortedV2.end());
-
-    return sortedV1 == sortedV2;
   }
 };

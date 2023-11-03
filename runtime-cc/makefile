@@ -16,11 +16,13 @@ FFLAGS = --style=google -i
 
 RUNTIME	= $B/runtime
 RUNTIME_SRC = $(shell echo $S/*.cc)
-LEETCODE_SRC = $(shell echo $L/*)
+LEETCODE_HEADER = $(shell echo $L/*.hpp)
+LEETCODE_SRC = $(shell echo $L/*.cc)
+SRC = $(RUNTIME_SRC) $(LEETCODE_SRC)
 
-$(RUNTIME): $(RUNTIME_SRC) $(LEETCODE_SRC)
+$(RUNTIME): $(SRC) $(LEETCODE_HEADER)
 	@if [ ! -d $B ]; then mkdir $B; fi
-	$(CC) $(CFLAGS) $(RUNTIME_SRC) -o $(RUNTIME)
+	$(CC) $(CFLAGS) $(SRC) -o $(RUNTIME)
 
 run: $(RUNTIME)
 	./$(RUNTIME)
