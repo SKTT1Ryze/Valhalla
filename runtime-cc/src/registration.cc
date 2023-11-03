@@ -1,5 +1,6 @@
 #include "registration.h"
 
+#include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
@@ -39,6 +40,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SLetterCombsOfAPhoneNum>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PFourSum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SFourSum>(); });
 
   return 0;
 }
