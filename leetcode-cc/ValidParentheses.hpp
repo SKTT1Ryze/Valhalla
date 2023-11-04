@@ -31,5 +31,23 @@ class SValidParentheses : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  bool isValid(string s) const {}
+  bool isValid(string s) const {
+    vector<char> stack = {};
+
+    for (const auto ch : s) {
+      if (ch == '(' || ch == '[' || ch == '{') {
+        stack.push_back(ch);
+      } else {
+        if (stack.empty()) return false;
+        auto prev = stack[stack.size() - 1];
+        if (!((prev == '(' && ch == ')') || (prev == '[' && ch == ']') ||
+              (prev == '{' && ch == '}'))) {
+          return false;
+        }
+        stack.pop_back();
+      }
+    }
+
+    return stack.empty();
+  }
 };
