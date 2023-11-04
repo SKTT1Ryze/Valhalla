@@ -8,6 +8,7 @@
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
+#include "../leetcode-cc/ValidParentheses.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -51,6 +52,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRemoveNthNode>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRemoveNthNode>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PValidParentheses>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SValidParentheses>(); });
 
   return 0;
 }
