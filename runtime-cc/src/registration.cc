@@ -4,6 +4,7 @@
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
+#include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -45,6 +46,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PFourSum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SFourSum>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PRemoveNthNode>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SRemoveNthNode>(); });
 
   return 0;
 }
