@@ -28,6 +28,7 @@ class SRemoveNthNode : public ISolution {
                                                   {1, 2, 3, 5}),
         make_tuple<vector<int>, int, vector<int>>({1}, 1, {}),
         make_tuple<vector<int>, int, vector<int>>({1, 2}, 1, {1}),
+        make_tuple<vector<int>, int, vector<int>>({1, 2}, 2, {2}),
     };
 
     for (const auto& [list, n, expect] : testCases) {
@@ -42,5 +43,27 @@ class SRemoveNthNode : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* removeNthFromEnd(ListNode* head, int n) const { return head; }
+  ListNode* removeNthFromEnd(ListNode* head, int n) const {
+    vector<ListNode*> ps = {};
+    auto p = head;
+
+    while (p != nullptr) {
+      ps.push_back(p);
+      p = p->next;
+    }
+
+    auto target = ps.size() - n;
+
+    if (target == 0) {
+      auto newHead = head->next;
+      delete head;
+      return newHead;
+    } else {
+      auto temp = ps[target];
+      ps[target - 1]->next = temp->next;
+      delete temp;
+    }
+
+    return head;
+  }
 };
