@@ -36,6 +36,8 @@ class SRemoveNthNode : public ISolution {
       auto output = this->removeNthFromEnd(head, n);
 
       if (!output->compVector(expect)) return 1;
+
+      freeLinkList(output);
     }
 
     return 0;
