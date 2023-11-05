@@ -4,6 +4,7 @@
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
+#include "../leetcode-cc/MergeTwoSortedLists.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
@@ -57,6 +58,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PValidParentheses>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SValidParentheses>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMergeTwoSortedLists>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMergeTwoSortedLists>(); });
 
   return 0;
 }
