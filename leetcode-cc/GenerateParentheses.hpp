@@ -1,5 +1,3 @@
-#include <utility>
-
 #include "problem.h"
 #include "solution.h"
 
@@ -37,5 +35,37 @@ class SGenerateParentheses : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<string> generateParenthesis(int n) const { return {}; }
+  vector<string> generateParenthesis(int n) const {
+    vector<string> res = {};
+
+    walk(res, "", n - 1, 1, '(', n);
+
+    return res;
+  }
+
+  static void walk(vector<string>& res, string s, int left, int right, char ch,
+                   int n) {
+    if (s.length() == n * 2) {
+      res.push_back(s);
+      return;
+    }
+    s.push_back(ch);
+    if (ch == '(') {
+      if (left > 0) {
+        walk(res, s, left - 1, right + 1, '(', n);
+        walk(res, s, left, right - 1, ')', n);
+      } else {
+        walk(res, s, left, right - 1, ')', n);
+      }
+    } else {
+      if (left > 0 && right > 0) {
+        walk(res, s, left - 1, right + 1, '(', n);
+        walk(res, s, left, right - 1, ')', n);
+      } else if (left > 0) {
+        walk(res, s, left - 1, right + 1, '(', n);
+      } else {
+        walk(res, s, left, right - 1, ')', n);
+      }
+    }
+  }
 };
