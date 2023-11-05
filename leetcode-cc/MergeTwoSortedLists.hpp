@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <tuple>
 
 #include "LinkList.h"
@@ -44,5 +45,26 @@ class SMergeTwoSortedLists : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) const {}
+  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) const {
+    auto head = new ListNode();
+    auto p = head;
+    auto p1 = list1;
+    auto p2 = list2;
+
+    while (p1 != nullptr && p2 != nullptr) {
+      auto val = min(p1->val, p2->val);
+      p->next = new ListNode(val);
+      p = p->next;
+
+      if (p1->val < p2->val) {
+        p1 = p1->next;
+      } else {
+        p2 = p2->next;
+      }
+    }
+    if (p1 != nullptr) p->next = p1;
+    if (p2 != nullptr) p->next = p2;
+
+    return head->next;
+  }
 };
