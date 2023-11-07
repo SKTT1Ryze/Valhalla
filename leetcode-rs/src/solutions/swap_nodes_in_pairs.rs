@@ -40,7 +40,25 @@ impl Solution for SolutionImpl {
 }
 
 impl SolutionImpl {
-    pub fn swap_pairs(head: Option<Box<ListNode<i32>>>) -> Option<Box<ListNode<i32>>> {
-        todo!()
+    pub fn swap_pairs(mut head: Option<Box<ListNode<i32>>>) -> Option<Box<ListNode<i32>>> {
+        let mut res = Box::new(ListNode::new(0));
+        let mut p = &mut res;
+
+        while head.is_some() {
+            let mut node1 = head.take();
+            let mut node2 = node1.as_mut().unwrap().next.take();
+
+            if node2.is_some() {
+                head = node2.as_mut().unwrap().next.take();
+
+                node2.as_mut().unwrap().next = node1;
+                p.as_mut().next = node2;
+                p = p.next.as_mut().unwrap().next.as_mut().unwrap();
+            } else {
+                p.as_mut().next = node1;
+            }
+        }
+
+        return res.next;
     }
 }
