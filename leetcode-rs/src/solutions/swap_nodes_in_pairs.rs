@@ -59,6 +59,6 @@ impl SolutionImpl {
             }
         }
 
-        return res.next;
+        res.next
     }
 }
