@@ -1,4 +1,4 @@
-#include <utility>
+#include <__algorithm/remove_if.h>
 
 #include "LinkList.h"
 #include "problem.h"
@@ -45,5 +45,35 @@ class SMergeKSortedLists : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* mergeKLists(vector<ListNode*>& lists) const {}
+  ListNode* mergeKLists(vector<ListNode*>& lists) const {
+    if (lists.empty()) return nullptr;
+    auto head = new ListNode();
+    auto p = head;
+    auto pN = lists;
+
+    while (any_of(pN.begin(), pN.end(),
+                  [](ListNode* ptr) { return ptr != nullptr; })) {
+      pN.erase(remove_if(pN.begin(), pN.end(),
+                         [](const auto& ptr) { return ptr == nullptr; }),
+               pN.end());
+
+      auto val = pN[0]->val;
+      int idx = 0;
+      for (int i = 0; i < pN.size(); i++) {
+        if (pN[i] != nullptr && pN[i]->val < val) {
+          val = pN[i]->val;
+          idx = i;
+        }
+      }
+
+      p->next = new ListNode(val);
+      p = p->next;
+
+      auto temp = pN[idx];
+      pN[idx] = pN[idx]->next;
+      delete temp;
+    }
+
+    return head->next;
+  }
 };
