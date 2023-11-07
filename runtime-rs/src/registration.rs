@@ -38,5 +38,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::container_with_most_water::ProblemImpl)?;
     handle.register_solution(|_| solutions::container_with_most_water::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::swap_nodes_in_pairs::ProblemImpl)?;
+    handle.register_solution(|_| solutions::swap_nodes_in_pairs::SolutionImpl)?;
+
     Ok(())
 }
