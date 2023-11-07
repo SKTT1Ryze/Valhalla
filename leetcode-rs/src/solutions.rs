@@ -9,6 +9,7 @@ pub mod palindrome_number;
 pub mod regular_expression_matching;
 pub mod reverse_integer;
 pub mod string_to_integer;
+pub mod swap_nodes_in_pairs;
 pub mod two_sum;
 pub mod zigzag_conversion;
 
