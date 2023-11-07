@@ -1,5 +1,3 @@
-#include <__algorithm/remove_if.h>
-
 #include "LinkList.h"
 #include "problem.h"
 #include "solution.h"
