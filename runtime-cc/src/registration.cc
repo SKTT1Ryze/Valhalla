@@ -8,6 +8,7 @@
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
+#include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -75,6 +76,12 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMergeKSortedLists>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMergeKSortedLists>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PReverseNodesInKGroup>(); });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SReverseNodesInKGroup>();
+  });
 
   return 0;
 }
