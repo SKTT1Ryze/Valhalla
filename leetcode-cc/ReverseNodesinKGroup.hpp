@@ -44,5 +44,44 @@ class SReverseNodesInKGroup : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* reverseKGroup(ListNode* head, int k) const {}
+  ListNode* reverseKGroup(ListNode* head, int k) const {
+    auto res = new ListNode();
+    auto p1 = res;
+
+    while (head != nullptr) {
+      bool longEnough = true;
+      auto p = head;
+      for (int i = 0; i < k; i++) {
+        if (p == nullptr) {
+          longEnough = false;
+          break;
+        }
+        p = p->next;
+      }
+
+      if (longEnough) {
+        auto tail = head;
+        ListNode* p2 = nullptr;
+
+        for (int i = 0; i < k; i++) {
+          if (head != nullptr) {
+            auto temp = head->next;
+            head->next = p2;
+            p2 = head;
+            head = temp;
+          } else {
+            break;
+          }
+        }
+
+        p1->next = p2;
+        p1 = tail;
+      } else {
+        p1->next = head;
+        break;
+      }
+    }
+
+    return res->next;
+  }
 };
