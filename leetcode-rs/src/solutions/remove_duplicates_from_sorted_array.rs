@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use super::Solution;
 
 pub struct SolutionImpl;
@@ -35,6 +37,17 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        todo!()
+        let mut set = HashSet::new();
+
+        for &num in nums.iter() {
+            set.insert(num);
+        }
+
+        let k = set.len();
+        let mut v: Vec<_> = set.into_iter().collect();
+        v.sort();
+        *nums = v;
+
+        k as i32
     }
 }
