@@ -7,6 +7,7 @@ pub mod longest_substring;
 pub mod median_of_two_sorted_arrays;
 pub mod palindrome_number;
 pub mod regular_expression_matching;
+pub mod remove_duplicates_from_sorted_array;
 pub mod reverse_integer;
 pub mod string_to_integer;
 pub mod swap_nodes_in_pairs;

@@ -1,5 +1,6 @@
 use super::Solution;
 use crate::list::{assert_eq_list, ListNode};
+
 pub struct SolutionImpl;
 
 impl Solution for SolutionImpl {
