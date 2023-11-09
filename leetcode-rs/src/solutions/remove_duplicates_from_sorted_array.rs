@@ -37,6 +37,7 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        // TODO: use two pointer
         let mut set = HashSet::new();
 
         for &num in nums.iter() {
