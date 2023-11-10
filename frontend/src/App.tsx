@@ -29,7 +29,16 @@ const CppBase = "https://github.com/SKTT1Ryze/Valhalla/blob/main/leetcode-cc/";
 function App() {
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Valhalla</div>
+      <div
+        className={styles.title}
+        style={
+          {
+            "--title-margin-top": `${items.length}rem`,
+          } as any
+        }
+      >
+        Valhalla
+      </div>
       <div className={styles.subtitle}>
         Valhalla of coder, collections of solutions of LeetCode problems.
       </div>

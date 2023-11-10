@@ -18,7 +18,7 @@
   overflow-y: auto;
 
   .title {
-    margin-top: 16%;
+    margin-top: var(--title-margin-top);
     font-size: 2rem;
     font-weight: 500;
   }
