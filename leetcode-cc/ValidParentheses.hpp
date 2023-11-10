@@ -17,7 +17,7 @@ class SValidParentheses : public ISolution {
   size_t problemId() const override { return 20; }
   string name() const override { return "Solution for Valid Parentheses"; }
   string location() const override { return __FILE_NAME__; }
-  int test() override {
+  int test() const override {
     auto testCases = {make_pair("()", true), make_pair("()[]{}", true),
                       make_pair("(]", false)};
     for (const auto& [s, expect] : testCases) {

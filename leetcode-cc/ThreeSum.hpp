@@ -23,7 +23,7 @@ class SThreeSum : public ISolution {
   size_t problemId() const override { return 15; }
   string name() const override { return "Solution for 3Sum"; }
   string location() const override { return __FILE_NAME__; }
-  int test() override {
+  int test() const override {
     auto testCases = {
         make_pair<vector<int>, vector<vector<int>>>({-1, 0, 1, 2, -1, -4},
                                                     {{-1, -1, 2}, {-1, 0, 1}}),

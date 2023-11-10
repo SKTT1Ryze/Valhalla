@@ -17,7 +17,7 @@ class SGenerateParentheses : public ISolution {
   size_t problemId() const override { return 22; }
   string name() const override { return "Solution for Generate Parentheses"; }
   string location() const override { return __FILE_NAME__; }
-  int test() override {
+  int test() const override {
     auto testCases = {
         make_pair<int, vector<string>>(
             3, {"((()))", "(()())", "(())()", "()(())", "()()()"}),

@@ -20,7 +20,7 @@ class SLonestCommonPrefix : public ISolution {
     return "Solution for Longest Common Prefix";
   }
   std::string location() const override { return __FILE_NAME__; }
-  int test() override {
+  int test() const override {
     auto testCases = {
         std::make_pair<std::vector<std::string>, std::string>(
             {"flower", "flow", "flight"}, "fl"),

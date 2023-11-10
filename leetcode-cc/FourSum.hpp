@@ -22,7 +22,7 @@ class SFourSum : public ISolution {
   size_t problemId() const override { return 18; }
   string name() const override { return "Solution for 4Sum"; }
   string location() const override { return __FILE_NAME__; }
-  int test() override {
+  int test() const override {
     auto testCases = {
         std::make_tuple<vector<int>, int, vector<vector<int>>>(
             {1, 0, -1, 0, -2, 2}, 0,
