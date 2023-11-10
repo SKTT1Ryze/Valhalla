@@ -13,7 +13,12 @@ impl Solution for SolutionImpl {
         crate::location!();
     }
     fn test(&self) -> anyhow::Result<()> {
-        let testcases = [("sadbutsad", "sad", 0), ("leetcode", "leeto", -1)];
+        let testcases = [
+            ("sadbutsad", "sad", 0),
+            ("leetcode", "leeto", -1),
+            ("mississippi", "issip", 4),
+            ("mississippi", "pi", 9),
+        ];
 
         for (haystack, needle, expect) in testcases {
             let output = Self::str_str(haystack.into(), needle.into());
@@ -35,6 +40,28 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn str_str(haystack: String, needle: String) -> i32 {
-        todo!()
+        let haystack: Vec<char> = haystack.chars().collect();
+        let needle: Vec<char> = needle.chars().collect();
+        let mut p1 = 0usize;
+        let mut p2 = 0usize;
+        let mut res = -1;
+
+        while p1 < haystack.len() {
+            if haystack[p1] == needle[p2] {
+                p2 += 1;
+            } else if p2 > 0 {
+                p1 -= p2;
+                p2 = 0;
+            }
+
+            if p2 == needle.len() {
+                res = (p1 + 1 - p2) as i32;
+                break;
+            }
+
+            p1 += 1;
+        }
+
+        res
     }
 }
