@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <tuple>
 
 #include "problem.h"
@@ -13,7 +14,9 @@ class PRemoveElement : public IProblem {
   int topic() const override { return TOPIC_ALGORITHMS; }
   std::string title() const override { return "Remove Element"; }
   std::string description() const override { return ""; }
-  std::vector<std::string> labels() const override { return {"Array"}; }
+  std::vector<std::string> labels() const override {
+    return {"Array", "In Place"};
+  }
 };
 
 class SRemoveElement : public ISolution {
@@ -30,13 +33,33 @@ class SRemoveElement : public ISolution {
 
     for (auto& [nums, val, expect] : testCases) {
       auto output = this->removeElement(nums, val);
+      vector<int> subNums = {};
+      for (auto it = nums.begin(); it != nums.begin() + output; ++it)
+        subNums.push_back(*it);
 
-      if (output != expect.size() || !compareVectors(nums, expect)) return 1;
+      if (output != expect.size() || !compareVectors(subNums, expect)) return 1;
     }
     return 0;
   }
   int benchmark() const override { return 0; }
 
  private:
-  int removeElement(vector<int>& nums, int val) const {}
+  int removeElement(vector<int>& nums, int val) const {
+    if (nums.empty()) return 0;
+    int head = 0;
+    int tail = nums.size() - 1;
+
+    while (head < tail) {
+      if (nums[head] == val) {
+        while (tail > head && nums[tail] == val) tail--;
+        if (head == tail) return head;
+        swap(nums[head], nums[tail]);
+        tail--;
+      }
+      if ((tail - head) == 1 && nums[head] == val) break;
+      head++;
+    }
+
+    return head + (nums[head] != val);
+  }
 };
