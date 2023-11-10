@@ -44,5 +44,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::remove_duplicates_from_sorted_array::ProblemImpl)?;
     handle.register_solution(|_| solutions::remove_duplicates_from_sorted_array::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::find_first_occurrence::ProblemImpl)?;
+
     Ok(())
 }
