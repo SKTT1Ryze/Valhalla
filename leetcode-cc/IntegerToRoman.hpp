@@ -20,7 +20,7 @@ class SIntToRoman : public ISolution {
   std::size_t problemId() const override { return 12; }
   std::string name() const override { return "Solution for Integer to Romain"; }
   std::string location() const override { return __FILE_NAME__; }
-  int test() const override {
+  int test() override {
     auto testCases = {std::make_pair(3, "III"), std::make_pair(58, "LVIII"),
                       std::make_pair(1994, "MCMXCIV")};
 

@@ -22,7 +22,7 @@ class SRemoveNthNode : public ISolution {
     return "Solution for Remove Nth Node From End of List";
   }
   string location() const override { return __FILE_NAME__; }
-  int test() const override {
+  int test() override {
     auto testCases = {
         make_tuple<vector<int>, int, vector<int>>({1, 2, 3, 4, 5}, 2,
                                                   {1, 2, 3, 5}),

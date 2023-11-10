@@ -21,7 +21,7 @@ class SMergeTwoSortedLists : public ISolution {
   size_t problemId() const override { return 21; }
   string name() const override { return "Solution for Merge Two Sorted Lists"; }
   string location() const override { return __FILE_NAME__; }
-  int test() const override {
+  int test() override {
     auto testCases = {
         make_tuple<vector<int>, vector<int>, vector<int>>({1, 2, 4}, {1, 3, 4},
                                                           {1, 1, 2, 3, 4, 4}),

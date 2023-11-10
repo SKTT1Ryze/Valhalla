@@ -18,7 +18,7 @@ class SMergeKSortedLists : public ISolution {
   size_t problemId() const override { return 23; }
   string name() const override { return "Solution for Merge K Sorted Lists"; }
   string location() const override { return __FILE_NAME__; }
-  int test() const override {
+  int test() override {
     auto testCases = {
         make_pair<vector<vector<int>>, vector<int>>(
             {{1, 4, 5}, {1, 3, 4}, {2, 6}}, {1, 1, 2, 3, 4, 4, 5, 6}),

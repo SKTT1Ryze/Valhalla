@@ -24,7 +24,7 @@ class SLetterCombsOfAPhoneNum : public ISolution {
     return "Solution for Letter Combinations of a Phone Number";
   }
   string location() const override { return __FILE_NAME__; }
-  int test() const override {
+  int test() override {
     auto testCases = {
         make_pair<string, vector<string>>(
             "23", {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"}),

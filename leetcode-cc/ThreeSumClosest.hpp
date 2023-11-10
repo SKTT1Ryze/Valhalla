@@ -22,7 +22,7 @@ class SThreeSumClosest : public ISolution {
   size_t problemId() const override { return 16; }
   string name() const override { return "Solution for 3Sum Closest"; }
   string location() const override { return __FILE_NAME__; }
-  int test() const override {
+  int test() override {
     auto testCases = {
         make_tuple<vector<int>, int, int>({-1, 2, 1, -4}, 1, 2),
         make_tuple<vector<int>, int, int>({0, 0, 0}, 1, 0),
