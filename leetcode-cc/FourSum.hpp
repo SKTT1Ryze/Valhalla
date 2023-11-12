@@ -24,11 +24,11 @@ class SFourSum : public ISolution {
   string location() const override { return __FILE_NAME__; }
   int test() const override {
     auto testCases = {
-        std::make_tuple<vector<int>, int, vector<vector<int>>>(
+        make_tuple<vector<int>, int, vector<vector<int>>>(
             {1, 0, -1, 0, -2, 2}, 0,
             {{-2, -1, 1, 2}, {-2, 0, 0, 2}, {-1, 0, 0, 1}}),
-        std::make_tuple<vector<int>, int, vector<vector<int>>>(
-            {2, 2, 2, 2, 2}, 8, {{2, 2, 2, 2}}),
+        make_tuple<vector<int>, int, vector<vector<int>>>({2, 2, 2, 2, 2}, 8,
+                                                          {{2, 2, 2, 2}}),
 
     };
 

@@ -1,5 +1,6 @@
 #include "registration.h"
 
+#include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
@@ -88,6 +89,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRemoveElement>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRemoveElement>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PDivideTwoIntegers>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SDivideTwoIntegers>(); });
 
   return 0;
 }
