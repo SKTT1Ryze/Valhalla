@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "problem.h"
 #include "solution.h"
 
@@ -34,5 +36,21 @@ class SDivideTwoIntegers : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int divide(int dividend, int divisor) const {}
+  int divide(int dividend, int divisor) const {
+    if (dividend == divisor) return 1;
+    bool isPositive = (dividend < 0 == divisor < 0);
+    unsigned int res = 0;
+    unsigned int absDividend = abs(dividend);
+    unsigned int absDivisor = abs(divisor);
+
+    while (absDividend >= absDivisor) {
+      short q = 0;
+      while (absDividend > (absDivisor << (q + 1))) q++;
+      res += 1 << q;
+      absDividend -= absDivisor << q;
+    }
+    if (res == (1 << 31) and isPositive) return INT_MAX;
+
+    return isPositive ? res : -res;
+  }
 };
