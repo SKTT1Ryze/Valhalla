@@ -47,5 +47,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::find_first_occurrence::ProblemImpl)?;
     handle.register_solution(|_| solutions::find_first_occurrence::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::substring_with_concatenation::ProblemImpl)?;
+
     Ok(())
 }
