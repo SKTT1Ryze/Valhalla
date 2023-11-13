@@ -9,6 +9,7 @@ pub mod regular_expression_matching;
 pub mod remove_duplicates_from_sorted_array;
 pub mod reverse_integer;
 pub mod string_to_integer;
+pub mod substring_with_concatenation;
 pub mod swap_nodes_in_pairs;
 pub mod two_sum;
 pub mod zigzag_conversion;
