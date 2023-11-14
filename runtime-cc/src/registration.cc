@@ -8,6 +8,7 @@
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
+#include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/RemoveElement.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
@@ -94,6 +95,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PDivideTwoIntegers>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SDivideTwoIntegers>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PNextPermutation>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SNextPermutation>(); });
 
   return 0;
 }
