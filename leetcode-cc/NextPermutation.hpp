@@ -25,6 +25,8 @@ class SNextPermutation : public ISolution {
         make_pair<vector<int>, vector<int>>({3, 2, 1}, {1, 2, 3}),
         make_pair<vector<int>, vector<int>>({1, 1, 5}, {1, 5, 1}),
         make_pair<vector<int>, vector<int>>({2, 3, 1}, {3, 1, 2}),
+        make_pair<vector<int>, vector<int>>({4, 2, 0, 2, 3, 2, 0},
+                                            {4, 2, 0, 3, 0, 2, 2}),
     };
 
     for (auto& [nums, expect] : testCases) {
@@ -39,24 +41,29 @@ class SNextPermutation : public ISolution {
 
  private:
   void nextPermutation(vector<int>& nums) const {
-    if (nums.empty() || nums.size() == 1) return;
-    int i = nums.size() - 1;
-
-    while (i > 0) {
-      int j = i - 1;
-      while (j >= 0) {
-        if (nums[i] > nums[j]) {
-          int temp = nums.at(i);
-          nums.erase(nums.begin() + i);
-          nums.insert(nums.begin() + j, temp);
-          sort(nums.begin() + j + 1, nums.end());
-          return;
-        }
-        j--;
+    // ref:
+    // https://leetcode.com/problems/next-permutation/solutions/4262512/fully-explained-code-100-beats-t-c-o-n-s-c-o-1/
+    int breakpt = -1;
+    for (int i = nums.size() - 2; i >= 0; i--) {
+      if (nums[i] < nums[i + 1]) {
+        breakpt = i;
+        break;
       }
-      i--;
+    }
+    if (breakpt == -1) {
+      reverse(nums.begin(), nums.end());
+      return;
     }
 
-    sort(nums.begin(), nums.end());
+    int leastGreater = -1;
+    int MiniGreater = INT_MAX;
+    for (int i = nums.size() - 1; i > breakpt; i--) {
+      if (nums[i] > nums[breakpt]) {
+        swap(nums[breakpt], nums[i]);
+        break;
+      }
+    }
+
+    reverse(nums.begin() + breakpt + 1, nums.end());
   }
 };
