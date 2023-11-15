@@ -35,5 +35,32 @@ class SSearchInRotatedSortedArray : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int search(const vector<int>& nums, int target) const {}
+  int search(const vector<int>& nums, int target) const {
+    int m = 0;
+    int n = nums.size() - 1;
+
+    while (m <= n) {
+      int k = (m + n) / 2;
+
+      if (nums[k] == target) return k;
+
+      if (nums[m] <= nums[k]) {
+        // m..k is sorted
+        if (nums[m] <= target && target < nums[k]) {
+          n = k - 1;
+        } else {
+          m = k + 1;
+        }
+      } else {
+        // k..n is sorted
+        if (nums[k] < target && target <= nums[n]) {
+          m = k + 1;
+        } else {
+          n = k - 1;
+        }
+      }
+    }
+
+    return -1;
+  }
 };

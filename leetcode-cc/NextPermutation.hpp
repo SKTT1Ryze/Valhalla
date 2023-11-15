@@ -55,8 +55,6 @@ class SNextPermutation : public ISolution {
       return;
     }
 
-    int leastGreater = -1;
-    int MiniGreater = INT_MAX;
     for (int i = nums.size() - 1; i > breakpt; i--) {
       if (nums[i] > nums[breakpt]) {
         swap(nums[breakpt], nums[i]);
