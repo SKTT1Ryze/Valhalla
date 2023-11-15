@@ -50,5 +50,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::substring_with_concatenation::ProblemImpl)?;
     handle.register_solution(|_| solutions::substring_with_concatenation::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::substring_with_concatenation::ProblemImpl)?;
+
     Ok(())
 }
