@@ -50,13 +50,12 @@ impl SolutionImpl {
             if s[i] == ')' {
                 if s[i - 1] == '(' {
                     dp[i] = if i >= 2 { dp[i - 2] } else { 0 } + 2;
-                } else if i as i32 - dp[i - 1] as i32 > 0
-                    && s[(i as i32 - dp[i - 1] as i32 - 1) as usize] == '('
+                } else if i as i32 - dp[i - 1] > 0 && s[(i as i32 - dp[i - 1] - 1) as usize] == '('
                 {
                     dp[i] = dp[i - 1]
                         + 2
-                        + if i as i32 - dp[i - 1] as i32 - 2 >= 0 {
-                            dp[(i as i32 - dp[i - 1] as i32 - 2) as usize]
+                        + if i as i32 - dp[i - 1] - 2 >= 0 {
+                            dp[(i as i32 - dp[i - 1] - 2) as usize]
                         } else {
                             0
                         };
