@@ -13,6 +13,7 @@
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
+#include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
@@ -100,6 +101,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PNextPermutation>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SNextPermutation>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PSearchInRotatedSortedArray>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SSearchInRotatedSortedArray>();
+  });
 
   return 0;
 }
