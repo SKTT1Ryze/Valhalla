@@ -33,7 +33,9 @@ function App() {
         className={styles.title}
         style={
           {
-            "--title-margin-top": `${items.length}rem`,
+            "--title-margin-top": `${
+              items.length * 2.5 - window.innerHeight / 16 / 1.5
+            }rem`,
           } as any
         }
       >
