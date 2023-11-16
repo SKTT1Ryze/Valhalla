@@ -16,14 +16,14 @@ impl Solution for SolutionImpl {
     }
     fn test(&self) -> anyhow::Result<()> {
         test_helper(
-            vec![
+            [
                 (vec![5, 7, 7, 8, 8, 10], 8),
                 (vec![5, 7, 7, 8, 8, 10], 6),
                 (vec![], 0),
                 (vec![1], 0),
                 (vec![1], 1),
             ],
-            vec![
+            [
                 vec![3, 4],
                 vec![-1, -1],
                 vec![-1, -1],

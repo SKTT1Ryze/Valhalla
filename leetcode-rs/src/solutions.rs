@@ -42,10 +42,12 @@ macro_rules! location {
     };
 }
 
-pub fn test_helper<I, E, F>(testcases: Vec<I>, expects: Vec<E>, f: F) -> Result<()>
+pub fn test_helper<I, E, T, X, F>(testcases: T, expects: X, f: F) -> Result<()>
 where
     I: Debug + Clone,
     E: Debug + PartialEq + Eq,
+    T: IntoIterator<Item = I>,
+    X: IntoIterator<Item = E>,
     F: Fn(I) -> E,
 {
     for (input, expect) in testcases.into_iter().zip(expects) {
