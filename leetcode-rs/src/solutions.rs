@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 use anyhow::Result;
 
 pub mod add_two_numbers;
@@ -38,4 +40,21 @@ macro_rules! location {
             .unwrap_or_default()
             .to_string()
     };
+}
+
+pub fn test_helper<I, E, F>(testcases: Vec<I>, expects: Vec<E>, f: F) -> Result<()>
+where
+    I: Debug + Clone,
+    E: Debug + PartialEq + Eq,
+    F: Fn(I) -> E,
+{
+    for (input, expect) in testcases.into_iter().zip(expects) {
+        let output = f(input.clone());
+
+        if output != expect {
+            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+        }
+    }
+
+    Ok(())
 }
