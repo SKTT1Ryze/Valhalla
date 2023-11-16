@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use super::{test_helper, Solution};
 
 pub struct SolutionImpl;
@@ -40,6 +42,33 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
-        todo!()
+        for i in 0..9 {
+            let mut uniq_row = HashSet::new();
+            let mut uniq_col = HashSet::new();
+            for j in 0..9 {
+                if board[i][j] != '.' && !uniq_row.insert(&board[i][j]) {
+                    return false;
+                }
+
+                if board[j][i] != '.' && !uniq_col.insert(&board[j][i]) {
+                    return false;
+                }
+            }
+        }
+
+        for i in 0..3 {
+            for j in 0..3 {
+                let mut uniq = HashSet::new();
+                if !&board[i * 3..(i + 1) * 3]
+                    .iter()
+                    .flat_map(|v| v[j * 3..(j + 1) * 3].iter())
+                    .all(|&e| e == '.' || uniq.insert(e))
+                {
+                    return false;
+                }
+            }
+        }
+
+        true
     }
 }
