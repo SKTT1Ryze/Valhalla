@@ -15,6 +15,7 @@ pub mod string_to_integer;
 pub mod substring_with_concatenation;
 pub mod swap_nodes_in_pairs;
 pub mod two_sum;
+pub mod valid_sudoku;
 pub mod zigzag_conversion;
 
 #[allow(dead_code)]
