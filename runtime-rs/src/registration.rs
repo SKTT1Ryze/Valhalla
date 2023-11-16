@@ -57,6 +57,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_solution(|_| solutions::find_first_last_in_sorted_array::SolutionImpl)?;
 
     handle.register_problem(|_| problems::search_insert_position::ProblemImpl)?;
+    handle.register_solution(|_| solutions::search_insert_position::SolutionImpl)?;
 
     Ok(())
 }
