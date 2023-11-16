@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 use super::Solution;
 
 pub struct SolutionImpl;
@@ -46,35 +48,27 @@ impl SolutionImpl {
         }
         let mut ans = (-1, -1);
 
-        Self::walk(&nums, target, 0, nums.len() - 1, &mut ans);
+        Self::walk(&nums, target, 0, nums.len() as i32 - 1, &mut ans);
 
         vec![ans.0, ans.1]
     }
 
-    fn walk(nums: &[i32], target: i32, m: usize, n: usize, ans: &mut (i32, i32)) {
-        if m <= n {
+    fn walk(nums: &[i32], target: i32, m: i32, n: i32, ans: &mut (i32, i32)) {
+        if m <= n && m >= 0 && n >= 0 {
             let k = (m + n) / 2;
 
-            if target == nums[k] {
-                ans.0 = if ans.0 == -1 {
-                    k as i32
-                } else {
-                    ans.0.min(k as i32)
-                };
-                ans.1 = ans.1.max(k as i32);
+            match target.cmp(&nums[k as usize]) {
+                Ordering::Equal => {
+                    ans.0 = if ans.0 == -1 { k } else { ans.0.min(k) };
+                    ans.1 = ans.1.max(k);
 
-                if k > 0 {
                     Self::walk(nums, target, m, k - 1, ans);
-                }
-                if k < nums.len() {
                     Self::walk(nums, target, k + 1, n, ans);
                 }
-            } else if target < nums[k] {
-                if k > 0 {
+                Ordering::Less => {
                     Self::walk(nums, target, m, k - 1, ans);
                 }
-            } else {
-                if k < nums.len() {
+                Ordering::Greater => {
                     Self::walk(nums, target, k + 1, n, ans);
                 }
             }
