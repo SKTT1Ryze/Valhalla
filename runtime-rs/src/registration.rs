@@ -53,5 +53,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::longest_valid_parentheses::ProblemImpl)?;
     handle.register_solution(|_| solutions::longest_valid_parentheses::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::find_first_last_in_sorted_array::ProblemImpl)?;
+    handle.register_solution(|_| solutions::find_first_last_in_sorted_array::SolutionImpl)?;
+
     Ok(())
 }
