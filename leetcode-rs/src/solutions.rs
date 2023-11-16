@@ -23,7 +23,9 @@ pub trait Solution: Send + Sync {
     fn name(&self) -> String;
     fn location(&self) -> String;
     fn test(&self) -> Result<()>;
-    fn benchmark(&self) -> Result<usize>;
+    fn benchmark(&self) -> Result<usize> {
+        anyhow::bail!("TODO");
+    }
 }
 
 #[macro_export]

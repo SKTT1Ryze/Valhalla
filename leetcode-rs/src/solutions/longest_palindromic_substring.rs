@@ -26,9 +26,6 @@ impl Solution for SolutionImpl {
 
         Ok(())
     }
-    fn benchmark(&self) -> anyhow::Result<usize> {
-        anyhow::bail!("TODO");
-    }
 }
 
 impl SolutionImpl {
@@ -94,9 +91,6 @@ impl Solution for SolutionImplDP {
         }
 
         Ok(())
-    }
-    fn benchmark(&self) -> anyhow::Result<usize> {
-        anyhow::bail!("TODO");
     }
 }
 

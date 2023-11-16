@@ -26,9 +26,6 @@ impl Solution for SolutionImpl {
         }
         Ok(())
     }
-    fn benchmark(&self) -> anyhow::Result<usize> {
-        anyhow::bail!("TODO");
-    }
 }
 
 impl SolutionImpl {
@@ -81,9 +78,6 @@ impl Solution for SolutionImplHashMap {
             }
         }
         Ok(())
-    }
-    fn benchmark(&self) -> anyhow::Result<usize> {
-        anyhow::bail!("TODO");
     }
 }
 
