@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 use anyhow::Result;
 
 pub mod add_two_numbers;
@@ -23,7 +25,9 @@ pub trait Solution: Send + Sync {
     fn name(&self) -> String;
     fn location(&self) -> String;
     fn test(&self) -> Result<()>;
-    fn benchmark(&self) -> Result<usize>;
+    fn benchmark(&self) -> Result<usize> {
+        anyhow::bail!("TODO");
+    }
 }
 
 #[macro_export]
@@ -36,4 +40,23 @@ macro_rules! location {
             .unwrap_or_default()
             .to_string()
     };
+}
+
+pub fn test_helper<I, E, T, X, F>(testcases: T, expects: X, f: F) -> Result<()>
+where
+    I: Debug + Clone,
+    E: Debug + PartialEq + Eq,
+    T: IntoIterator<Item = I>,
+    X: IntoIterator<Item = E>,
+    F: Fn(I) -> E,
+{
+    for (input, expect) in testcases.into_iter().zip(expects) {
+        let output = f(input.clone());
+
+        if output != expect {
+            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+        }
+    }
+
+    Ok(())
 }
