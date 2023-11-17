@@ -47,6 +47,40 @@ impl Solution for SolutionImpl {
 impl SolutionImpl {
     #[allow(clippy::ptr_arg)]
     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
-        todo!()
+        Self::walk(board, 0, 0);
+    }
+
+    fn walk(board: &mut Vec<Vec<char>>, i: usize, j: usize) -> bool {
+        if i == 9 {
+            return true;
+        } else if j == 9 {
+            return Self::walk(board, i + 1, 0);
+        }
+
+        let block = board[i][j];
+
+        if block == '.' {
+            for k in '1'..='9' {
+                if !board[i].contains(&k)
+                    && !board.iter().map(|v| v[j]).collect::<Vec<_>>().contains(&k)
+                    && !board[(i / 3) * 3..(i / 3 + 1) * 3]
+                        .iter()
+                        .flat_map(|v| v[(j / 3) * 3..(j / 3 + 1) * 3].iter())
+                        .copied()
+                        .collect::<Vec<_>>()
+                        .contains(&k)
+                {
+                    board[i][j] = k;
+                    if Self::walk(board, i, j + 1) {
+                        return true;
+                    }
+                }
+            }
+            // recover
+            board[i][j] = '.';
+            false
+        } else {
+            Self::walk(board, i, j + 1)
+        }
     }
 }
