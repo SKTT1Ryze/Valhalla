@@ -62,5 +62,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::valid_sudoku::ProblemImpl)?;
     handle.register_solution(|_| solutions::valid_sudoku::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::sudoku_solver::ProblemImpl)?;
+    handle.register_solution(|_| solutions::sudoku_solver::SolutionImpl)?;
+
     Ok(())
 }
