@@ -13,6 +13,7 @@ pub mod reverse_integer;
 pub mod search_insert_position;
 pub mod string_to_integer;
 pub mod substring_with_concatenation;
+pub mod sudoku_solver;
 pub mod swap_nodes_in_pairs;
 pub mod two_sum;
 pub mod valid_sudoku;

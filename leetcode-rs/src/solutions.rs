@@ -17,6 +17,7 @@ pub mod reverse_integer;
 pub mod search_insert_position;
 pub mod string_to_integer;
 pub mod substring_with_concatenation;
+pub mod sudoku_solver;
 pub mod swap_nodes_in_pairs;
 pub mod two_sum;
 pub mod valid_sudoku;
@@ -54,6 +55,25 @@ where
 {
     for (input, expect) in testcases.into_iter().zip(expects) {
         let output = f(input.clone());
+
+        if output != expect {
+            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+        }
+    }
+
+    Ok(())
+}
+
+pub fn mut_test_helper<I, T, X, F>(testcases: T, expects: X, f: F) -> Result<()>
+where
+    I: Debug + Clone + PartialEq + Eq,
+    T: IntoIterator<Item = I>,
+    X: IntoIterator<Item = I>,
+    F: Fn(&mut I),
+{
+    for (input, expect) in testcases.into_iter().zip(expects) {
+        let mut output = input.clone();
+        f(&mut output);
 
         if output != expect {
             anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
