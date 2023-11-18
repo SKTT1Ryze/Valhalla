@@ -72,6 +72,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_solution(|_| solutions::combination_sum::SolutionImpl)?;
 
     handle.register_problem(|_| problems::combination_sum2::ProblemImpl)?;
+    handle.register_solution(|_| solutions::combination_sum2::SolutionImpl)?;
 
     Ok(())
 }
