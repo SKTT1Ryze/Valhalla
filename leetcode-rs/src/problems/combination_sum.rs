@@ -10,5 +10,5 @@ crate::derive_problem!(
     "Combination Sum",
     "",
     "Array".into(),
-    "Math".into()
+    "Backtracing".into()
 );
