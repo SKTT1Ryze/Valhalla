@@ -4,6 +4,7 @@ use anyhow::Result;
 
 pub mod add_two_numbers;
 pub mod combination_sum;
+pub mod combination_sum2;
 pub mod container_with_most_water;
 pub mod count_and_say;
 pub mod find_first_last_in_sorted_array;
