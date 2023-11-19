@@ -14,7 +14,16 @@ impl Solution for SolutionImpl {
     }
     fn test(&self) -> anyhow::Result<()> {
         test_helper(
-            [(vec![2, 3, 5], 8), (vec![2], 1)],
+            [
+                (vec![2, 3, 5], 8),
+                (vec![2], 1),
+                (
+                    vec![
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    ],
+                    27,
+                ),
+            ],
             [vec![vec![3, 5], vec![2, 3, 3], vec![2, 2, 2, 2]], vec![]],
             |(candidates, target)| Self::combination_sum(candidates, target),
         )

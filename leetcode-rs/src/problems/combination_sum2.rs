@@ -9,5 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Combination Sum II",
     "",
-    "Array".into()
+    "Array".into(),
+    "Backtracking".into()
 );
