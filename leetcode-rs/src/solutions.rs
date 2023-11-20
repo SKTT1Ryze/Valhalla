@@ -60,7 +60,7 @@ macro_rules! derive_solution {
                 $id
             }
             fn location(&self) -> String {
-                crate::location!()
+                $crate::location!()
             }
             fn test(&self) -> anyhow::Result<()> {
                 test_helper($testcases, $expects, $test_function)
