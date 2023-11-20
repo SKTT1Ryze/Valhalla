@@ -9,5 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "First Missing Positive",
     "",
-    "Array".into()
+    "Array".into(),
+    "Hash Map".into()
 );

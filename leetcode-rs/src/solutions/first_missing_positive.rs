@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use super::{test_helper, Solution};
 
 pub struct SolutionImpl;
@@ -23,6 +25,16 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn first_missing_positive(nums: Vec<i32>) -> i32 {
-        todo!()
+        let n = nums.len();
+        let set: HashSet<_> = nums.into_iter().filter(|x| x.is_positive()).collect();
+
+        for i in 0..n {
+            let target = i as i32 + 1;
+            if set.get(&target).is_none() {
+                return target;
+            }
+        }
+
+        n as i32 + 1
     }
 }
