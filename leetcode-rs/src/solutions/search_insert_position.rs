@@ -3,29 +3,19 @@ use std::cmp::Ordering;
 
 pub struct SolutionImpl;
 
-impl Solution for SolutionImpl {
-    fn name(&self) -> String {
-        "Search Insert Position".into()
-    }
-    fn problem_id(&self) -> usize {
-        35
-    }
-    fn location(&self) -> String {
-        crate::location!();
-    }
-    fn test(&self) -> anyhow::Result<()> {
-        test_helper(
-            [
-                (vec![1, 3, 5, 6], 5),
-                (vec![1, 3, 5, 6], 2),
-                (vec![1, 3, 5, 6], 7),
-                (vec![1, 3, 5, 6], 0),
-            ],
-            [2, 1, 4, 0],
-            |(nums, target)| Self::search_insert(nums, target),
-        )
-    }
-}
+crate::derive_solution!(
+    SolutionImpl,
+    35,
+    "Search Insert Position",
+    [
+        (vec![1, 3, 5, 6], 5),
+        (vec![1, 3, 5, 6], 2),
+        (vec![1, 3, 5, 6], 7),
+        (vec![1, 3, 5, 6], 0),
+    ],
+    [2, 1, 4, 0],
+    |(nums, target)| Self::search_insert(nums, target)
+);
 
 impl SolutionImpl {
     pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
