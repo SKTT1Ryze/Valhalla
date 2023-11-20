@@ -49,6 +49,26 @@ macro_rules! location {
     };
 }
 
+#[macro_export]
+macro_rules! derive_solution {
+    ($struct:ident, $id:expr, $name:expr, $testcases:expr, $expects:expr, $test_function:expr) => {
+        impl Solution for $struct {
+            fn name(&self) -> String {
+                format!("Solution for {}", $name)
+            }
+            fn problem_id(&self) -> usize {
+                $id
+            }
+            fn location(&self) -> String {
+                crate::location!()
+            }
+            fn test(&self) -> anyhow::Result<()> {
+                test_helper($testcases, $expects, $test_function)
+            }
+        }
+    };
+}
+
 pub fn test_helper<I, E, T, X, F>(testcases: T, expects: X, f: F) -> Result<()>
 where
     I: Debug + Clone,
