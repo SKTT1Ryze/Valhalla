@@ -77,5 +77,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::first_missing_positive::ProblemImpl)?;
     handle.register_solution(|_| solutions::first_missing_positive::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::trapping_rain_water::ProblemImpl)?;
+    handle.register_solution(|_| solutions::trapping_rain_water::SolutionImpl)?;
+
     Ok(())
 }
