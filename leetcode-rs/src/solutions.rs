@@ -14,6 +14,7 @@ pub mod longest_palindromic_substring;
 pub mod longest_substring;
 pub mod longest_valid_parentheses;
 pub mod median_of_two_sorted_arrays;
+pub mod multiply_strings;
 pub mod palindrome_number;
 pub mod regular_expression_matching;
 pub mod remove_duplicates_from_sorted_array;
