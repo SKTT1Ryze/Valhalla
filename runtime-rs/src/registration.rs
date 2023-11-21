@@ -80,5 +80,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::trapping_rain_water::ProblemImpl)?;
     handle.register_solution(|_| solutions::trapping_rain_water::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::multiply_strings::ProblemImpl)?;
+    handle.register_solution(|_| solutions::multiply_strings::SolutionImpl)?;
+
     Ok(())
 }
