@@ -9,5 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Trapping Rain Water",
     "",
-    "Array".into()
+    "Array".into(),
+    "Two Pointer".into()
 );
