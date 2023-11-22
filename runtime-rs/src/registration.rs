@@ -83,5 +83,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::multiply_strings::ProblemImpl)?;
     handle.register_solution(|_| solutions::multiply_strings::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::wildcard_matching::ProblemImpl)?;
+    handle.register_solution(|_| solutions::wildcard_matching::SolutionImpl)?;
+
     Ok(())
 }
