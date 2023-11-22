@@ -1,4 +1,5 @@
 use super::{test_helper, Solution};
+use std::collections::HashMap;
 
 pub struct SolutionImpl;
 
@@ -22,17 +23,24 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn is_match(s: String, p: String) -> bool {
-        if s == "" && p.chars().all(|ch| ch == '*') {
-            return true;
-        }
-        let s: Vec<_> = s.chars().collect();
-        let p: Vec<_> = p.chars().collect();
-
-        Self::walk(&s, &p, 0, 0)
+        let s_chars: Vec<char> = s.chars().collect();
+        let p_chars: Vec<char> = p.chars().collect();
+        let mut memo: HashMap<(usize, usize), bool> = HashMap::new();
+        Self::walk(&s_chars, &p_chars, 0, 0, &mut memo)
     }
 
-    pub fn walk(s: &[char], p: &[char], i: usize, j: usize) -> bool {
-        if i == s.len() && j == p.len() {
+    pub fn walk(
+        s: &[char],
+        p: &[char],
+        i: usize,
+        j: usize,
+        memo: &mut HashMap<(usize, usize), bool>,
+    ) -> bool {
+        if let Some(&result) = memo.get(&(i, j)) {
+            return result;
+        }
+
+        let result = if i == s.len() && j == p.len() {
             true
         } else if i == s.len() {
             p[j..].iter().all(|&ch| ch == '*')
@@ -48,31 +56,33 @@ impl SolutionImpl {
                             p[j + 1..].iter().enumerate().find(|(_, &e)| e != '*')
                         {
                             if ch == s[i] || ch == '?' {
-                                return Self::walk(s, p, i, j + next + 1)
-                                    || Self::walk(s, p, i + 1, j);
+                                Self::walk(s, p, i, j + next + 1, memo)
+                                    || Self::walk(s, p, i + 1, j, memo)
                             } else {
                                 for (idx, &e) in s[i..].iter().enumerate() {
-                                    if e == ch && Self::walk(s, p, i + idx, j + next + 1) {
+                                    if e == ch && Self::walk(s, p, i + idx, j + next + 1, memo) {
                                         return true;
                                     }
                                 }
-
-                                return false;
+                                false
                             }
                         } else {
                             true
                         }
                     }
                 }
-                '?' => Self::walk(s, p, i + 1, j + 1),
+                '?' => Self::walk(s, p, i + 1, j + 1, memo),
                 ch => {
                     if s[i] != ch {
                         false
                     } else {
-                        Self::walk(s, p, i + 1, j + 1)
+                        Self::walk(s, p, i + 1, j + 1, memo)
                     }
                 }
             }
-        }
+        };
+
+        memo.insert((i, j), result);
+        result
     }
 }
