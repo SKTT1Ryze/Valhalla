@@ -51,24 +51,22 @@ impl SolutionImpl {
                 '*' => {
                     if j == p.len() - 1 {
                         true
-                    } else {
-                        if let Some((next, &ch)) =
-                            p[j + 1..].iter().enumerate().find(|(_, &e)| e != '*')
-                        {
-                            if ch == s[i] || ch == '?' {
-                                Self::walk(s, p, i, j + next + 1, memo)
-                                    || Self::walk(s, p, i + 1, j, memo)
-                            } else {
-                                for (idx, &e) in s[i..].iter().enumerate() {
-                                    if e == ch && Self::walk(s, p, i + idx, j + next + 1, memo) {
-                                        return true;
-                                    }
-                                }
-                                false
-                            }
+                    } else if let Some((next, &ch)) =
+                        p[j + 1..].iter().enumerate().find(|(_, &e)| e != '*')
+                    {
+                        if ch == s[i] || ch == '?' {
+                            Self::walk(s, p, i, j + next + 1, memo)
+                                || Self::walk(s, p, i + 1, j, memo)
                         } else {
-                            true
+                            for (idx, &e) in s[i..].iter().enumerate() {
+                                if e == ch && Self::walk(s, p, i + idx, j + next + 1, memo) {
+                                    return true;
+                                }
+                            }
+                            false
                         }
+                    } else {
+                        true
                     }
                 }
                 '?' => Self::walk(s, p, i + 1, j + 1, memo),
