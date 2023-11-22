@@ -4,11 +4,10 @@ pub struct ProblemImpl;
 
 crate::derive_problem!(
     ProblemImpl,
-    44,
-    Difficulty::Hard,
+    45,
+    Difficulty::Medium,
     Topic::Algorithms,
-    "Wildcard Matching",
+    "Jump Game II",
     "",
-    "String".into(),
-    "DP".into()
+    "Array".into()
 );
