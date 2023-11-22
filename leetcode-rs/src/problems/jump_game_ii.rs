@@ -9,5 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Jump Game II",
     "",
-    "Array".into()
+    "Array".into(),
+    "DP".into()
 );
