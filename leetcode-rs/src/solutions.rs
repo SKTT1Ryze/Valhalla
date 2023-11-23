@@ -22,6 +22,7 @@ pub mod permutations_ii;
 pub mod regular_expression_matching;
 pub mod remove_duplicates_from_sorted_array;
 pub mod reverse_integer;
+pub mod rotate_image;
 pub mod search_insert_position;
 pub mod string_to_integer;
 pub mod substring_with_concatenation;
