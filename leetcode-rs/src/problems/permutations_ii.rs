@@ -4,11 +4,12 @@ pub struct ProblemImpl;
 
 crate::derive_problem!(
     ProblemImpl,
-    46,
+    47,
     Difficulty::Medium,
     Topic::Algorithms,
-    "Permutations",
-    "",
+    "Permutations II",
+    "Given a collection of numbers, nums, that might contain duplicates, return all possible \
+     unique permutations in any order.",
     "Array".into(),
     "Backtracking".into()
 );

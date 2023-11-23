@@ -92,5 +92,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::permutations::ProblemImpl)?;
     handle.register_solution(|_| solutions::permutations::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::permutations_ii::ProblemImpl)?;
+    handle.register_solution(|_| solutions::permutations_ii::SolutionImpl)?;
+
     Ok(())
 }
