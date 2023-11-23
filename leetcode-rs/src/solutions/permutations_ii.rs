@@ -42,9 +42,11 @@ impl SolutionImpl {
         if start < n - 1 {
             Self::backtrack(nums, start + 1, ans);
             for next in start + 1..n {
-                nums.swap(start, next);
-                Self::backtrack(nums, start + 1, ans);
-                nums.swap(start, next);
+                if nums[start] != nums[next] {
+                    nums.swap(start, next);
+                    Self::backtrack(nums, start + 1, ans);
+                    nums.swap(start, next);
+                }
             }
         }
     }
