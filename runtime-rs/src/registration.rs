@@ -97,5 +97,9 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     handle.register_problem(|_| problems::rotate_image::ProblemImpl)?;
     handle.register_solution(|_| solutions::rotate_image::SolutionImpl)?;
+
+    handle.register_problem(|_| problems::group_anagrams::ProblemImpl)?;
+    handle.register_solution(|_| solutions::group_anagrams::SolutionImpl)?;
+
     Ok(())
 }
