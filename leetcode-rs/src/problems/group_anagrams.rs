@@ -10,5 +10,6 @@ crate::derive_problem!(
     "Group Anagrams",
     "",
     "Array".into(),
-    "String".into()
+    "String".into(),
+    "Hash Map".into()
 );
