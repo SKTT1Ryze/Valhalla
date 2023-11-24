@@ -101,5 +101,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     handle.register_problem(|_| problems::group_anagrams::ProblemImpl)?;
     handle.register_solution(|_| solutions::group_anagrams::SolutionImpl)?;
 
+    handle.register_problem(|_| problems::pow_x_n::ProblemImpl)?;
+    handle.register_solution(|_| solutions::pow_x_n::SolutionImpl)?;
+
     Ok(())
 }

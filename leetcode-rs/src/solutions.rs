@@ -20,6 +20,7 @@ pub mod multiply_strings;
 pub mod palindrome_number;
 pub mod permutations;
 pub mod permutations_ii;
+pub mod pow_x_n;
 pub mod regular_expression_matching;
 pub mod remove_duplicates_from_sorted_array;
 pub mod reverse_integer;
@@ -80,7 +81,7 @@ macro_rules! derive_solution {
 pub fn test_helper<I, E, T, X, F>(testcases: T, expects: X, f: F) -> Result<()>
 where
     I: Debug + Clone,
-    E: Debug + PartialEq + Eq,
+    E: Debug + PartialEq,
     T: IntoIterator<Item = I>,
     X: IntoIterator<Item = E>,
     F: Fn(I) -> E,
