@@ -37,6 +37,9 @@ jobs:
       - name: Build Check
         run: yarn build
         working-directory: ./frontend
+      - name: Move Valhalla Assets
+        run: mv valhalla-assets ./dist/
+        working-directory: ./frontend
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
