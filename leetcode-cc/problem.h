@@ -21,3 +21,15 @@ class IProblem {
   virtual std::vector<std::string> labels() const = 0;
   virtual ~IProblem() {}
 };
+
+#define IMPLEMENT_PROBLEM_CLASS(ClassName, Id, Difficulty, Topic, Title, \
+                                Description, Labels)                     \
+  class ClassName : public IProblem {                                    \
+   public:                                                               \
+    size_t id() const override { return Id; }                            \
+    int difficulty() const override { return Difficulty; }               \
+    int topic() const override { return Topic; }                         \
+    std::string title() const override { return Title; }                 \
+    std::string description() const override { return Description; }     \
+    std::vector<std::string> labels() const override { return Labels; }  \
+  };

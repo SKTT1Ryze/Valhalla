@@ -5,14 +5,9 @@
 
 using namespace std;
 
-class PSearchInRotatedSortedArray : public IProblem {
-  size_t id() const override { return 33; }
-  int difficulty() const override { return DIFFI_MEDIUM; }
-  int topic() const override { return TOPIC_ALGORITHMS; }
-  string title() const override { return "Search In Rotated Sorted Array"; }
-  string description() const override { return ""; }
-  vector<string> labels() const override { return {"Array"}; }
-};
+IMPLEMENT_PROBLEM_CLASS(PSearchInRotatedSortedArray, 33, DIFFI_MEDIUM,
+                        TOPIC_ALGORITHMS, "Search In Rotated Sorted Array", "",
+                        {"Array"});
 
 class SSearchInRotatedSortedArray : public ISolution {
  public:
