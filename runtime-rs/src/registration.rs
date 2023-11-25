@@ -2,107 +2,81 @@ use super::container::ContainerHandle;
 
 use leetcode_rs::{problems, solutions};
 
+macro_rules! register {
+    ($handle:ident, $name:ident) => {
+        $handle.register_problem(|_| problems::$name::ProblemImpl)?;
+        $handle.register_solution(|_| solutions::$name::SolutionImpl)?;
+    };
+}
+
 pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
-    handle.register_problem(|_| problems::two_sum::ProblemImpl)?;
-    handle.register_solution(|_| solutions::two_sum::SolutionImpl)?;
+    register!(handle, two_sum);
 
-    handle.register_problem(|_| problems::add_two_numbers::ProblemImpl)?;
-    handle.register_solution(|_| solutions::add_two_numbers::SolutionImpl)?;
+    register!(handle, add_two_numbers);
 
-    handle.register_problem(|_| problems::longest_substring::ProblemImpl)?;
-    handle.register_solution(|_| solutions::longest_substring::SolutionImpl)?;
+    register!(handle, longest_substring);
     handle.register_solution(|_| solutions::longest_substring::SolutionImplHashMap)?;
 
-    handle.register_problem(|_| problems::median_of_two_sorted_arrays::ProblemImpl)?;
-    handle.register_solution(|_| solutions::median_of_two_sorted_arrays::SolutionImpl)?;
+    register!(handle, median_of_two_sorted_arrays);
 
-    handle.register_problem(|_| problems::longest_palindromic_substring::ProblemImpl)?;
-    handle.register_solution(|_| solutions::longest_palindromic_substring::SolutionImpl)?;
+    register!(handle, longest_palindromic_substring);
     handle.register_solution(|_| solutions::longest_palindromic_substring::SolutionImplDP)?;
 
-    handle.register_problem(|_| problems::zigzag_conversion::ProblemImpl)?;
-    handle.register_solution(|_| solutions::zigzag_conversion::SolutionImpl)?;
+    register!(handle, zigzag_conversion);
 
-    handle.register_problem(|_| problems::reverse_integer::ProblemImpl)?;
-    handle.register_solution(|_| solutions::reverse_integer::SolutionImpl)?;
+    register!(handle, reverse_integer);
 
-    handle.register_problem(|_| problems::string_to_integer::ProblemImpl)?;
-    handle.register_solution(|_| solutions::string_to_integer::SolutionImpl)?;
+    register!(handle, string_to_integer);
 
-    handle.register_problem(|_| problems::palindrome_number::ProblemImpl)?;
-    handle.register_solution(|_| solutions::palindrome_number::SolutionImpl)?;
+    register!(handle, palindrome_number);
 
-    handle.register_problem(|_| problems::regular_expression_matching::ProblemImpl)?;
-    handle.register_solution(|_| solutions::regular_expression_matching::SolutionImpl)?;
+    register!(handle, regular_expression_matching);
 
-    handle.register_problem(|_| problems::container_with_most_water::ProblemImpl)?;
-    handle.register_solution(|_| solutions::container_with_most_water::SolutionImpl)?;
+    register!(handle, container_with_most_water);
 
-    handle.register_problem(|_| problems::swap_nodes_in_pairs::ProblemImpl)?;
-    handle.register_solution(|_| solutions::swap_nodes_in_pairs::SolutionImpl)?;
+    register!(handle, swap_nodes_in_pairs);
 
-    handle.register_problem(|_| problems::remove_duplicates_from_sorted_array::ProblemImpl)?;
-    handle.register_solution(|_| solutions::remove_duplicates_from_sorted_array::SolutionImpl)?;
+    register!(handle, remove_duplicates_from_sorted_array);
 
-    handle.register_problem(|_| problems::find_first_occurrence::ProblemImpl)?;
-    handle.register_solution(|_| solutions::find_first_occurrence::SolutionImpl)?;
+    register!(handle, find_first_occurrence);
 
-    handle.register_problem(|_| problems::substring_with_concatenation::ProblemImpl)?;
-    handle.register_solution(|_| solutions::substring_with_concatenation::SolutionImpl)?;
+    register!(handle, substring_with_concatenation);
 
-    handle.register_problem(|_| problems::longest_valid_parentheses::ProblemImpl)?;
-    handle.register_solution(|_| solutions::longest_valid_parentheses::SolutionImpl)?;
+    register!(handle, longest_valid_parentheses);
 
-    handle.register_problem(|_| problems::find_first_last_in_sorted_array::ProblemImpl)?;
-    handle.register_solution(|_| solutions::find_first_last_in_sorted_array::SolutionImpl)?;
+    register!(handle, find_first_last_in_sorted_array);
 
-    handle.register_problem(|_| problems::search_insert_position::ProblemImpl)?;
-    handle.register_solution(|_| solutions::search_insert_position::SolutionImpl)?;
+    register!(handle, search_insert_position);
 
-    handle.register_problem(|_| problems::valid_sudoku::ProblemImpl)?;
-    handle.register_solution(|_| solutions::valid_sudoku::SolutionImpl)?;
+    register!(handle, valid_sudoku);
 
-    handle.register_problem(|_| problems::sudoku_solver::ProblemImpl)?;
-    handle.register_solution(|_| solutions::sudoku_solver::SolutionImpl)?;
+    register!(handle, sudoku_solver);
 
-    handle.register_problem(|_| problems::count_and_say::ProblemImpl)?;
-    handle.register_solution(|_| solutions::count_and_say::SolutionImpl)?;
+    register!(handle, count_and_say);
 
-    handle.register_problem(|_| problems::combination_sum::ProblemImpl)?;
-    handle.register_solution(|_| solutions::combination_sum::SolutionImpl)?;
+    register!(handle, combination_sum);
 
-    handle.register_problem(|_| problems::combination_sum2::ProblemImpl)?;
-    handle.register_solution(|_| solutions::combination_sum2::SolutionImpl)?;
+    register!(handle, combination_sum2);
 
-    handle.register_problem(|_| problems::first_missing_positive::ProblemImpl)?;
-    handle.register_solution(|_| solutions::first_missing_positive::SolutionImpl)?;
+    register!(handle, first_missing_positive);
 
-    handle.register_problem(|_| problems::trapping_rain_water::ProblemImpl)?;
-    handle.register_solution(|_| solutions::trapping_rain_water::SolutionImpl)?;
+    register!(handle, trapping_rain_water);
 
-    handle.register_problem(|_| problems::multiply_strings::ProblemImpl)?;
-    handle.register_solution(|_| solutions::multiply_strings::SolutionImpl)?;
+    register!(handle, multiply_strings);
 
-    handle.register_problem(|_| problems::wildcard_matching::ProblemImpl)?;
-    handle.register_solution(|_| solutions::wildcard_matching::SolutionImpl)?;
+    register!(handle, wildcard_matching);
 
-    handle.register_problem(|_| problems::jump_game_ii::ProblemImpl)?;
-    handle.register_solution(|_| solutions::jump_game_ii::SolutionImpl)?;
+    register!(handle, jump_game_ii);
 
-    handle.register_problem(|_| problems::permutations::ProblemImpl)?;
-    handle.register_solution(|_| solutions::permutations::SolutionImpl)?;
+    register!(handle, permutations);
 
-    handle.register_problem(|_| problems::permutations_ii::ProblemImpl)?;
-    handle.register_solution(|_| solutions::permutations_ii::SolutionImpl)?;
+    register!(handle, permutations_ii);
 
-    handle.register_problem(|_| problems::rotate_image::ProblemImpl)?;
-    handle.register_solution(|_| solutions::rotate_image::SolutionImpl)?;
+    register!(handle, rotate_image);
 
-    handle.register_problem(|_| problems::group_anagrams::ProblemImpl)?;
-    handle.register_solution(|_| solutions::group_anagrams::SolutionImpl)?;
+    register!(handle, group_anagrams);
 
-    handle.register_problem(|_| problems::pow_x_n::ProblemImpl)?;
-    handle.register_solution(|_| solutions::pow_x_n::SolutionImpl)?;
+    register!(handle, pow_x_n);
 
     Ok(())
 }
