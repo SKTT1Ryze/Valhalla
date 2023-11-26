@@ -80,5 +80,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, maximum_subarray);
 
+    register!(handle, jump_game);
+
     Ok(())
 }

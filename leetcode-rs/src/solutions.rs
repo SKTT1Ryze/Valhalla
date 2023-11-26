@@ -11,6 +11,7 @@ pub mod find_first_last_in_sorted_array;
 pub mod find_first_occurrence;
 pub mod first_missing_positive;
 pub mod group_anagrams;
+pub mod jump_game;
 pub mod jump_game_ii;
 pub mod longest_palindromic_substring;
 pub mod longest_substring;
@@ -59,6 +60,25 @@ macro_rules! location {
     };
 }
 
+/// Template
+/// ```no_run
+/// use super::{test_helper, Solution};
+///
+/// pub struct SolutionImpl;
+///
+/// crate::derive_solution!(
+///     SolutionImpl,
+///     X,
+///     "Name",
+///     [],
+///     [],
+///     f
+/// );
+///
+/// impl SolutionImpl {
+///
+/// }
+/// ```
 #[macro_export]
 macro_rules! derive_solution {
     ($struct:ident, $id:expr, $name:expr, $testcases:expr, $expects:expr, $test_function:expr) => {
