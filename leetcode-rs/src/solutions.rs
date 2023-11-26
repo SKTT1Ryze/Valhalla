@@ -15,6 +15,7 @@ pub mod jump_game_ii;
 pub mod longest_palindromic_substring;
 pub mod longest_substring;
 pub mod longest_valid_parentheses;
+pub mod maximum_subarray;
 pub mod median_of_two_sorted_arrays;
 pub mod multiply_strings;
 pub mod palindrome_number;
