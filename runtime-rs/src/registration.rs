@@ -78,5 +78,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, pow_x_n);
 
+    register!(handle, maximum_subarray);
+
     Ok(())
 }
