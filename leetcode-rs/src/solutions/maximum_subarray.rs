@@ -17,6 +17,14 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn max_sub_array(nums: Vec<i32>) -> i32 {
-        todo!()
+        let mut max_sum = nums[0];
+        let mut current_sum = nums[0];
+
+        for &num in &nums[1..] {
+            current_sum = (current_sum + num).max(num);
+            max_sum = max_sum.max(current_sum);
+        }
+
+        max_sum
     }
 }
