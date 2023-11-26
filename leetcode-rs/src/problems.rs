@@ -7,6 +7,7 @@ pub mod find_first_last_in_sorted_array;
 pub mod find_first_occurrence;
 pub mod first_missing_positive;
 pub mod group_anagrams;
+pub mod jump_game;
 pub mod jump_game_ii;
 pub mod longest_palindromic_substring;
 pub mod longest_substring;
@@ -74,6 +75,21 @@ pub trait Problem: Send + Sync {
     fn labels(&self) -> Vec<String>;
 }
 
+/// Template
+/// ```no_run
+/// use super::{Difficulty, Problem, Topic};
+///
+/// pub struct ProblemImpl;
+///
+/// crate::derive_problem!(
+///     ProblemImpl,
+///     X,
+///     Difficulty::X,
+///     Topic::Algorithms,
+///     "Name",
+///     "Description",
+/// );
+/// ```
 #[macro_export]
 macro_rules! derive_problem {
     ($struct:ident, $id:expr, $difficulty:expr, $topic:expr, $title:expr, $desc:expr, $( $label:expr ), *) => {
