@@ -31,6 +31,7 @@ pub mod swap_nodes_in_pairs;
 pub mod trapping_rain_water;
 pub mod two_sum;
 pub mod unique_paths;
+pub mod unique_paths_ii;
 pub mod valid_sudoku;
 pub mod wildcard_matching;
 pub mod zigzag_conversion;
