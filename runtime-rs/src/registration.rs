@@ -88,5 +88,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, minimum_path_sum);
 
+    register!(handle, climbing_stairs);
+
     Ok(())
 }
