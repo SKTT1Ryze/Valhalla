@@ -16,6 +16,27 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn min_path_sum(grid: Vec<Vec<i32>>) -> i32 {
-        todo!()
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut dp = vec![vec![0; n]; m];
+
+        let mut sum = 0;
+        for i in 0..m {
+            sum += grid[i][0];
+            dp[i][0] = sum;
+        }
+        sum = 0;
+        for i in 0..n {
+            sum += grid[0][i];
+            dp[0][i] = sum;
+        }
+
+        for i in 1..m {
+            for j in 1..n {
+                dp[i][j] = grid[i][j] + dp[i - 1][j].min(dp[i][j - 1]);
+            }
+        }
+
+        dp[m - 1][n - 1]
     }
 }
