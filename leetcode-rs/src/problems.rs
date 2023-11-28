@@ -1,4 +1,5 @@
 pub mod add_two_numbers;
+pub mod climbing_stairs;
 pub mod combination_sum;
 pub mod combination_sum2;
 pub mod container_with_most_water;
