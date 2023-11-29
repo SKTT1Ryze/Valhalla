@@ -90,5 +90,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, climbing_stairs);
 
+    register!(handle, rotate_list);
+
     Ok(())
 }
