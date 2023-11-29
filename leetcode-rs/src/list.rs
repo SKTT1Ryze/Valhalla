@@ -11,7 +11,11 @@ impl<T: PartialEq + Eq> ListNode<T> {
         ListNode { next: None, val }
     }
 
-    pub fn create_list<const N: usize>(v: [T; N]) -> Option<Box<Self>> {
+    pub fn create_list<I>(v: I) -> Option<Box<Self>>
+    where
+        I: IntoIterator<Item = T>,
+        <I as IntoIterator>::IntoIter: DoubleEndedIterator,
+    {
         let mut head = None;
 
         for item in v.into_iter().rev() {

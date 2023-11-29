@@ -2,6 +2,10 @@ use std::fmt::Debug;
 
 use anyhow::Result;
 
+use crate::list::assert_eq_list;
+
+use super::list::ListNode;
+
 pub mod add_two_numbers;
 pub mod climbing_stairs;
 pub mod combination_sum;
@@ -104,13 +108,33 @@ macro_rules! derive_solution {
     };
 }
 
-pub fn test_helper<I, E, T, X, F>(testcases: T, expects: X, f: F) -> Result<()>
+#[macro_export]
+macro_rules! derive_list_solution {
+    ($struct:ident, $id:expr, $name:expr, $testcases:expr, $expects:expr, $test_function:expr) => {
+        impl Solution for $struct {
+            fn name(&self) -> String {
+                format!("Solution for {}", $name)
+            }
+            fn problem_id(&self) -> usize {
+                $id
+            }
+            fn location(&self) -> String {
+                $crate::location!()
+            }
+            fn test(&self) -> anyhow::Result<()> {
+                list_test_helper($testcases, $expects, $test_function)
+            }
+        }
+    };
+}
+
+pub fn test_helper<T, E, I, X, F>(testcases: I, expects: X, f: F) -> Result<()>
 where
-    I: Debug + Clone,
+    T: Debug + Clone,
     E: Debug + PartialEq,
-    T: IntoIterator<Item = I>,
+    I: IntoIterator<Item = T>,
     X: IntoIterator<Item = E>,
-    F: Fn(I) -> E,
+    F: Fn(T) -> E,
 {
     for (input, expect) in testcases.into_iter().zip(expects) {
         let output = f(input.clone());
@@ -136,6 +160,26 @@ where
 
         if output != expect {
             anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+        }
+    }
+
+    Ok(())
+}
+
+pub fn list_test_helper<T, E, I, X, F>(testcases: I, expects: X, f: F) -> Result<()>
+where
+    T: Debug + Clone,
+    E: Debug + Eq,
+    I: IntoIterator<Item = T>,
+    X: IntoIterator<Item = Vec<E>>,
+    F: Fn(T) -> Option<Box<ListNode<E>>>,
+{
+    for (input, expect) in testcases.into_iter().zip(expects) {
+        let output = f(input);
+        let expect = ListNode::create_list(expect);
+
+        if !assert_eq_list(&output, &expect) {
+            anyhow::bail!("test failed!")
         }
     }
 
