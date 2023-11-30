@@ -1,6 +1,5 @@
-use std::collections::HashSet;
-
 use super::Solution;
+use std::collections::HashSet;
 
 pub struct SolutionImpl;
 

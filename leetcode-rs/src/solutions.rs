@@ -28,6 +28,7 @@ pub mod permutations_ii;
 pub mod pow_x_n;
 pub mod regular_expression_matching;
 pub mod remove_duplicates_from_sorted_array;
+pub mod remove_duplicates_from_sorted_array_ii;
 pub mod reverse_integer;
 pub mod rotate_image;
 pub mod rotate_list;
