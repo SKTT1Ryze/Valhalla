@@ -1,10 +1,7 @@
-use std::fmt::Debug;
-
-use anyhow::Result;
-
-use crate::list::assert_eq_list;
-
 use super::list::ListNode;
+use crate::list::assert_eq_list;
+use anyhow::Result;
+use std::fmt::Debug;
 
 pub mod add_two_numbers;
 pub mod climbing_stairs;
@@ -35,6 +32,7 @@ pub mod reverse_integer;
 pub mod rotate_image;
 pub mod rotate_list;
 pub mod search_insert_position;
+pub mod sort_colors;
 pub mod string_to_integer;
 pub mod substring_with_concatenation;
 pub mod sudoku_solver;
@@ -103,6 +101,26 @@ macro_rules! derive_solution {
             }
             fn test(&self) -> anyhow::Result<()> {
                 test_helper($testcases, $expects, $test_function)
+            }
+        }
+    };
+}
+
+#[macro_export]
+macro_rules! derive_inplace_solution {
+    ($struct:ident, $id:expr, $name:expr, $testcases:expr, $expects:expr, $test_function:expr) => {
+        impl Solution for $struct {
+            fn name(&self) -> String {
+                format!("Solution for {}", $name)
+            }
+            fn problem_id(&self) -> usize {
+                $id
+            }
+            fn location(&self) -> String {
+                $crate::location!()
+            }
+            fn test(&self) -> anyhow::Result<()> {
+                mut_test_helper($testcases, $expects, $test_function)
             }
         }
     };
