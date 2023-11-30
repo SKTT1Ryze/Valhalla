@@ -1,5 +1,4 @@
 use super::container::ContainerHandle;
-
 use leetcode_rs::{problems, solutions};
 
 macro_rules! register {
@@ -93,6 +92,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     register!(handle, rotate_list);
 
     register!(handle, sort_colors);
+
+    register!(handle, remove_duplicates_from_sorted_array_ii);
 
     Ok(())
 }

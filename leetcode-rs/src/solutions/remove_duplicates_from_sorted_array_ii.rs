@@ -1,22 +1,21 @@
 use super::Solution;
-use std::collections::HashSet;
 
 pub struct SolutionImpl;
 
 impl Solution for SolutionImpl {
     fn name(&self) -> String {
-        "Solution for Remove Duplicates from Sorted Array".into()
+        "Remove Duplicates from Sorted Array II".into()
     }
     fn problem_id(&self) -> usize {
-        26
+        80
     }
     fn location(&self) -> String {
         crate::location!()
     }
     fn test(&self) -> anyhow::Result<()> {
         let testcases = [
-            (vec![1, 1, 2], vec![1, 2]),
-            (vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4], vec![0, 1, 2, 3, 4]),
+            (vec![1, 1, 1, 2, 2, 3], vec![1, 1, 2, 2, 3]),
+            (vec![0, 0, 1, 1, 1, 1, 2, 3, 3], vec![0, 0, 1, 1, 2, 3, 3]),
         ];
 
         for (mut nums, expect) in testcases {
@@ -33,18 +32,6 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        // TODO: use two pointer
-        let mut set = HashSet::new();
-
-        for &num in nums.iter() {
-            set.insert(num);
-        }
-
-        let k = set.len();
-        let mut v: Vec<_> = set.into_iter().collect();
-        v.sort();
-        *nums = v;
-
-        k as i32
+        todo!()
     }
 }
