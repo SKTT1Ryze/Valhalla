@@ -13,6 +13,16 @@ crate::derive_inplace_solution!(
 
 impl SolutionImpl {
     pub fn sort_colors(nums: &mut Vec<i32>) {
-        todo!()
+        let n = nums.len();
+        if n == 0 {
+            return;
+        }
+        for i in 0..n - 1 {
+            for j in 0..n - i - 1 {
+                if nums[j] > nums[j + 1] {
+                    nums.swap(j, j + 1);
+                }
+            }
+        }
     }
 }
