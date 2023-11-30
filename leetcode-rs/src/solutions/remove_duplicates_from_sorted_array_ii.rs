@@ -32,6 +32,27 @@ impl Solution for SolutionImpl {
 
 impl SolutionImpl {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        todo!()
+        let n = nums.len();
+        if n < 3 {
+            return n as i32;
+        }
+        let mut removed = 0;
+        let mut start = 0;
+
+        while start < n - removed - 2 {
+            if nums[start] == nums[start + 1] {
+                if nums[start] == nums[start + 2] {
+                    let x = nums.remove(start + 2);
+                    nums.push(x);
+                    removed += 1;
+                } else {
+                    start += 2;
+                }
+            } else {
+                start += 1;
+            }
+        }
+
+        (n - removed) as i32
     }
 }
