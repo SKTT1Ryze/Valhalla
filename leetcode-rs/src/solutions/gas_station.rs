@@ -16,6 +16,25 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn can_complete_circuit(gas: Vec<i32>, cost: Vec<i32>) -> i32 {
-        todo!()
+        let n = gas.len();
+        let mut start = 0;
+        let mut total_gas = 0;
+        let mut current_gas = 0;
+
+        for i in 0..n {
+            total_gas += gas[i] - cost[i];
+            current_gas += gas[i] - cost[i];
+
+            if current_gas < 0 {
+                current_gas = 0;
+                start = i + 1;
+            }
+        }
+
+        if total_gas >= 0 {
+            start as i32
+        } else {
+            -1
+        }
     }
 }
