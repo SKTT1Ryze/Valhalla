@@ -38,17 +38,20 @@ impl SolutionImpl {
 
         while step > 1 {
             for i in 0..step.wrapping_sub(1) as usize {
-                // swap matrix[step/2 + i][step/2], matrix[n - step/2][step/2 +
-                // i], matrix[n - step/2 - i][n - step/2],
+                // swap matrix[step/2 + i][step/2], matrix[n -
+                // step/2][step/2 + i], matrix[n -
+                // step/2 - i][n - step/2],
                 // matrix[step/2][n - step/2 - i]
 
                 let step = n - step as usize;
                 let n = n - 1;
 
                 // let temp = matrix[step / 2 + i][step / 2];
-                // matrix[step / 2 + i][step / 2] = matrix[step / 2][n - step / 2 - i];
-                // matrix[step / 2][n - step / 2 - i] = matrix[n - step / 2 - i][n - step / 2];
-                // matrix[n - step / 2 - i][n - step / 2] = matrix[n - step / 2][step / 2 + i];
+                // matrix[step / 2 + i][step / 2] = matrix[step / 2][n
+                // - step / 2 - i]; matrix[step / 2][n
+                // - step / 2 - i] = matrix[n - step / 2 - i][n - step
+                // / 2]; matrix[n - step / 2 - i][n -
+                // step / 2] = matrix[n - step / 2][step / 2 + i];
                 // matrix[n - step / 2][step / 2 + i] = temp;
 
                 let temp = matrix[n - step / 2][step / 2 + i];

@@ -103,7 +103,8 @@ impl SolutionImplHashMap {
             // [4] update maximum length
             max = (end - start + 1).max(max);
 
-            // [5] set the position to be used in [3] on next iterations
+            // [5] set the position to be used in [3] on next
+            // iterations
             map.insert(ch, end + 1);
         }
 

@@ -95,5 +95,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, remove_duplicates_from_sorted_array_ii);
 
+    register!(handle, best_time_to_buy_and_sell_stock);
+
     Ok(())
 }

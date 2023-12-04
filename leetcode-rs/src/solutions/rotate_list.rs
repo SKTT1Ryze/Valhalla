@@ -43,13 +43,14 @@ impl SolutionImpl {
             return head;
         }
 
-        // Now I need to remove the last k elements from the list and put them at the
-        // head
+        // Now I need to remove the last k elements from the list and
+        // put them at the head
         let mut node_ref = head.as_deref_mut().unwrap();
         for _ in 0..(len - k - 1) {
             node_ref = node_ref.next.as_deref_mut().unwrap();
         }
-        // node_ref now points to the node before the nodes we want to move
+        // node_ref now points to the node before the nodes we want to
+        // move
 
         let mut new_head = node_ref.next.take().unwrap();
 
