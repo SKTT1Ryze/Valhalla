@@ -13,6 +13,14 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
-        todo!()
+        let mut min = prices[0];
+        let mut profit = 0;
+
+        for price in prices.into_iter().skip(1) {
+            profit = profit.max(price - min);
+            min = min.min(price);
+        }
+
+        profit
     }
 }
