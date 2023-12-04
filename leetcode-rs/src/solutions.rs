@@ -14,6 +14,7 @@ pub mod count_and_say;
 pub mod find_first_last_in_sorted_array;
 pub mod find_first_occurrence;
 pub mod first_missing_positive;
+pub mod gas_station;
 pub mod group_anagrams;
 pub mod jump_game;
 pub mod jump_game_ii;
