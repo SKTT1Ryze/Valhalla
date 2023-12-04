@@ -31,6 +31,7 @@ crate::derive_solution!(
 );
 
 impl SolutionImpl {
+    #[allow(clippy::ptr_arg)]
     pub fn rotate(matrix: &mut Vec<Vec<i32>>) {
         let n = matrix.len();
 

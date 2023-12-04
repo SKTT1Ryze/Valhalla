@@ -12,6 +12,7 @@ crate::derive_inplace_solution!(
 );
 
 impl SolutionImpl {
+    #[allow(clippy::ptr_arg)]
     pub fn sort_colors(nums: &mut Vec<i32>) {
         let n = nums.len();
         if n == 0 {
