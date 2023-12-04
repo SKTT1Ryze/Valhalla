@@ -161,7 +161,10 @@ where
         let output = f(input.clone());
 
         if output != expect {
-            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+            anyhow::bail!(
+                "test failed for input={input:?}, expect={expect:?}, \
+                 output={output:?}"
+            )
         }
     }
 
@@ -180,14 +183,21 @@ where
         f(&mut output);
 
         if output != expect {
-            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+            anyhow::bail!(
+                "test failed for input={input:?}, expect={expect:?}, \
+                 output={output:?}"
+            )
         }
     }
 
     Ok(())
 }
 
-pub fn list_test_helper<T, E, I, X, F>(testcases: I, expects: X, f: F) -> Result<()>
+pub fn list_test_helper<T, E, I, X, F>(
+    testcases: I,
+    expects: X,
+    f: F,
+) -> Result<()>
 where
     T: Debug + Clone,
     E: Debug + Eq,

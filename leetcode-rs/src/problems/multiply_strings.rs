@@ -8,8 +8,8 @@ crate::derive_problem!(
     Difficulty::Medium,
     Topic::Algorithms,
     "Multiply Strings",
-    "Given two non-negative integers num1 and num2 represented as strings, return the product of \
-     num1 and num2, also represented as a string.",
+    "Given two non-negative integers num1 and num2 represented as strings, \
+     return the product of num1 and num2, also represented as a string.",
     "String".into(),
     "Math".into()
 );

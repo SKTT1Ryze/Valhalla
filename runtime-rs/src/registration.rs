@@ -14,12 +14,16 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     register!(handle, add_two_numbers);
 
     register!(handle, longest_substring);
-    handle.register_solution(|_| solutions::longest_substring::SolutionImplHashMap)?;
+    handle.register_solution(|_| {
+        solutions::longest_substring::SolutionImplHashMap
+    })?;
 
     register!(handle, median_of_two_sorted_arrays);
 
     register!(handle, longest_palindromic_substring);
-    handle.register_solution(|_| solutions::longest_palindromic_substring::SolutionImplDP)?;
+    handle.register_solution(|_| {
+        solutions::longest_palindromic_substring::SolutionImplDP
+    })?;
 
     register!(handle, zigzag_conversion);
 

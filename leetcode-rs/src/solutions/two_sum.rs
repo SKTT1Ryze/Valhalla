@@ -28,8 +28,8 @@ impl Solution for SolutionImpl {
 
             if expect[0] != output[0] || expect[1] != output[1] {
                 anyhow::bail!(
-                    "test failed for input={input:?} and target={target}. expect={expect:?}, \
-                     output={output:?}"
+                    "test failed for input={input:?} and target={target}. \
+                     expect={expect:?}, output={output:?}"
                 );
             }
         }

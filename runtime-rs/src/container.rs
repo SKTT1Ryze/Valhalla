@@ -58,20 +58,29 @@ impl ContainerHandle {
         Ok(())
     }
 
-    pub fn get_problems(&self) -> anyhow::Result<HashMap<usize, Arc<dyn Problem>>> {
+    pub fn get_problems(
+        &self,
+    ) -> anyhow::Result<HashMap<usize, Arc<dyn Problem>>> {
         Ok(self
             .inner
             .lock()
-            .map_err(|_| anyhow::anyhow!("failed to acquire lock of container"))?
+            .map_err(|_| {
+                anyhow::anyhow!("failed to acquire lock of container")
+            })?
             .problems
             .clone())
     }
 
-    pub fn get_solutions_by_id(&self, id: usize) -> anyhow::Result<Vec<Arc<dyn Solution>>> {
+    pub fn get_solutions_by_id(
+        &self,
+        id: usize,
+    ) -> anyhow::Result<Vec<Arc<dyn Solution>>> {
         Ok(self
             .inner
             .lock()
-            .map_err(|_| anyhow::anyhow!("failed to acquire lock of container"))?
+            .map_err(|_| {
+                anyhow::anyhow!("failed to acquire lock of container")
+            })?
             .solutions
             .get(&id)
             .cloned()

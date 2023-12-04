@@ -31,7 +31,11 @@ impl Solution for SolutionImpl {
             |board| {
                 let board: Vec<Vec<_>> = board
                     .into_iter()
-                    .map(|v| v.into_iter().map(|s| s.chars().nth(0).unwrap()).collect())
+                    .map(|v| {
+                        v.into_iter()
+                            .map(|s| s.chars().nth(0).unwrap())
+                            .collect()
+                    })
                     .collect();
 
                 Self::is_valid_sudoku(board)

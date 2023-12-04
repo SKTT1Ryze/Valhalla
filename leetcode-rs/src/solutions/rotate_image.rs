@@ -56,9 +56,12 @@ impl SolutionImpl {
                 // matrix[n - step / 2][step / 2 + i] = temp;
 
                 let temp = matrix[n - step / 2][step / 2 + i];
-                matrix[n - step / 2][step / 2 + i] = matrix[n - step / 2 - i][n - step / 2];
-                matrix[n - step / 2 - i][n - step / 2] = matrix[step / 2][n - step / 2 - i];
-                matrix[step / 2][n - step / 2 - i] = matrix[step / 2 + i][step / 2];
+                matrix[n - step / 2][step / 2 + i] =
+                    matrix[n - step / 2 - i][n - step / 2];
+                matrix[n - step / 2 - i][n - step / 2] =
+                    matrix[step / 2][n - step / 2 - i];
+                matrix[step / 2][n - step / 2 - i] =
+                    matrix[step / 2 + i][step / 2];
                 matrix[step / 2 + i][step / 2] = temp;
             }
 

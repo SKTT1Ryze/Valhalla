@@ -59,7 +59,15 @@ impl SolutionImpl {
                                 || Self::walk(s, p, i + 1, j, memo)
                         } else {
                             for (idx, &e) in s[i..].iter().enumerate() {
-                                if e == ch && Self::walk(s, p, i + idx, j + next + 1, memo) {
+                                if e == ch
+                                    && Self::walk(
+                                        s,
+                                        p,
+                                        i + idx,
+                                        j + next + 1,
+                                        memo,
+                                    )
+                                {
                                     return true;
                                 }
                             }

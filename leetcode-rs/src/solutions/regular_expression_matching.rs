@@ -25,7 +25,10 @@ impl Solution for SolutionImpl {
             let output = Self::is_match(s.into(), p.into());
 
             if output != expect {
-                anyhow::bail!("test failed for s={s}, p={p}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for s={s}, p={p}, expect={expect}, \
+                     output={output}"
+                );
             }
         }
 
@@ -49,7 +52,13 @@ impl SolutionImpl {
         Self::r#match(&mut dp, 0, 0, &s, &p)
     }
 
-    fn r#match(dp: &mut Vec<Vec<State>>, i: usize, j: usize, s: &[char], p: &[char]) -> bool {
+    fn r#match(
+        dp: &mut Vec<Vec<State>>,
+        i: usize,
+        j: usize,
+        s: &[char],
+        p: &[char],
+    ) -> bool {
         if dp[i][j] != State::Unknown {
             return dp[i][j] == State::True;
         }

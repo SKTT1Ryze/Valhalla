@@ -19,12 +19,13 @@ impl Solution for SolutionImpl {
         ];
 
         for (nums1, nums2, expect) in testcases {
-            let output = Self::find_median_sorted_arrays(nums1.clone(), nums2.clone());
+            let output =
+                Self::find_median_sorted_arrays(nums1.clone(), nums2.clone());
 
             if output != expect {
                 anyhow::bail!(
-                    "test failed for nums1={nums1:?} and nums2={nums2:?}, expect={expect}, \
-                     output={output}"
+                    "test failed for nums1={nums1:?} and nums2={nums2:?}, \
+                     expect={expect}, output={output}"
                 );
             }
         }

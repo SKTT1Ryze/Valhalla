@@ -10,7 +10,10 @@ crate::derive_solution!(
         (vec![2, 3, 5], 8),
         (vec![2], 1),
         (
-            vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,],
+            vec![
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1,
+            ],
             27,
         ),
     ],
@@ -27,7 +30,12 @@ impl SolutionImpl {
         ans
     }
 
-    fn walk(candidates: &[i32], target: i32, temp: Vec<i32>, ans: &mut Vec<Vec<i32>>) {
+    fn walk(
+        candidates: &[i32],
+        target: i32,
+        temp: Vec<i32>,
+        ans: &mut Vec<Vec<i32>>,
+    ) {
         if !candidates.is_empty() {
             let x = candidates[0];
             let mut i = 0;

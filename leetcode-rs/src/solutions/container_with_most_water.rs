@@ -13,14 +13,16 @@ impl Solution for SolutionImpl {
         crate::location!();
     }
     fn test(&self) -> anyhow::Result<()> {
-        let testcases = [(vec![1, 8, 6, 2, 5, 4, 8, 3, 7], 49), (vec![1, 1], 1)];
+        let testcases =
+            [(vec![1, 8, 6, 2, 5, 4, 8, 3, 7], 49), (vec![1, 1], 1)];
 
         for (height, expect) in testcases {
             let output = Self::max_area(height.clone());
 
             if output != expect {
                 anyhow::bail!(
-                    "test failed for height={height:?}, expect={expect}, output={output}"
+                    "test failed for height={height:?}, expect={expect}, \
+                     output={output}"
                 );
             }
         }
@@ -40,7 +42,8 @@ impl SolutionImpl {
         let mut right = n - 1;
 
         while left < right {
-            res = res.max((right - left) as i32 * height[left].min(height[right]));
+            res = res
+                .max((right - left) as i32 * height[left].min(height[right]));
 
             if height[left] < height[right] {
                 left += 1;

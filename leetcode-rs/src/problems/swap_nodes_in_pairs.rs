@@ -8,7 +8,8 @@ crate::derive_problem!(
     Difficulty::Medium,
     Topic::Algorithms,
     "Swap Nodes in Pairs",
-    "Given a linked list, swap every two adjacent nodes and return its head. You must solve the \
-     problem without modifying the values in the list's nodes",
+    "Given a linked list, swap every two adjacent nodes and return its head. \
+     You must solve the problem without modifying the values in the list's \
+     nodes",
     "Link List".into()
 );

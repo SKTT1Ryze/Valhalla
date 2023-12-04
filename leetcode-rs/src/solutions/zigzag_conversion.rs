@@ -25,7 +25,8 @@ impl Solution for SolutionImpl {
 
             if output != expect {
                 anyhow::bail!(
-                    "test failed for s={s}, num_rows={num_rows}, expect={expect}, output={output}"
+                    "test failed for s={s}, num_rows={num_rows}, \
+                     expect={expect}, output={output}"
                 );
             }
         }
