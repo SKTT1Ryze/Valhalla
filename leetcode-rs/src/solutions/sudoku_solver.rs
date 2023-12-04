@@ -13,8 +13,9 @@ impl Solution for SolutionImpl {
         crate::location!()
     }
     fn test(&self) -> anyhow::Result<()> {
-        let transform =
-            |board: [[char; 9]; 9]| board.into_iter().map(|v| v.into_iter().collect()).collect();
+        let transform = |board: [[char; 9]; 9]| {
+            board.into_iter().map(|v| v.into_iter().collect()).collect()
+        };
 
         mut_test_helper(
             [transform([
@@ -62,7 +63,11 @@ impl SolutionImpl {
         if block == '.' {
             for k in '1'..='9' {
                 if !board[i].contains(&k)
-                    && !board.iter().map(|v| v[j]).collect::<Vec<_>>().contains(&k)
+                    && !board
+                        .iter()
+                        .map(|v| v[j])
+                        .collect::<Vec<_>>()
+                        .contains(&k)
                     && !board[(i / 3) * 3..(i / 3 + 1) * 3]
                         .iter()
                         .flat_map(|v| v[(j / 3) * 3..(j / 3 + 1) * 3].iter())

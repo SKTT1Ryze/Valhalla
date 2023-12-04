@@ -19,7 +19,9 @@ impl Solution for SolutionImpl {
             let output = Self::is_palindrome(x);
 
             if output != expect {
-                anyhow::bail!("test failed for x={x}, output={output}, expect={expect}");
+                anyhow::bail!(
+                    "test failed for x={x}, output={output}, expect={expect}"
+                );
             }
         }
 

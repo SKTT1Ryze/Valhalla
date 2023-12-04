@@ -5,6 +5,7 @@ use std::fmt::Debug;
 
 pub mod add_two_numbers;
 pub mod best_time_to_buy_and_sell_stock;
+pub mod best_time_to_buy_and_sell_stock_ii;
 pub mod climbing_stairs;
 pub mod combination_sum;
 pub mod combination_sum2;
@@ -160,7 +161,10 @@ where
         let output = f(input.clone());
 
         if output != expect {
-            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+            anyhow::bail!(
+                "test failed for input={input:?}, expect={expect:?}, \
+                 output={output:?}"
+            )
         }
     }
 
@@ -179,14 +183,21 @@ where
         f(&mut output);
 
         if output != expect {
-            anyhow::bail!("test failed for input={input:?}, expect={expect:?}, output={output:?}")
+            anyhow::bail!(
+                "test failed for input={input:?}, expect={expect:?}, \
+                 output={output:?}"
+            )
         }
     }
 
     Ok(())
 }
 
-pub fn list_test_helper<T, E, I, X, F>(testcases: I, expects: X, f: F) -> Result<()>
+pub fn list_test_helper<T, E, I, X, F>(
+    testcases: I,
+    expects: X,
+    f: F,
+) -> Result<()>
 where
     T: Debug + Clone,
     E: Debug + Eq,

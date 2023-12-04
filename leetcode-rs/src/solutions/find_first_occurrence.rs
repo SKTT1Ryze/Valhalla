@@ -25,8 +25,8 @@ impl Solution for SolutionImpl {
 
             if output != expect {
                 anyhow::bail!(
-                    "test failed for haystack={haystack}, needle={needle}, expect={expect}, \
-                     output={output}"
+                    "test failed for haystack={haystack}, needle={needle}, \
+                     expect={expect}, output={output}"
                 );
             }
         }

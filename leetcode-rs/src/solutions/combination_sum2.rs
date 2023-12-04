@@ -19,16 +19,19 @@ impl Solution for SolutionImpl {
                 (vec![2, 5, 2, 1, 2], 5),
                 (
                     vec![
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1,
                     ],
                     27,
                 ),
                 (
                     vec![
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                     ],
                     30,
                 ),
@@ -38,8 +41,8 @@ impl Solution for SolutionImpl {
                 vec![vec![1, 2, 2], vec![5]],
                 vec![],
                 vec![vec![
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                 ]],
             ],
             |(candidates, target)| {
@@ -52,7 +55,10 @@ impl Solution for SolutionImpl {
 }
 
 impl SolutionImpl {
-    pub fn combination_sum2(mut candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+    pub fn combination_sum2(
+        mut candidates: Vec<i32>,
+        target: i32,
+    ) -> Vec<Vec<i32>> {
         let mut ans = Vec::new();
         candidates.sort();
         Self::backtrack(0, target, &mut Vec::new(), &candidates, &mut ans);
@@ -78,7 +84,13 @@ impl SolutionImpl {
                 continue;
             }
             path.push(candidates[i]);
-            Self::backtrack(i + 1, target - candidates[i], path, candidates, result);
+            Self::backtrack(
+                i + 1,
+                target - candidates[i],
+                path,
+                candidates,
+                result,
+            );
             path.pop();
         }
     }

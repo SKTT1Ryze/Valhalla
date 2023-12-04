@@ -24,7 +24,9 @@ impl Solution for SolutionImpl {
             let output = Self::my_atoi(s.to_string());
 
             if output != expect {
-                anyhow::bail!("test failed for s={s}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for s={s}, expect={expect}, output={output}"
+                );
             }
         }
 
@@ -84,11 +86,8 @@ impl SolutionImpl {
 
         let mut acc = 0;
         for (p, e) in v.into_iter().rev().enumerate() {
-            acc = Self::cal_overflow(acc, e, p, positive).unwrap_or(if positive {
-                i32::MAX
-            } else {
-                i32::MIN
-            });
+            acc = Self::cal_overflow(acc, e, p, positive)
+                .unwrap_or(if positive { i32::MAX } else { i32::MIN });
         }
 
         acc

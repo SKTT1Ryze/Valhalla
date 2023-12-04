@@ -23,7 +23,12 @@ impl Solution for SolutionImpl {
             ),
             (
                 "wordgoodgoodgoodbestword",
-                vec!["word".into(), "good".into(), "best".into(), "word".into()],
+                vec![
+                    "word".into(),
+                    "good".into(),
+                    "best".into(),
+                    "word".into(),
+                ],
                 vec![],
             ),
             (
@@ -33,7 +38,12 @@ impl Solution for SolutionImpl {
             ),
             (
                 "wordgoodgoodgoodbestword",
-                vec!["word".into(), "good".into(), "best".into(), "good".into()],
+                vec![
+                    "word".into(),
+                    "good".into(),
+                    "best".into(),
+                    "good".into(),
+                ],
                 vec![8],
             ),
             ("a", vec!["a".into(), "a".into()], vec![]),
@@ -44,7 +54,8 @@ impl Solution for SolutionImpl {
 
             if output != expect {
                 anyhow::bail!(
-                    "test failed for s={s}, words={words:?}, expect={expect:?}, output={output:?}"
+                    "test failed for s={s}, words={words:?}, \
+                     expect={expect:?}, output={output:?}"
                 );
             }
         }

@@ -1,7 +1,8 @@
 use super::Solution;
 use std::collections::HashMap;
 
-const TEST_CASES: [(&str, &str); 3] = [("babad", "bab"), ("cbbd", "bb"), ("aaaaa", "aaaaa")];
+const TEST_CASES: [(&str, &str); 3] =
+    [("babad", "bab"), ("cbbd", "bb"), ("aaaaa", "aaaaa")];
 
 pub struct SolutionImpl;
 
@@ -20,7 +21,10 @@ impl Solution for SolutionImpl {
             let output = Self::longest_palindrome(input.into());
 
             if expect != output {
-                anyhow::bail!("test failed for input={input}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for input={input}, expect={expect}, \
+                     output={output}"
+                );
             }
         }
 
@@ -73,7 +77,8 @@ pub struct SolutionImplDP;
 
 impl Solution for SolutionImplDP {
     fn name(&self) -> String {
-        "Solution for Longest Palindromic Substring with Dynamic Programming".into()
+        "Solution for Longest Palindromic Substring with Dynamic Programming"
+            .into()
     }
     fn problem_id(&self) -> usize {
         5
@@ -86,7 +91,10 @@ impl Solution for SolutionImplDP {
             let output = Self::longest_palindrome(input.into());
 
             if expect != output {
-                anyhow::bail!("test failed for input={input}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for input={input}, expect={expect}, \
+                     output={output}"
+                );
             }
         }
 

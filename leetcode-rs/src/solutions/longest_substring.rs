@@ -4,7 +4,8 @@ use super::Solution;
 
 pub struct SolutionImpl;
 
-const TESTCASES: [(&str, i32); 3] = [("abcabcbb", 3), ("bbbbb", 1), ("pwwkew", 3)];
+const TESTCASES: [(&str, i32); 3] =
+    [("abcabcbb", 3), ("bbbbb", 1), ("pwwkew", 3)];
 
 impl Solution for SolutionImpl {
     fn name(&self) -> String {
@@ -21,7 +22,10 @@ impl Solution for SolutionImpl {
             let output = Self::length_of_longest_substring(input.to_string());
 
             if output != expect {
-                anyhow::bail!("test failed for input={input}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for input={input}, expect={expect}, \
+                     output={output}"
+                );
             }
         }
         Ok(())
@@ -61,7 +65,9 @@ pub struct SolutionImplHashMap;
 
 impl Solution for SolutionImplHashMap {
     fn name(&self) -> String {
-        "Solution for Longest Substring Without Repeating Characters using HashMap".into()
+        "Solution for Longest Substring Without Repeating Characters using \
+         HashMap"
+            .into()
     }
     fn problem_id(&self) -> usize {
         3
@@ -74,7 +80,10 @@ impl Solution for SolutionImplHashMap {
             let output = Self::length_of_longest_substring(input.to_string());
 
             if output != expect {
-                anyhow::bail!("test failed for input={input}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for input={input}, expect={expect}, \
+                     output={output}"
+                );
             }
         }
         Ok(())

@@ -37,7 +37,11 @@ impl SolutionImpl {
         ans.into_iter().collect()
     }
 
-    fn backtrack(nums: &mut Vec<i32>, start: usize, ans: &mut HashSet<Vec<i32>>) {
+    fn backtrack(
+        nums: &mut Vec<i32>,
+        start: usize,
+        ans: &mut HashSet<Vec<i32>>,
+    ) {
         ans.insert(nums.clone());
         let n = nums.len();
         if start < n - 1 {

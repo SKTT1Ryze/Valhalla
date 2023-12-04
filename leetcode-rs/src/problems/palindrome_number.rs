@@ -8,6 +8,7 @@ crate::derive_problem!(
     Difficulty::Easy,
     Topic::Algorithms,
     "Palindrome Number",
-    "Given an integer x, return true if x is a palindrome, and false otherwise.",
+    "Given an integer x, return true if x is a palindrome, and false \
+     otherwise.",
     "Math".into()
 );

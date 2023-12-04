@@ -19,7 +19,9 @@ impl Solution for SolutionImpl {
             let output = Self::reverse(x);
 
             if output != expect {
-                anyhow::bail!("test failed for x={x}, expect={expect}, output={output}");
+                anyhow::bail!(
+                    "test failed for x={x}, expect={expect}, output={output}"
+                );
             }
         }
 

@@ -14,12 +14,16 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     register!(handle, add_two_numbers);
 
     register!(handle, longest_substring);
-    handle.register_solution(|_| solutions::longest_substring::SolutionImplHashMap)?;
+    handle.register_solution(|_| {
+        solutions::longest_substring::SolutionImplHashMap
+    })?;
 
     register!(handle, median_of_two_sorted_arrays);
 
     register!(handle, longest_palindromic_substring);
-    handle.register_solution(|_| solutions::longest_palindromic_substring::SolutionImplDP)?;
+    handle.register_solution(|_| {
+        solutions::longest_palindromic_substring::SolutionImplDP
+    })?;
 
     register!(handle, zigzag_conversion);
 
@@ -96,6 +100,8 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
     register!(handle, remove_duplicates_from_sorted_array_ii);
 
     register!(handle, best_time_to_buy_and_sell_stock);
+
+    register!(handle, best_time_to_buy_and_sell_stock_ii);
 
     Ok(())
 }

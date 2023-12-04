@@ -37,7 +37,9 @@ impl Solution for SolutionImpl {
 }
 
 impl SolutionImpl {
-    pub fn swap_pairs(mut head: Option<Box<ListNode<i32>>>) -> Option<Box<ListNode<i32>>> {
+    pub fn swap_pairs(
+        mut head: Option<Box<ListNode<i32>>>,
+    ) -> Option<Box<ListNode<i32>>> {
         let mut res = Box::new(ListNode::new(0));
         let mut p = &mut res;
 

@@ -16,7 +16,8 @@ crate::derive_solution!(
 impl SolutionImpl {
     pub fn first_missing_positive(nums: Vec<i32>) -> i32 {
         let n = nums.len();
-        let set: HashSet<_> = nums.into_iter().filter(|x| x.is_positive()).collect();
+        let set: HashSet<_> =
+            nums.into_iter().filter(|x| x.is_positive()).collect();
 
         for i in 0..n {
             let target = i as i32 + 1;
