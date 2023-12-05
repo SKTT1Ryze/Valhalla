@@ -105,5 +105,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, gas_station);
 
+    register!(handle, candy);
+
     Ok(())
 }
