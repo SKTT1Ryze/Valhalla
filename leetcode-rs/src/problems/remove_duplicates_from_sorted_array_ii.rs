@@ -9,4 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Remove Duplicates from Sorted Array II",
     "",
+    "Array".into(),
+    "Two Pointer".into()
 );
