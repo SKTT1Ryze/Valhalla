@@ -13,6 +13,21 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn candy(ratings: Vec<i32>) -> i32 {
-        todo!()
+        let n = ratings.len();
+        let mut candis = vec![1; n];
+
+        for i in 1..n {
+            if ratings[i] > ratings[i - 1] {
+                candis[i] = candis[i - 1] + 1;
+            }
+        }
+
+        for i in (0..n - 1).rev() {
+            if ratings[i] > ratings[i + 1] {
+                candis[i] = candis[i].max(candis[i + 1] + 1);
+            }
+        }
+
+        candis.into_iter().sum()
     }
 }
