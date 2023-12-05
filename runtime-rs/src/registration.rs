@@ -107,7 +107,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, candy);
 
-    register!(handle, largest_number)
+    register!(handle, largest_number);
 
     Ok(())
 }

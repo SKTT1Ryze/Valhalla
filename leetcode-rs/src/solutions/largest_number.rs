@@ -13,6 +13,17 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn largest_number(nums: Vec<i32>) -> String {
-        todo!()
+        let mut num_strs: Vec<_> =
+            nums.into_iter().map(|num| num.to_string()).collect();
+
+        num_strs.sort_by(|a, b| (b.clone() + a).cmp(&(a.clone() + b)));
+
+        let result: String = num_strs.join("").trim_start_matches('0').into();
+
+        if result.is_empty() {
+            "0".to_string()
+        } else {
+            result
+        }
     }
 }
