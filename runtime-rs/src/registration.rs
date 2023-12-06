@@ -109,5 +109,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, largest_number);
 
+    register!(handle, set_matrix_zeroes);
+
     Ok(())
 }
