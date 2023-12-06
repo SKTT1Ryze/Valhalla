@@ -33,6 +33,7 @@ pub mod reverse_integer;
 pub mod rotate_image;
 pub mod rotate_list;
 pub mod search_insert_position;
+pub mod set_matrix_zeroes;
 pub mod sort_colors;
 pub mod string_to_integer;
 pub mod substring_with_concatenation;
