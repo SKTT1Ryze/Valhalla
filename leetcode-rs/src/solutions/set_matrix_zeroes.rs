@@ -1,4 +1,5 @@
 use super::{mut_test_helper, Solution};
+use std::collections::HashSet;
 
 pub struct SolutionImpl;
 
@@ -20,6 +21,33 @@ crate::derive_inplace_solution!(
 impl SolutionImpl {
     #[allow(clippy::ptr_arg)]
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
-        todo!()
+        let m = matrix.len();
+        let n = matrix[0].len();
+
+        let mut zero_rows = HashSet::new();
+        let mut zero_cols = HashSet::new();
+
+        #[allow(clippy::needless_range_loop)]
+        for i in 0..m {
+            for j in 0..n {
+                if matrix[i][j] == 0 {
+                    zero_rows.insert(i);
+                    zero_cols.insert(j);
+                }
+            }
+        }
+
+        for &row in &zero_rows {
+            for j in 0..n {
+                matrix[row][j] = 0;
+            }
+        }
+
+        #[allow(clippy::needless_range_loop)]
+        for &col in &zero_cols {
+            for i in 0..m {
+                matrix[i][col] = 0;
+            }
+        }
     }
 }
