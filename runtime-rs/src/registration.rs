@@ -111,5 +111,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, set_matrix_zeroes);
 
+    register!(handle, minimum_window_substring);
+
     Ok(())
 }
