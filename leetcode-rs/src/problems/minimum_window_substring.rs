@@ -9,5 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Minimum Window Substring",
     "",
-    "Hash Map".into()
+    "Hash Map".into(),
+    "Two Pointer".into()
 );
