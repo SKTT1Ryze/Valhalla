@@ -113,5 +113,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, minimum_window_substring);
 
+    register!(handle, spiral_matrix);
+
     Ok(())
 }
