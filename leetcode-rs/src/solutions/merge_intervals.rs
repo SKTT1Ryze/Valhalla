@@ -18,7 +18,27 @@ crate::derive_solution!(
 );
 
 impl SolutionImpl {
-    pub fn merge(intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        todo!()
+    pub fn merge(mut intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        intervals.sort();
+        let mut res = Vec::new();
+        let n = intervals.len();
+        let mut start = intervals[0][0];
+        let mut end = intervals[0][1];
+
+        for (i, interval) in intervals.into_iter().enumerate() {
+            if end < interval[0] {
+                res.push(vec![start, end]);
+                start = interval[0];
+                end = interval[1];
+            } else {
+                start = start.min(interval[0]);
+                end = end.max(interval[1]);
+            }
+            if i == n - 1 {
+                res.push(vec![start, end]);
+            }
+        }
+
+        res
     }
 }
