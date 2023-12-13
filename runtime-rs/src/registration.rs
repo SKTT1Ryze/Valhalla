@@ -115,5 +115,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, spiral_matrix);
 
+    register!(handle, merge_intervals);
+
     Ok(())
 }
