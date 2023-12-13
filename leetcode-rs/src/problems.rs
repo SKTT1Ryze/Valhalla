@@ -20,6 +20,7 @@ pub mod longest_substring;
 pub mod longest_valid_parentheses;
 pub mod maximum_subarray;
 pub mod median_of_two_sorted_arrays;
+pub mod merge_intervals;
 pub mod minimum_path_sum;
 pub mod minimum_window_substring;
 pub mod multiply_strings;
