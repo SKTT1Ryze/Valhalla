@@ -117,5 +117,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, merge_intervals);
 
+    register!(handle, insert_interval);
+
     Ok(())
 }

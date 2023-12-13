@@ -17,6 +17,7 @@ pub mod find_first_occurrence;
 pub mod first_missing_positive;
 pub mod gas_station;
 pub mod group_anagrams;
+pub mod insert_interval;
 pub mod jump_game;
 pub mod jump_game_ii;
 pub mod largest_number;
