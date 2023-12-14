@@ -17,6 +17,21 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn length_of_last_word(s: String) -> i32 {
-        todo!()
+        let chars = s.chars();
+        let mut ans = 0;
+        let mut started = false;
+
+        for ch in chars.rev() {
+            if ch == ' ' {
+                if started {
+                    break;
+                }
+            } else {
+                started = true;
+                ans += 1;
+            }
+        }
+
+        ans
     }
 }
