@@ -121,5 +121,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, length_of_last_word);
 
+    register!(handle, spiral_matrix_ii);
+
     Ok(())
 }
