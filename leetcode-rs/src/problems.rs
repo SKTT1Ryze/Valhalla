@@ -16,6 +16,7 @@ pub mod insert_interval;
 pub mod jump_game;
 pub mod jump_game_ii;
 pub mod largest_number;
+pub mod length_of_last_word;
 pub mod longest_palindromic_substring;
 pub mod longest_substring;
 pub mod longest_valid_parentheses;
