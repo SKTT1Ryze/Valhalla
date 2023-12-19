@@ -3,6 +3,7 @@ use crate::list::assert_eq_list;
 use anyhow::Result;
 use std::fmt::Debug;
 
+pub mod add_binary;
 pub mod add_two_numbers;
 pub mod best_time_to_buy_and_sell_stock;
 pub mod best_time_to_buy_and_sell_stock_ii;

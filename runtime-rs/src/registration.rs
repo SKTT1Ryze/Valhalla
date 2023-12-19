@@ -125,5 +125,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, plus_one);
 
+    register!(handle, add_binary);
+
     Ok(())
 }
