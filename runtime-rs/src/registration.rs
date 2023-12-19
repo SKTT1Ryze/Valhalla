@@ -123,5 +123,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, spiral_matrix_ii);
 
+    register!(handle, plus_one);
+
     Ok(())
 }
