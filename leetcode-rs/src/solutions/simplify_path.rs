@@ -13,6 +13,25 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn simplify_path(path: String) -> String {
-        todo!()
+        let mut res = Vec::<&str>::new();
+        let idents: Vec<&str> = path.split('/').collect();
+
+        println!("{idents:?}");
+
+        for ident in idents {
+            match ident {
+                "/" | "." | "" => {
+                    // do nothing
+                }
+                ".." => {
+                    res.pop();
+                }
+                _ => {
+                    res.push(ident);
+                }
+            }
+        }
+
+        format!("/{}", res.join("/"))
     }
 }
