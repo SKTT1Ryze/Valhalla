@@ -43,6 +43,7 @@ pub mod set_matrix_zeroes;
 pub mod sort_colors;
 pub mod spiral_matrix;
 pub mod spiral_matrix_ii;
+pub mod sqrtx;
 pub mod string_to_integer;
 pub mod substring_with_concatenation;
 pub mod sudoku_solver;
