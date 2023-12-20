@@ -45,6 +45,7 @@ pub mod rotate_image;
 pub mod rotate_list;
 pub mod search_insert_position;
 pub mod set_matrix_zeroes;
+pub mod simplify_path;
 pub mod sort_colors;
 pub mod spiral_matrix;
 pub mod spiral_matrix_ii;
