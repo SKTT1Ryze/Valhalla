@@ -27,6 +27,7 @@ pub mod merge_intervals;
 pub mod minimum_path_sum;
 pub mod minimum_window_substring;
 pub mod multiply_strings;
+pub mod n_queens;
 pub mod palindrome_number;
 pub mod permutations;
 pub mod permutations_ii;
