@@ -133,5 +133,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, n_queens);
 
+    register!(handle, n_queens_ii);
+
     Ok(())
 }
