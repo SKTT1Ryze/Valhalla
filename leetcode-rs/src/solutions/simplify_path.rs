@@ -16,8 +16,6 @@ impl SolutionImpl {
         let mut res = Vec::<&str>::new();
         let idents: Vec<&str> = path.split('/').collect();
 
-        println!("{idents:?}");
-
         for ident in idents {
             match ident {
                 "/" | "." | "" => {
