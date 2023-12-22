@@ -35,6 +35,7 @@ pub mod multiply_strings;
 pub mod n_queens;
 pub mod n_queens_ii;
 pub mod palindrome_number;
+pub mod permutation_sequence;
 pub mod permutations;
 pub mod permutations_ii;
 pub mod plus_one;
