@@ -137,5 +137,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, permutation_sequence);
 
+    register!(handle, valid_number);
+
     Ok(())
 }
