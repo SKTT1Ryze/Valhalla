@@ -141,5 +141,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, edit_distance);
 
+    register!(handle, text_justification);
+
     Ok(())
 }

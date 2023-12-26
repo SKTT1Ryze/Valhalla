@@ -53,6 +53,7 @@ pub mod string_to_integer;
 pub mod substring_with_concatenation;
 pub mod sudoku_solver;
 pub mod swap_nodes_in_pairs;
+pub mod text_justification;
 pub mod trapping_rain_water;
 pub mod two_sum;
 pub mod unique_paths;
