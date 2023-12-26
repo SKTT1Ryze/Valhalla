@@ -143,5 +143,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, text_justification);
 
+    register!(handle, search_2d_matrix);
+
     Ok(())
 }
