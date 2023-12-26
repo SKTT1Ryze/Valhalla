@@ -22,7 +22,6 @@ impl SolutionImpl {
         let (mut col_start, mut col_end) = (0, n - 1);
         let mut num = 1;
 
-        #[allow(clippy::needless_range_loop)]
         while row_start <= row_end && col_start <= col_end {
             for j in col_start..=col_end {
                 matrix[row_start as usize][j as usize] = num;

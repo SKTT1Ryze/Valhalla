@@ -1,3 +1,5 @@
+#![allow(clippy::needless_range_loop)]
+
 use super::list::ListNode;
 use crate::list::assert_eq_list;
 use anyhow::Result;

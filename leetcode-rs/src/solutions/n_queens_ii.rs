@@ -49,7 +49,6 @@ impl SolutionImpl {
         }
 
         // Check if there is a queen in the same column
-        #[allow(clippy::needless_range_loop)]
         for i in 0..row {
             if board[i][col] == 'Q' {
                 return false;
