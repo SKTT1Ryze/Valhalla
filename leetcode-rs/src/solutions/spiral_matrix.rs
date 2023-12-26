@@ -27,7 +27,6 @@ impl SolutionImpl {
         let (mut row_start, mut row_end) = (0, matrix.len() as i32 - 1);
         let (mut col_start, mut col_end) = (0, matrix[0].len() as i32 - 1);
 
-        #[allow(clippy::needless_range_loop)]
         while row_start <= row_end && col_start <= col_end {
             // Traverse right
             for j in col_start..=col_end {

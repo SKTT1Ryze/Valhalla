@@ -27,7 +27,6 @@ impl SolutionImpl {
         let mut zero_rows = HashSet::new();
         let mut zero_cols = HashSet::new();
 
-        #[allow(clippy::needless_range_loop)]
         for i in 0..m {
             for j in 0..n {
                 if matrix[i][j] == 0 {
@@ -43,7 +42,6 @@ impl SolutionImpl {
             }
         }
 
-        #[allow(clippy::needless_range_loop)]
         for &col in &zero_cols {
             for i in 0..m {
                 matrix[i][col] = 0;

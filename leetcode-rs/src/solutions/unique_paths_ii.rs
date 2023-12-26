@@ -22,7 +22,6 @@ impl SolutionImpl {
         let n = obstacle_grid[0].len();
         let mut dp = vec![vec![0; n]; m];
 
-        #[allow(clippy::needless_range_loop)]
         for i in 0..m {
             if obstacle_grid[i][0] != 1 {
                 dp[i][0] = 1;
