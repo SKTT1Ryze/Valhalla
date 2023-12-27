@@ -145,5 +145,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, search_2d_matrix);
 
+    register!(handle, combinations);
+
     Ok(())
 }
