@@ -64,6 +64,7 @@ pub mod unique_paths_ii;
 pub mod valid_number;
 pub mod valid_sudoku;
 pub mod wildcard_matching;
+pub mod word_search;
 pub mod zigzag_conversion;
 
 #[allow(dead_code)]

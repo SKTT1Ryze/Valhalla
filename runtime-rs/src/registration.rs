@@ -149,5 +149,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, subsets);
 
+    register!(handle, word_search);
+
     Ok(())
 }
