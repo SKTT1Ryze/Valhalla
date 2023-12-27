@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use super::{test_helper, Solution};
+use std::collections::HashSet;
 
 pub struct SolutionImpl;
 
