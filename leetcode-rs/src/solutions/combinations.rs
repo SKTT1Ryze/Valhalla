@@ -7,14 +7,17 @@ crate::derive_solution!(
     77,
     "Combinations",
     [(4, 2), (1, 1)],
-    [vec![
-        vec![1, 2],
-        vec![1, 3],
-        vec![1, 4],
-        vec![2, 3],
-        vec![2, 4],
-        vec![3, 4]
-    ],],
+    [
+        vec![
+            vec![1, 2],
+            vec![1, 3],
+            vec![1, 4],
+            vec![2, 3],
+            vec![2, 4],
+            vec![3, 4]
+        ],
+        vec![vec![1]]
+    ],
     |(n, k)| Self::combine(n, k)
 );
 
