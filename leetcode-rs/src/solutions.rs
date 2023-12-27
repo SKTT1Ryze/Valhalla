@@ -59,6 +59,7 @@ pub mod spiral_matrix;
 pub mod spiral_matrix_ii;
 pub mod sqrtx;
 pub mod string_to_integer;
+pub mod subsets;
 pub mod substring_with_concatenation;
 pub mod sudoku_solver;
 pub mod swap_nodes_in_pairs;

@@ -147,5 +147,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, combinations);
 
+    register!(handle, subsets);
+
     Ok(())
 }
