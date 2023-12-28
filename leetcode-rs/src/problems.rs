@@ -44,6 +44,7 @@ pub mod reverse_integer;
 pub mod rotate_image;
 pub mod rotate_list;
 pub mod search_2d_matrix;
+pub mod search_in_rotated_sorted_array_ii;
 pub mod search_insert_position;
 pub mod set_matrix_zeroes;
 pub mod simplify_path;

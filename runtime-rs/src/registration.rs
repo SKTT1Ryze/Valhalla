@@ -151,5 +151,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, word_search);
 
+    register!(handle, search_in_rotated_sorted_array_ii);
+
     Ok(())
 }
