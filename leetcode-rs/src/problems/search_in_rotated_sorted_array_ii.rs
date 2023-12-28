@@ -9,5 +9,6 @@ crate::derive_problem!(
     Topic::Algorithms,
     "Search in Rotated Sorted Array II",
     "",
-    "Array".into()
+    "Array".into(),
+    "Binary Search".into()
 );
