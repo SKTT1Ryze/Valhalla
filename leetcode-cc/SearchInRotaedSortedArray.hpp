@@ -17,15 +17,10 @@ class SSearchInRotatedSortedArray : public ISolution {
   }
   string location() const override { return __FILE_NAME__; }
   int test() const override {
-    auto testCases = {
-        make_tuple<vector<int>, int, int>({4, 5, 6, 7, 0, 1, 2}, 0, 4)};
-
-    for (const auto& [nums, target, expect] : testCases) {
-      auto output = this->search(nums, target);
-
-      if (output != expect) return 1;
-    }
-    return 0;
+    return testHelper<tuple<vector<int>, int>, int>(
+        {{{4, 5, 6, 7, 0, 1, 2}, 0}}, {4}, [this](auto input) {
+          return this->search(get<0>(input), get<1>(input));
+        });
   };
   int benchmark() const override { return 0; }
 
