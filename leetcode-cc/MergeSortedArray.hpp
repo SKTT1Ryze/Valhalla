@@ -33,5 +33,22 @@ class SMergeSortedArray : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) const {}
+  void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) const {
+    int i = m - 1;
+    int j = n - 1;
+    int k = m + n - 1;
+
+    // from back to front
+    while (i >= 0 && j >= 0) {
+      if (nums1[i] > nums2[j]) {
+        nums1[k--] = nums1[i--];
+      } else {
+        nums1[k--] = nums2[j--];
+      }
+    }
+
+    while (j >= 0) {
+      nums1[k--] = nums2[j--];
+    }
+  }
 };
