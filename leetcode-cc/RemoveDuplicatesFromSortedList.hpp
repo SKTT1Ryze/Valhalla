@@ -27,5 +27,22 @@ class SRemoveDuplicatesFromSortedList : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* deleteDuplicates(ListNode* head) const {}
+  ListNode* deleteDuplicates(ListNode* head) const {
+    auto p = head;
+
+    while (p) {
+      if (p->next) {
+        if (p->val == p->next->val) {
+          auto temp = p->next;
+          p->next = p->next->next;
+          delete temp;
+          continue;
+        }
+      }
+
+      p = p->next;
+    }
+
+    return head;
+  }
 };
