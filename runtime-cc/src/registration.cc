@@ -7,6 +7,7 @@
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
+#include "../leetcode-cc/MergeSortedArray.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
@@ -124,6 +125,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SRemoveDuplicatesFromSortedListII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMergeSortedArray>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMergeSortedArray>(); });
 
   return 0;
 }
