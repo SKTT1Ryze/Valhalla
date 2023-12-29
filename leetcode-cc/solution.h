@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <cstddef>
-#include <functional>
 #include <string>
 #include <vector>
 
@@ -17,14 +16,3 @@ class ISolution {
   virtual int benchmark() const = 0;
   virtual ~ISolution() {}
 };
-
-template <typename T, typename N>
-int testHelper(std::vector<T> Inputs, std::vector<N> Expects,
-               std::function<N(T)> function) {
-  int n = std::min(Inputs.size(), Expects.size());
-  for (int i = 0; i < n; i++) {
-    auto output = function(Inputs[i]);
-    if (output != Expects[i]) return 1;
-  }
-  return 0;
-}
