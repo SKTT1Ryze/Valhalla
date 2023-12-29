@@ -9,6 +9,7 @@
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
+#include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
 #include "../leetcode-cc/RemoveElement.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
@@ -107,6 +108,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SSearchInRotatedSortedArray>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PRemoveDuplicatesFromSortedList>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SRemoveDuplicatesFromSortedList>();
   });
 
   return 0;
