@@ -10,6 +10,7 @@
 #include "../leetcode-cc/MergeSortedArray.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
+#include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedListII.hpp"
 #include "../leetcode-cc/RemoveElement.hpp"
@@ -130,6 +131,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMergeSortedArray>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMergeSortedArray>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PPartitionList>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SPartitionList>(); });
 
   return 0;
 }
