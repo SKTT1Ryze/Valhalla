@@ -34,5 +34,25 @@ class SPartitionList : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* partition(ListNode* head, int x) const {}
+  ListNode* partition(ListNode* head, int x) const {
+    auto newHead1 = new ListNode();
+    auto newHead2 = new ListNode();
+    newHead2->next = head;
+    auto p1 = newHead1;
+    auto p2 = newHead2;
+
+    while (p2->next) {
+      if (p2->next->val < x) {
+        p1->next = p2->next;
+        p1 = p1->next;
+        p2->next = p2->next->next;
+      } else {
+        p2 = p2->next;
+      }
+    }
+
+    p1->next = newHead2->next;
+
+    return newHead1->next;
+  }
 };
