@@ -14,7 +14,7 @@ class SSearchInRotatedSortedArray : public ISolution {
  public:
   size_t problemId() const override { return 33; }
   string name() const override {
-    return "Solution Search In Rotated Sorted Array";
+    return "Solution for Search In Rotated Sorted Array";
   }
   string location() const override { return __FILE_NAME__; }
   int test() const override {

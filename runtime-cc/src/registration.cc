@@ -4,6 +4,7 @@
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
+#include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
@@ -136,6 +137,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPartitionList>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPartitionList>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PLargestRectangleInHistogram>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SLargestRectangleInHistogram>();
+  });
 
   return 0;
 }
