@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <stack>
 #include <tuple>
 
 #include "TestHelper.h"
@@ -29,5 +31,23 @@ class SLargestRectangleInHistogram : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int largestRectangleArea(vector<int>& heights) const {}
+  int largestRectangleArea(vector<int>& heights) const {
+    stack<int> s;
+    int maxArea = 0;
+
+    for (int i = 0; i <= heights.size(); ++i) {
+      while (!s.empty() &&
+             (i == heights.size() || heights[i] < heights[s.top()])) {
+        int height = heights[s.top()];
+        s.pop();
+
+        int width = s.empty() ? i : i - s.top() - 1;
+        maxArea = max(maxArea, height * width);
+      }
+
+      s.push(i);
+    }
+
+    return maxArea;
+  }
 };
