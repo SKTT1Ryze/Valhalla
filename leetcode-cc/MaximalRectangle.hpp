@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <stack>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -27,5 +30,37 @@ class SMaximalRectangle : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maximalRectangle(vector<vector<char>>& matrix) const {}
+  int maximalRectangle(vector<vector<char>>& matrix) const {
+    int m = matrix.size();
+    int n = matrix[0].size();
+    vector<int> heights(n, 0);
+    int res = 0;
+
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        if (matrix[i][j] == '1') {
+          heights[j]++;
+        } else {
+          heights[j] = 0;
+        }
+      }
+
+      stack<int> s;
+      int maxArea = 0;
+      for (int i = 0; i <= n; i++) {
+        while (!s.empty() && (i == n || heights[i] < heights[s.top()])) {
+          int height = heights[s.top()];
+          s.pop();
+          int width = s.empty() ? i : i - s.top() - 1;
+          maxArea = max(maxArea, height * width);
+        }
+
+        s.push(i);
+      }
+
+      res = max(res, maxArea);
+    }
+
+    return res;
+  }
 };
