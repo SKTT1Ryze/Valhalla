@@ -7,6 +7,7 @@
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
+#include "../leetcode-cc/MaximalRectangle.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
@@ -144,6 +145,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SLargestRectangleInHistogram>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMaximalRectangle>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMaximalRectangle>(); });
 
   return 0;
 }
