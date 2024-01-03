@@ -3,6 +3,7 @@
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
+#include "../leetcode-cc/GrayCode.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
@@ -150,6 +151,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMaximalRectangle>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMaximalRectangle>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PGrayCode>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SGrayCode>(); });
 
   return 0;
 }
