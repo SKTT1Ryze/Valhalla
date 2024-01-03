@@ -5,7 +5,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PGrayCode, 89, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
-                        "Gray Code", "", {"Backtracking"});
+                        "Gray Code", "", {"Bit Manipulation"});
 
 class SGrayCode : public ISolution {
  public:
@@ -28,5 +28,11 @@ class SGrayCode : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<int> grayCode(int n) const {}
+  vector<int> grayCode(int n) const {
+    vector<int> codes;
+    for (int i = 0; i < (1 << n); ++i) {
+      codes.push_back(i ^ (i >> 1));
+    }
+    return codes;
+  }
 };
