@@ -18,6 +18,12 @@ class ISolution {
 };
 
 /**
+#include "TestHelper.h"
+#include "problem.h"
+#include "solution.h"
+
+using namespace std;
+
 class S : public ISolution {
  public:
   size_t problemId() const override { return; }

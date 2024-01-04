@@ -10,7 +10,7 @@ IMPLEMENT_PROBLEM_CLASS(PScrambleString, 87, DIFFI_HARD, TOPIC_ALGORITHMS,
 class SScrambleString : public ISolution {
  public:
   size_t problemId() const override { return 87; }
-  string name() const override { return "Scramble String"; }
+  string name() const override { return "Solution for Scramble String"; }
   string location() const override { return __FILE_NAME__; }
   int test() const override {
     return testHelper<tuple<string, string>, bool>(
