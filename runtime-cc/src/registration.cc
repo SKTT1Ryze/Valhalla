@@ -22,6 +22,7 @@
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
+#include "../leetcode-cc/SubsetsII.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
@@ -162,6 +163,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PScrambleString>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SScrambleString>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSubsetsII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSubsetsII>(); });
 
   return 0;
 }
