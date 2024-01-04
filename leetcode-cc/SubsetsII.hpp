@@ -1,3 +1,4 @@
+#include <unordered_set>
 #include <utility>
 
 #include "TestHelper.h"
@@ -28,11 +29,33 @@ class SSubsetsII : public ISolution {
       for (int i = 0; i < output.size(); i++) {
         if (!compareVectors(output[i], expect[i])) return 1;
       }
-      return 0;
     }
-  };
+
+    return 0;
+  }
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> subsetsWithDup(vector<int>& nums) const {}
+  vector<vector<int>> subsetsWithDup(vector<int>& nums) const {
+    vector<vector<int>> result;
+    vector<int> current;
+    sort(nums.begin(), nums.end());
+    this->backtrack(nums, 0, current, result);
+    return result;
+  }
+
+  void backtrack(const vector<int>& nums, int start, vector<int>& current,
+                 vector<vector<int>>& result) const {
+    result.push_back(current);
+
+    for (int i = start; i < nums.size(); i++) {
+      if (i > start && nums[i] == nums[i - 1]) {
+        continue;
+      }
+
+      current.push_back(nums[i]);
+      this->backtrack(nums, i + 1, current, result);
+      current.pop_back();
+    }
+  }
 };
