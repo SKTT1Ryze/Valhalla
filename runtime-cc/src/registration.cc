@@ -20,6 +20,7 @@
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
+#include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -156,6 +157,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PGrayCode>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SGrayCode>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PScrambleString>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SScrambleString>(); });
 
   return 0;
 }

@@ -16,3 +16,18 @@ class ISolution {
   virtual int benchmark() const = 0;
   virtual ~ISolution() {}
 };
+
+/**
+class S : public ISolution {
+ public:
+  size_t problemId() const override { return; }
+  string name() const override { return ""; }
+  string location() const override { return __FILE_NAME__; }
+  int test() const override {
+    return testHelper<>(, , [this](auto input) { return this->; });
+  };
+  int benchmark() const override { return 0; }
+
+ private:
+};
+**/
