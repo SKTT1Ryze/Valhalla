@@ -19,6 +19,7 @@
 #include "../leetcode-cc/RemoveDuplicatesFromSortedListII.hpp"
 #include "../leetcode-cc/RemoveElement.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
+#include "../leetcode-cc/ReverseLinkedListII.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
@@ -174,6 +175,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PDecodeWays>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SDecodeWays>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PReverseLinkedListII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SReverseLinkedListII>(); });
 
   return 0;
 }
