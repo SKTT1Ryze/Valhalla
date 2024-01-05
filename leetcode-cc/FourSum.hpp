@@ -4,7 +4,7 @@
 
 #include "problem.h"
 #include "solution.h"
-#include "util.h"
+#include "util.hpp"
 
 using namespace std;
 
@@ -37,7 +37,7 @@ class SFourSum : public ISolution {
 
       if (expect.size() != output.size() ||
           !is_permutation(expect.begin(), expect.end(), output.begin(),
-                          compareVectors)) {
+                          compareVectors<int>)) {
         return 1;
       }
     }

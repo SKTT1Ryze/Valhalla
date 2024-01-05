@@ -4,7 +4,7 @@
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
-#include "util.h"
+#include "util.hpp"
 
 using namespace std;
 

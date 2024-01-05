@@ -7,16 +7,16 @@
 
 using namespace std;
 
-#define ID 92
-#define NAME "Reverse Linked List II"
-
-IMPLEMENT_PROBLEM_CLASS(PReverseLinkedListII, ID, DIFFI_MEDIUM,
-                        TOPIC_ALGORITHMS, NAME, "", {"Linked List"});
+IMPLEMENT_PROBLEM_CLASS(PReverseLinkedListII, 92, DIFFI_MEDIUM,
+                        TOPIC_ALGORITHMS, "Reverse Linked List II", "",
+                        {"Linked List"});
 
 class SReverseLinkedListII : public ISolution {
  public:
-  size_t problemId() const override { return ID; }
-  string name() const override { return ("Solution for " + string(NAME)); }
+  size_t problemId() const override { return 92; }
+  string name() const override {
+    return ("Solution for " + string("Reverse Linked List II"));
+  }
   string location() const override { return __FILE_NAME__; }
   int test() const override {
     auto testCases = {make_tuple(vector<int>({1, 2, 3, 4, 5}), 2, 4,
