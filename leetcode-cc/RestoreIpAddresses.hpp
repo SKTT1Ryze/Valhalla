@@ -1,3 +1,4 @@
+#include <string>
 #include <tuple>
 
 #include "TestHelper.h"
@@ -8,7 +9,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PRestoreIPAddresses, 93, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
-                        "Restore IP Addresses", "", {""});
+                        "Restore IP Addresses", "", {"Backtracking"});
 
 class SRestoreIPAddresses : public ISolution {
  public:
@@ -38,5 +39,32 @@ class SRestoreIPAddresses : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<string> restoreIpAddresses(string s) const {}
+  vector<string> restoreIpAddresses(string s) const {
+    vector<std::string> result;
+    string current;
+    this->backtracking(s, 0, 0, current, result);
+    return result;
+  }
+
+  void backtracking(const string& s, int start, int segment, string& current,
+                    vector<string>& result) const {
+    if (start == s.size() && segment == 4) {
+      result.push_back(current);
+      return;
+    }
+
+    for (int i = 1; i <= 3; ++i) {
+      if (start + i > s.size()) {
+        break;
+      }
+
+      string str = s.substr(start, i);
+      int num = stoi(str);
+
+      if (num >= 0 && num <= 255 && (i == 1 || str[0] != '0')) {
+        string temp = current.empty() ? str : current + "." + str;
+        this->backtracking(s, start + i, segment + 1, temp, result);
+      }
+    }
+  }
 };
