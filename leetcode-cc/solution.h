@@ -24,6 +24,9 @@ class ISolution {
 
 using namespace std;
 
+IMPLEMENT_PROBLEM_CLASS(P, , DIFFI_, TOPIC_ALGORITHMS,
+                        "", "", {""});
+
 class S : public ISolution {
  public:
   size_t problemId() const override { return; }

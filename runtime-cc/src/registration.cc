@@ -1,5 +1,6 @@
 #include "registration.h"
 
+#include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
@@ -168,6 +169,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSubsetsII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSubsetsII>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PDecodeWays>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SDecodeWays>(); });
 
   return 0;
 }
