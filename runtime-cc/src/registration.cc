@@ -1,5 +1,6 @@
 #include "registration.h"
 
+#include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FourSum.hpp"
@@ -186,6 +187,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRestoreIPAddresses>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRestoreIPAddresses>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PBTreeInorderTraversal>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SBTreeInorderTraversal>();
+  });
 
   return 0;
 }
