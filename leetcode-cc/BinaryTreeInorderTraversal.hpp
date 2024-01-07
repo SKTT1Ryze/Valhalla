@@ -1,3 +1,5 @@
+#include <stack>
+
 #include "BinaryTree.h"
 #include "TestHelper.h"
 #include "problem.h"
@@ -32,5 +34,23 @@ class SBTreeInorderTraversal : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<int> inorderTraversal(TreeNode* root) const {}
+  vector<int> inorderTraversal(TreeNode* root) const {
+    stack<TreeNode*> s = {};
+    vector<int> ans = {};
+    auto node = root;
+
+    while (node != nullptr || !s.empty()) {
+      if (node != nullptr) {
+        s.push(node);
+        node = node->left;
+      } else {
+        node = s.top();
+        s.pop();
+        ans.push_back(node->val);
+        node = node->right;
+      }
+    }
+
+    return ans;
+  }
 };
