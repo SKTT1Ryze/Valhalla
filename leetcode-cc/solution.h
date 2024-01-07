@@ -22,18 +22,15 @@ class ISolution {
 #include "problem.h"
 #include "solution.h"
 
-#define ID
-#define NAME
-
 using namespace std;
 
-IMPLEMENT_PROBLEM_CLASS(P, ID, DIFFI_, TOPIC_ALGORITHMS,
-                        NAME, "", {""});
+IMPLEMENT_PROBLEM_CLASS(P, , DIFFI_, TOPIC_ALGORITHMS,
+                        , "", {""});
 
 class S : public ISolution {
  public:
-  size_t problemId() const override { return ID; }
-  string name() const override { return ("Solution for " + string(NAME)); }
+  size_t problemId() const override { return ; }
+  string name() const override { return ("Solution for " + string()); }
   string location() const override { return __FILE_NAME__; }
   int test() const override {
     return testHelper<>(, , [this](auto input) { return this->; });
