@@ -42,5 +42,36 @@ class SUqBinarySearchTreesII : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<TreeNode*> generateTrees(int n) const {}
+  vector<TreeNode*> generateTrees(int n) const {
+    if (n == 0) {
+      return {};
+    } else {
+      return this->backtracking(1, n);
+    }
+  }
+
+  vector<TreeNode*> backtracking(int start, int end) const {
+    vector<TreeNode*> result;
+
+    if (start > end) {
+      result.push_back(nullptr);
+      return result;
+    }
+
+    for (int i = start; i <= end; ++i) {
+      auto leftSubtrees = this->backtracking(start, i - 1);
+      auto rightSubtrees = this->backtracking(i + 1, end);
+
+      for (auto left : leftSubtrees) {
+        for (auto right : rightSubtrees) {
+          TreeNode* root = new TreeNode(i);
+          root->left = left;
+          root->right = right;
+          result.push_back(root);
+        }
+      }
+    }
+
+    return result;
+  }
 };

@@ -17,10 +17,12 @@ bool preorderCompBTree(TreeNode* root, const vector<int>& expect) {
         s.push(node);
         node = node->left;
       } else {
-        node = s.top();
-        s.pop();
-        node = node->right;
+        return false;
       }
+    } else {
+      node = s.top();
+      s.pop();
+      node = node->right;
     }
   }
 
