@@ -29,6 +29,7 @@
 #include "../leetcode-cc/SubsetsII.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
+#include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
@@ -194,6 +195,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBTreeInorderTraversal>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PUqBinarySearchTrees>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SUqBinarySearchTrees>(); });
 
   return 0;
 }
