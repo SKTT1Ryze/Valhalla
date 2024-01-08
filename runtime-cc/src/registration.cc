@@ -30,6 +30,7 @@
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
+#include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
@@ -200,6 +201,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PUqBinarySearchTrees>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SUqBinarySearchTrees>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PUqBinarySearchTreesII>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SUqBinarySearchTreesII>();
+  });
 
   return 0;
 }
