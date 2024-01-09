@@ -33,6 +33,7 @@
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
+#include "../leetcode-cc/ValidateBST.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -214,6 +215,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PInterleavingString>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SInterleavingString>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PValidateBST>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SValidateBST>(); });
 
   return 0;
 }

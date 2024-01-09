@@ -12,7 +12,7 @@ IMPLEMENT_PROBLEM_CLASS(PBTreeInorderTraversal, 94, DIFFI_EASY,
                         TOPIC_ALGORITHMS, "Binary Tree Inorder Traversal",
                         "Given the root of a binary tree, return the inorder "
                         "traversal of its nodes' values.",
-                        {"BinaryTree"});
+                        {"Binary Tree"});
 
 class SBTreeInorderTraversal : public ISolution {
  public:
