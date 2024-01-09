@@ -1,3 +1,5 @@
+#include <climits>
+
 #include "BinaryTree.h"
 #include "TestHelper.h"
 #include "problem.h"
@@ -23,10 +25,29 @@ class SValidateBST : public ISolution {
     root->left = new TreeNode(1);
     root->right = new TreeNode(3);
 
-    return this->isValidBST(root);
+    if (this->isValidBST(root)) return 0;
+    return 1;
   };
   int benchmark() const override { return 0; }
 
  private:
-  bool isValidBST(TreeNode* root) const {}
+  bool isValidBST(TreeNode* root) const {
+    return this->isValidBSTHelper(root, LONG_MIN, LONG_MAX);
+  }
+
+  bool isValidBSTHelper(TreeNode* node, long long lower,
+                        long long upper) const {
+    if (node == nullptr) {
+      return true;
+    }
+
+    int val = node->val;
+
+    if (val <= lower || val >= upper) {
+      return false;
+    }
+
+    return this->isValidBSTHelper(node->left, lower, val) &&
+           this->isValidBSTHelper(node->right, val, upper);
+  }
 };
