@@ -7,6 +7,7 @@
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
+#include "../leetcode-cc/InterleavingString.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
@@ -208,6 +209,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SUqBinarySearchTreesII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PInterleavingString>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SInterleavingString>(); });
 
   return 0;
 }
