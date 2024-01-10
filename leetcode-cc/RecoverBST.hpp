@@ -1,3 +1,5 @@
+#include <stack>
+
 #include "BinaryTree.h"
 #include "TestHelper.h"
 #include "problem.h"
@@ -30,5 +32,33 @@ class SRecoverBST : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  void recoverTree(TreeNode* root) const {}
+  void recoverTree(TreeNode* root) const {
+    stack<TreeNode*> s = {};
+    auto node = root;
+    TreeNode* node1 = nullptr;
+    TreeNode* node2 = nullptr;
+    TreeNode* pre = nullptr;
+
+    while (node != nullptr || !s.empty()) {
+      if (node) {
+        s.push(node);
+        node = node->left;
+      } else {
+        node = s.top();
+        s.pop();
+
+        if (pre && node->val <= pre->val) {
+          if (!node1) {
+            node1 = pre;
+          }
+          node2 = node;
+        }
+
+        pre = node;
+        node = node->right;
+      }
+    }
+
+    swap(node1->val, node2->val);
+  }
 };
