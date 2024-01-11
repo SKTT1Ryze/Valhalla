@@ -23,11 +23,9 @@ class SRecoverBST : public ISolution {
   }
   string location() const override { return __FILE_NAME__; }
   int test() const override {
-    auto root = new TreeNode(1);
-    root->left = new TreeNode(3);
-    root->left->right = new TreeNode(2);
-    this->recoverTree(root);
-    return 0;
+    return testHelperBinaryTree({"[1,3,null,null,2]", "[3,1,4,null,null,2]"},
+                                {"[3,1,null,null,2]", "[2,1,4,null,null,3]"},
+                                [this](auto root) { this->recoverTree(root); });
   };
   int benchmark() const override { return 0; }
 
