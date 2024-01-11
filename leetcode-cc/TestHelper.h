@@ -25,3 +25,17 @@ int testHelperLinkList(std::vector<std::vector<int>> Inputs,
 int testHelperBinaryTree(std::vector<std::string> Inputs,
                          std::vector<std::string> Expects,
                          std::function<void(TreeNode*)> function);
+
+template <typename T>
+int testHelperBinaryTreeV2(std::vector<std::string> Inputs,
+                           std::vector<T> Expects,
+                           std::function<T(TreeNode*)> function) {
+  int n = std::min(Inputs.size(), Expects.size());
+  for (int i = 0; i < n; i++) {
+    auto root = buildTree(Inputs[i]);
+    auto output = function(root);
+
+    if (output != Expects[i]) return 1;
+  }
+  return 0;
+}

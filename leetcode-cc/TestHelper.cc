@@ -1,7 +1,5 @@
 #include "TestHelper.h"
 
-#include "BinaryTree.h"
-
 int testHelperLinkList(std::vector<std::vector<int>> Inputs,
                        std::vector<std::vector<int>> Expects,
                        std::function<ListNode*(ListNode*)> function) {
