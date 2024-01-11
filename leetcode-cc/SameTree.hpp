@@ -27,10 +27,19 @@ class SSameTree : public ISolution {
     q->left = new TreeNode(2);
     q->right = new TreeNode(3);
 
-    return this->isSameTree(p, q) == true;
+    return this->isSameTree(p, q) == true ? 0 : 1;
   };
   int benchmark() const override { return 0; }
 
  private:
-  bool isSameTree(TreeNode* p, TreeNode* q) const {}
+  bool isSameTree(TreeNode* p, TreeNode* q) const {
+    if (p != nullptr && q != nullptr) {
+      return p->val == q->val && this->isSameTree(p->left, q->left) &&
+             this->isSameTree(p->right, q->right);
+    } else if (p == nullptr && q == nullptr) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };
