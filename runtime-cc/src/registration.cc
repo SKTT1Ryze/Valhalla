@@ -11,6 +11,7 @@
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
+#include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaximalRectangle.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
@@ -232,6 +233,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSameTree>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSameTree>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PMaxDiffBetNodeAndAncestor>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SMaxDiffBetNodeAndAncestor>();
+  });
 
   return 0;
 }
