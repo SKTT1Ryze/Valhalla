@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <cmath>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -28,5 +31,22 @@ class SMaxDiffBetNodeAndAncestor : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maxAncestorDiff(TreeNode* root) const {}
+  int maxAncestorDiff(TreeNode* root) const {
+    int maxVal = root->val;
+    int minVal = root->val;
+    return max(this->walk(root->left, maxVal, minVal),
+               this->walk(root->right, maxVal, minVal));
+  }
+
+  int walk(TreeNode* root, int maxVal, int minVal) const {
+    if (root) {
+      auto ans = max(abs(maxVal - root->val), abs(root->val - minVal));
+      maxVal = max(maxVal, root->val);
+      minVal = min(minVal, root->val);
+      return max(ans, max(this->walk(root->left, maxVal, minVal),
+                          this->walk(root->right, maxVal, minVal)));
+    } else {
+      return 0;
+    }
+  }
 };
