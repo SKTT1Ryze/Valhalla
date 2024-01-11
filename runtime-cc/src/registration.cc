@@ -26,6 +26,7 @@
 #include "../leetcode-cc/ReverseLinkedListII.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
+#include "../leetcode-cc/SameTree.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/SubsetsII.hpp"
@@ -226,6 +227,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRecoverBST>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRecoverBST>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSameTree>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSameTree>(); });
 
   return 0;
 }
