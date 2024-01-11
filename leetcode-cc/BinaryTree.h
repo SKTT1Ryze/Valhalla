@@ -13,3 +13,8 @@ struct TreeNode {
 };
 
 bool preorderCompBTree(TreeNode *root, const std::vector<int> &expect);
+
+// Path example: "[3,1,4,null,null,2]"
+TreeNode *buildTree(const std::string &path);
+
+bool isSameTree(TreeNode *p, TreeNode *q);
