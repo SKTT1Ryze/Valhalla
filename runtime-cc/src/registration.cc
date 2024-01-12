@@ -2,6 +2,7 @@
 
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
+#include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
@@ -239,6 +240,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SMaxDiffBetNodeAndAncestor>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PDeterIfStringHalvesAlike>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SDeterIfStringHalvesAlike>();
   });
 
   return 0;
