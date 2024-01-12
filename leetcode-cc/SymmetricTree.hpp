@@ -26,5 +26,16 @@ class SSymmetricTree : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  bool isSymmetric(TreeNode* root) const {}
+  bool isSymmetric(TreeNode* root) const { return this->check(root, root); }
+
+  bool check(TreeNode* left, TreeNode* right) const {
+    if (left && right) {
+      return left->val == right->val && this->check(left->left, right->right) &&
+             this->check(left->right, right->left);
+    } else if (!left && !right) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };
