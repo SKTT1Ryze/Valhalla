@@ -32,6 +32,7 @@
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/SubsetsII.hpp"
+#include "../leetcode-cc/SymmetricTree.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
@@ -248,6 +249,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SDeterIfStringHalvesAlike>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSymmetricTree>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSymmetricTree>(); });
 
   return 0;
 }
