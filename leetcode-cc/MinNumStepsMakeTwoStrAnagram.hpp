@@ -1,3 +1,4 @@
+#include <numeric>
 #include <tuple>
 
 #include "TestHelper.h"
@@ -29,5 +30,18 @@ class SMinNumStepsMakeTwoStrAnagram : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int minSteps(string s, string t) const {}
+  int minSteps(string s, string t) const {
+    int n = s.size();
+    vector<int> map(26, 0);
+
+    for (int i = 0; i < n; i++) map[s[i] - 'a']++;
+
+    for (int i = 0; i < n; i++) {
+      if (map[t[i] - 'a'] > 0) {
+        map[t[i] - 'a']--;
+      }
+    }
+
+    return accumulate(map.begin(), map.end(), 0);
+  }
 };
