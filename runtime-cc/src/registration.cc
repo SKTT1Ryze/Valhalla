@@ -17,6 +17,7 @@
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
+#include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
@@ -254,6 +255,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSymmetricTree>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSymmetricTree>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PMinNumStepsMakeTwoStrAnagram>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SMinNumStepsMakeTwoStrAnagram>();
+  });
 
   return 0;
 }
