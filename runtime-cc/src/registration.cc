@@ -2,6 +2,7 @@
 
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
+#include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FourSum.hpp"
@@ -261,6 +262,12 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SMinNumStepsMakeTwoStrAnagram>();
+  });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PDetIfTwoStrsAreClose>(); });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SDetIfTwoStrsAreClose>();
   });
 
   return 0;
