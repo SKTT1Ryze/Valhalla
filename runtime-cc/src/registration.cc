@@ -1,6 +1,7 @@
 #include "registration.h"
 
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
+#include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -268,6 +269,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PDetIfTwoStrsAreClose>(); });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SDetIfTwoStrsAreClose>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PBTreeLevelOrderTraversal>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SBTreeLevelOrderTraversal>();
   });
 
   return 0;
