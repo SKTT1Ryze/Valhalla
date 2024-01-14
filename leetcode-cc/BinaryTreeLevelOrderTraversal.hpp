@@ -1,3 +1,5 @@
+#include <queue>
+
 #include "BinaryTree.h"
 #include "TestHelper.h"
 #include "problem.h"
@@ -29,5 +31,33 @@ class SBTreeLevelOrderTraversal : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> levelOrder(TreeNode* root) const {}
+  vector<vector<int>> levelOrder(TreeNode* root) const {
+    if (root == nullptr) return {};
+    queue<TreeNode*> current;
+    queue<TreeNode*> next;
+    vector<vector<int>> ans;
+    vector<int> temp;
+    current.push(root);
+
+    while (!current.empty() || !next.empty()) {
+      if (current.empty()) {
+        ans.push_back(temp);
+        temp.clear();
+
+        current = next;
+        next = {};
+      } else {
+        auto node = current.front();
+        current.pop();
+
+        temp.push_back(node->val);
+        if (node->left) next.push(node->left);
+        if (node->right) next.push(node->right);
+      }
+    }
+
+    if (!temp.empty()) ans.push_back(temp);
+
+    return ans;
+  }
 };
