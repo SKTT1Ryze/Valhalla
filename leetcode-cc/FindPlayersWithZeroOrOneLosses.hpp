@@ -9,7 +9,8 @@ using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PFindPlayersWithZeroOrOneLosses, 2225, DIFFI_MEDIUM,
                         TOPIC_ALGORITHMS,
-                        "Find Players With Zero or One Losses", "", {""});
+                        "Find Players With Zero or One Losses", "",
+                        {"Hash Table"});
 
 class SFindPlayersWithZeroOrOneLosses : public ISolution {
  public:
