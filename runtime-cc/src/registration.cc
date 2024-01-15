@@ -6,6 +6,7 @@
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
+#include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
@@ -276,6 +277,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBTreeLevelOrderTraversal>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PFindPlayersWithZeroOrOneLosses>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SFindPlayersWithZeroOrOneLosses>();
   });
 
   return 0;
