@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -34,5 +37,35 @@ class SFindPlayersWithZeroOrOneLosses : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> findWinners(vector<vector<int>>& matches) const {}
+  vector<vector<int>> findWinners(vector<vector<int>>& matches) const {
+    unordered_set<int> ans0 = {};
+    unordered_set<int> ans1 = {};
+    unordered_set<int> other = {};
+
+    for (const auto& match : matches) {
+      int winner = match[0];
+      int loser = match[1];
+
+      if (!other.contains(winner) && !ans1.contains(winner)) {
+        ans0.insert(winner);
+      }
+
+      if (other.contains(loser)) {
+      } else if (ans1.contains(loser)) {
+        ans1.erase(loser);
+        other.insert(loser);
+      } else {
+        ans0.erase(loser);
+        ans1.insert(loser);
+      }
+    }
+
+    vector<int> answer0(ans0.begin(), ans0.end());
+    vector<int> answer1(ans1.begin(), ans1.end());
+
+    sort(answer0.begin(), answer0.end());
+    sort(answer1.begin(), answer1.end());
+
+    return {answer0, answer1};
+  }
 };
