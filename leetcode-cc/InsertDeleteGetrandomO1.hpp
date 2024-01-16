@@ -1,3 +1,6 @@
+#include <ctime>
+#include <unordered_map>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -6,7 +9,7 @@ using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PInsertDeleteGetrandO1, 380, DIFFI_MEDIUM,
                         TOPIC_ALGORITHMS, "Insert Delete GetRandom O(1)", "",
-                        {""});
+                        {"Randomized"});
 
 class SInsertDeleteGetrandO1 : public ISolution {
  public:
@@ -21,11 +24,40 @@ class SInsertDeleteGetrandO1 : public ISolution {
 
 class RandomizedSet {
  public:
-  RandomizedSet() {}
+  RandomizedSet() { srand(time(nullptr)); }
 
-  bool insert(int val) {}
+  bool insert(int val) {
+    if (indexMap.contains(val)) {
+      return false;
+    }
 
-  bool remove(int val) {}
+    nums.push_back(val);
+    indexMap[val] = nums.size() - 1;
+    return true;
+  }
 
-  int getRandom() {}
+  bool remove(int val) {
+    if (!indexMap.contains(val)) {
+      return false;
+    }
+
+    int idx = indexMap[val];
+    int lastVal = nums.back();
+
+    nums[idx] = lastVal;
+    indexMap[lastVal] = idx;
+
+    nums.pop_back();
+    indexMap.erase(val);
+    return true;
+  }
+
+  int getRandom() {
+    int randomIndex = rand() % nums.size();
+    return nums[randomIndex];
+  }
+
+ private:
+  vector<int> nums;
+  unordered_map<int, int> indexMap;
 };
