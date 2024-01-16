@@ -10,6 +10,7 @@
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
+#include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
@@ -284,6 +285,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SFindPlayersWithZeroOrOneLosses>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PInsertDeleteGetrandO1>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SInsertDeleteGetrandO1>();
   });
 
   return 0;
