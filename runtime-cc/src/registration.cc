@@ -42,6 +42,7 @@
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
+#include "../leetcode-cc/UniqueNumOfOccurrences.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
 
@@ -292,6 +293,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SInsertDeleteGetrandO1>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PUniqueNumOfOccurrences>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SUniqueNumOfOccurrences>();
   });
 
   return 0;
