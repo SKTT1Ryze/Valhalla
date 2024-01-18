@@ -1,5 +1,6 @@
 #include "registration.h"
 
+#include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
@@ -300,6 +301,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SUniqueNumOfOccurrences>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PBTreeZigzagLevelOrderTraversal>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SBTreeZigzagLevelOrderTraversal>();
   });
 
   return 0;
