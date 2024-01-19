@@ -22,6 +22,7 @@
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
+#include "../leetcode-cc/MinFallingPathSum.hpp"
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
@@ -309,6 +310,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBTreeZigzagLevelOrderTraversal>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMinFallingPathSum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMinFallingPathSum>(); });
 
   return 0;
 }
