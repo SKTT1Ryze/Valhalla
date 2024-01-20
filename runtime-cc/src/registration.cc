@@ -39,6 +39,7 @@
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/SubsetsII.hpp"
+#include "../leetcode-cc/SumOfSubArrayMin.hpp"
 #include "../leetcode-cc/SymmetricTree.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -315,6 +316,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMinFallingPathSum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMinFallingPathSum>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSumOfSubArrayMin>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSumOfSubArrayMin>(); });
 
   return 0;
 }
