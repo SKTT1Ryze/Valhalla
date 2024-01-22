@@ -38,6 +38,7 @@
 #include "../leetcode-cc/SameTree.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
+#include "../leetcode-cc/SetMismatch.hpp"
 #include "../leetcode-cc/SubsetsII.hpp"
 #include "../leetcode-cc/SumOfSubArrayMin.hpp"
 #include "../leetcode-cc/SymmetricTree.hpp"
@@ -321,6 +322,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSumOfSubArrayMin>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSumOfSubArrayMin>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSetMisMatch>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSetMisMatch>(); });
 
   return 0;
 }
