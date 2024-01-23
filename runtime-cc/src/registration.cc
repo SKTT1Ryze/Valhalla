@@ -336,5 +336,10 @@ const int registerAll(std::shared_ptr<Container> handle) {
     return std::make_shared<SMaxLenOfConcatenatedStrWithUniqueChars>();
   });
 
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PHouseRobber>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SHouseRobber>(); });
+
   return 0;
 }
