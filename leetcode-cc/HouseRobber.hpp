@@ -7,7 +7,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PHouseRobber, 198, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
-                        "House Robber", "", {""});
+                        "House Robber", "", {"DP"});
 
 class SHouseRobber : public ISolution {
  public:
