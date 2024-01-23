@@ -18,6 +18,7 @@
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
+#include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
 #include "../leetcode-cc/MaximalRectangle.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
@@ -327,6 +328,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSetMisMatch>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSetMisMatch>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PMaxLenOfConcatenatedStrWithUniqueChars>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SMaxLenOfConcatenatedStrWithUniqueChars>();
+  });
 
   return 0;
 }
