@@ -11,6 +11,7 @@
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
+#include "../leetcode-cc/HouseRobber.hpp"
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
