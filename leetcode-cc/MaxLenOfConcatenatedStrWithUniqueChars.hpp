@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -27,11 +30,37 @@ class SMaxLenOfConcatenatedStrWithUniqueChars : public ISolution {
     return testHelper<vector<string>, int>(
         {{"un", "iq", "ue"},
          {"cha", "r", "act", "ers"},
-         {"abcdefghijklmnopqrstuvwxyz"}},
-        {4, 6, 26}, [this](auto input) { return this->maxLength(input); });
+         {"abcdefghijklmnopqrstuvwxyz"},
+         {"pxa", "ghxqdobesypaz", "rismkaxhlc", "eyxq"}},
+        {4, 6, 26, 13}, [this](auto input) { return this->maxLength(input); });
   };
   int benchmark() const override { return 0; }
 
  private:
-  int maxLength(vector<string>& arr) const {}
+  int maxLength(vector<string>& arr) const {
+    unordered_set<char> memo;
+    return this->backtracking(arr, 0, "", memo);
+  }
+
+  int backtracking(vector<string>& arr, int i, string current,
+                   unordered_set<char> memo) const {
+    if (i == arr.size()) {
+      return current.size();
+    } else {
+      string s = arr[i];
+      int notInclued = this->backtracking(arr, i + 1, current, memo);
+
+      for (const auto& ch : s) {
+        if (memo.contains(ch)) {
+          return notInclued;
+        } else {
+          memo.insert(ch);
+        }
+      }
+
+      int included = this->backtracking(arr, i + 1, current + s, memo);
+
+      return max(notInclued, included);
+    }
+  }
 };
