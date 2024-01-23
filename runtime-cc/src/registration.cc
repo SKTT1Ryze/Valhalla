@@ -11,6 +11,7 @@
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
+#include "../leetcode-cc/HouseRobber.hpp"
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
@@ -335,6 +336,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SMaxLenOfConcatenatedStrWithUniqueChars>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PHouseRobber>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SHouseRobber>(); });
 
   return 0;
 }
