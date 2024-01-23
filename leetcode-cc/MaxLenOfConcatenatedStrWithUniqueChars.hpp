@@ -14,7 +14,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "ou are given an array of strings arr. A string s is formed by the "
     "concatenation of a subsequence of arr that has unique characters.Return "
     "the maximum possible length of s.",
-    {""});
+    {"Backtracking"});
 
 class SMaxLenOfConcatenatedStrWithUniqueChars : public ISolution {
  public:
