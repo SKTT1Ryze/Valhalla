@@ -28,6 +28,7 @@
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
+#include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedListII.hpp"
@@ -341,6 +342,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PHouseRobber>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SHouseRobber>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PPseudoPalindromicPathsInBTree>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SPseudoPalindromicPathsInBTree>();
+  });
 
   return 0;
 }
