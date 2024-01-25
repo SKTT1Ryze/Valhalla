@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -27,5 +29,21 @@ class SMaxDepthOfBTree : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maxDepth(TreeNode* root) const {}
+  int maxDepth(TreeNode* root) const {
+    if (root == nullptr) return 0;
+    return this->walk(root, 1);
+  }
+
+  int walk(TreeNode* root, int current) const {
+    if (!root->left && !root->right) {
+      return current;
+    } else if (!root->left) {
+      return this->walk(root->right, current + 1);
+    } else if (!root->right) {
+      return this->walk(root->left, current + 1);
+    } else {
+      return max(this->walk(root->left, current + 1),
+                 this->walk(root->right, current + 1));
+    }
+  }
 };
