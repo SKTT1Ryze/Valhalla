@@ -18,6 +18,7 @@
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
+#include "../leetcode-cc/LongestCommonSubsequence.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
 #include "../leetcode-cc/MaximalRectangle.hpp"
@@ -348,6 +349,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SPseudoPalindromicPathsInBTree>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PLongestCommonSubsequence>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SLongestCommonSubsequence>();
   });
 
   return 0;
