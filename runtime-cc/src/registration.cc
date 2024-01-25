@@ -3,6 +3,7 @@
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
+#include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -363,6 +364,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMaxDepthOfBTree>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMaxDepthOfBTree>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PConstructBTreePreorderInorder>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SConstructBTreePreorderInorder>();
+  });
 
   return 0;
 }
