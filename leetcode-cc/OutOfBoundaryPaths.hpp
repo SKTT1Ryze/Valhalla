@@ -1,4 +1,6 @@
-#include "TestHelper.h"
+#include <unordered_set>
+#include <utility>
+
 #include "problem.h"
 #include "solution.h"
 
@@ -30,5 +32,40 @@ class SOutOfBoundaryPaths : public ISolution {
 
  private:
   int findPaths(int m, int n, int maxMove, int startRow,
-                int startColumn) const {}
+                int startColumn) const {
+    const int MOD = 1e9 + 7;
+    vector<vector<vector<int>>> dp(maxMove + 1,
+                                   vector<vector<int>>(m, vector<int>(n, 0)));
+
+    // Initialize base case: starting position
+    dp[0][startRow][startColumn] = 1;
+
+    int count = 0;
+    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    // Iterate over each move
+    for (int move = 1; move <= maxMove; move++) {
+      for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+          for (const auto& dir : directions) {
+            int newRow = i + dir[0];
+            int newCol = j + dir[1];
+
+            // Check if the new position is within the boundary
+            if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n) {
+              // Accumulate the number of paths to the current position
+              dp[move][i][j] =
+                  (dp[move][i][j] + dp[move - 1][newRow][newCol]) % MOD;
+            } else {
+              // If the new position is outside the boundary, increment the
+              // count
+              count = (count + dp[move - 1][i][j]) % MOD;
+            }
+          }
+        }
+      }
+    }
+
+    return count;
+  }
 };
