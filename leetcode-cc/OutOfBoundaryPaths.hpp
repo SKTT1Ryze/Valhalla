@@ -7,7 +7,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(POutOfBoundaryPaths, 576, DIFFI_MEDIUM,
-                        TOPIC_ALGORITHMS, "Out of Boundary Paths", "", {""});
+                        TOPIC_ALGORITHMS, "Out of Boundary Paths", "", {"DP"});
 
 class SOutOfBoundaryPaths : public ISolution {
  public:
