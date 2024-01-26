@@ -30,6 +30,7 @@
 #include "../leetcode-cc/MinFallingPathSum.hpp"
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
+#include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
@@ -371,6 +372,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SConstructBTreePreorderInorder>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<POutOfBoundaryPaths>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SOutOfBoundaryPaths>(); });
 
   return 0;
 }
