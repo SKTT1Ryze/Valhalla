@@ -16,6 +16,7 @@
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
+#include "../leetcode-cc/KInversePairsArray.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
@@ -377,6 +378,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<POutOfBoundaryPaths>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SOutOfBoundaryPaths>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PKInversePairsArray>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SKInversePairsArray>(); });
 
   return 0;
 }
