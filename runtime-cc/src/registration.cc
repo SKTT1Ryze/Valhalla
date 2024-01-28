@@ -3,6 +3,7 @@
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
+#include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
@@ -383,6 +384,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PKInversePairsArray>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SKInversePairsArray>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PConstructBTreeInorderPostorder>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SConstructBTreeInorderPostorder>();
+  });
 
   return 0;
 }
