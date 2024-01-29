@@ -39,3 +39,17 @@ int testHelperBinaryTreeV2(std::vector<std::string> Inputs,
   }
   return 0;
 }
+
+template <typename T>
+int testHelperBinaryTreeV3(std::vector<T> Inputs,
+                           std::vector<std::string> Expects,
+                           std::function<TreeNode*(T)> function) {
+  int n = std::min(Inputs.size(), Expects.size());
+  for (int i = 0; i < n; i++) {
+    auto root = function(Inputs[i]);
+
+    if (!isSameTree(root, buildTree(Expects[i]))) return 1;
+  }
+
+  return 0;
+}

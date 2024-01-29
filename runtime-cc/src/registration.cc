@@ -6,6 +6,7 @@
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
 #include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
+#include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -398,6 +399,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBTreeLevelTraversalII>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PConvertSortedArrayToBST>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SConvertSortedArrayToBST>();
   });
 
   return 0;
