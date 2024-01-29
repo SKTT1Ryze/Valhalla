@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <queue>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -28,5 +31,36 @@ class SBTreeLevelTraversalII : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> levelOrderBottom(TreeNode* root) const {}
+  vector<vector<int>> levelOrderBottom(TreeNode* root) const {
+    if (root == nullptr) return {};
+    queue<TreeNode*> current;
+    queue<TreeNode*> next;
+    vector<vector<int>> ans;
+    vector<int> temp;
+
+    current.push(root);
+
+    while (!current.empty() || !next.empty()) {
+      if (current.empty()) {
+        ans.push_back(temp);
+        temp.clear();
+
+        current = next;
+        next = {};
+      } else {
+        auto node = current.front();
+        current.pop();
+
+        temp.push_back(node->val);
+        if (node->left) next.push(node->left);
+        if (node->right) next.push(node->right);
+      }
+    }
+
+    if (!temp.empty()) ans.push_back(temp);
+
+    reverse(ans.begin(), ans.end());
+
+    return ans;
+  }
 };
