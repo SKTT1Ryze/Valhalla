@@ -7,6 +7,7 @@
 #include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
 #include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
+#include "../leetcode-cc/ConvertSortedListToBST.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -406,6 +407,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SConvertSortedArrayToBST>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PConvertSortedListToBST>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SConvertSortedListToBST>();
   });
 
   return 0;
