@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -24,5 +26,20 @@ class SBalancedBTree : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  bool isBalanced(TreeNode* root) const {}
+  bool isBalanced(TreeNode* root) const {
+    return this->height(root) == -1 ? false : true;
+  }
+
+  int height(TreeNode* node) const {
+    if (node == nullptr) return 0;
+    int leftHeight = this->height(node->left);
+    int rightHeight = this->height(node->right);
+
+    if (leftHeight == -1 || rightHeight == -1)
+      return -1;
+    else if (abs(leftHeight - rightHeight) > 1)
+      return -1;
+    else
+      return max(leftHeight, rightHeight) + 1;
+  }
 };
