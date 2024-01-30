@@ -29,5 +29,22 @@ class SPathSum : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  bool hasPathSum(TreeNode* root, int targetSum) const {}
+  bool hasPathSum(TreeNode* root, int targetSum) const {
+    if (root == nullptr) return false;
+    return this->walk(root, 0, targetSum);
+  }
+
+  bool walk(TreeNode* root, int current, int targetSum) const {
+    current += root->val;
+    if (root->left == nullptr && root->right == nullptr) {
+      return current == targetSum;
+    } else if (root->left == nullptr) {
+      return this->walk(root->right, current, targetSum);
+    } else if (root->right == nullptr) {
+      return this->walk(root->left, current, targetSum);
+    } else {
+      return this->walk(root->left, current, targetSum) ||
+             this->walk(root->right, current, targetSum);
+    }
+  }
 };
