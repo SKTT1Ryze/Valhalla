@@ -24,5 +24,13 @@ class SMinDepthOfBTree : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int minDepth(TreeNode* root) const {}
+  int minDepth(TreeNode* root) const {
+    if (root == nullptr) return 0;
+    if (root->left == nullptr)
+      return this->minDepth(root->right) + 1;
+    else if (root->right == nullptr)
+      return this->minDepth(root->left) + 1;
+    else
+      return min(this->minDepth(root->left), this->minDepth(root->right)) + 1;
+  }
 };
