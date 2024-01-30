@@ -33,6 +33,7 @@
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
 #include "../leetcode-cc/MergeTwoSortedLists.hpp"
+#include "../leetcode-cc/MinDepthOfBTree.hpp"
 #include "../leetcode-cc/MinFallingPathSum.hpp"
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
@@ -421,6 +422,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PBalancedBTree>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SBalancedBTree>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMinDepthOfBTree>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMinDepthOfBTree>(); });
 
   return 0;
 }
