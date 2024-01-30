@@ -1,5 +1,3 @@
-#include "BinaryTree.h"
-#include "LinkList.h"
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -32,5 +30,25 @@ class SConvertSortedListToBST : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  TreeNode* sortedListToBST(ListNode* head) const {}
+  TreeNode* sortedListToBST(ListNode* head) const {
+    vector<int> nums = {};
+    auto p = head;
+    while (p) {
+      nums.push_back(p->val);
+      p = p->next;
+    }
+
+    return this->build(nums, 0, nums.size());
+  }
+
+  TreeNode* build(vector<int>& nums, int start, int end) const {
+    if (start >= end) return nullptr;
+    int i = (start + end) / 2;
+    auto root = new TreeNode(nums[i]);
+
+    root->left = this->build(nums, start, i);
+    root->right = this->build(nums, i + 1, end);
+
+    return root;
+  }
 };
