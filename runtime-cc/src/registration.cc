@@ -39,6 +39,7 @@
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
+#include "../leetcode-cc/PathSum.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
@@ -427,6 +428,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMinDepthOfBTree>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMinDepthOfBTree>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PPathSum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SPathSum>(); });
 
   return 0;
 }
