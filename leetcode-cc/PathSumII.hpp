@@ -31,5 +31,27 @@ class SPathSumII : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> pathSum(TreeNode* root, int targetSum) const {}
+  vector<vector<int>> pathSum(TreeNode* root, int targetSum) const {
+    if (root == nullptr) return {};
+    vector<vector<int>> ans = {};
+    this->walk(root, ans, {}, 0, targetSum);
+
+    return ans;
+  }
+
+  void walk(TreeNode* root, vector<vector<int>>& ans, vector<int> current,
+            int currentSum, int targetSum) const {
+    current.push_back(root->val);
+    currentSum += root->val;
+    if (root->left == nullptr && root->right == nullptr) {
+      if (currentSum == targetSum) ans.push_back(current);
+    } else if (root->left == nullptr) {
+      this->walk(root->right, ans, current, currentSum, targetSum);
+    } else if (root->right == nullptr) {
+      this->walk(root->left, ans, current, currentSum, targetSum);
+    } else {
+      this->walk(root->left, ans, current, currentSum, targetSum);
+      this->walk(root->right, ans, current, currentSum, targetSum);
+    }
+  }
 };
