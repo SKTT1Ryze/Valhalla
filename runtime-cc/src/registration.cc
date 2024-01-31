@@ -14,6 +14,7 @@
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
+#include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
@@ -439,6 +440,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPathSumII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPathSumII>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PFlattenBTreeToLinkedList>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SFlattenBTreeToLinkedList>();
+  });
 
   return 0;
 }
