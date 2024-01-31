@@ -26,5 +26,32 @@ class SFlattenBTreeToLinkedList : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  void flatten(TreeNode* root) const {}
+  void flatten(TreeNode* root) const {
+    if (root == nullptr) return;
+    this->transform(root);
+  }
+
+  pair<TreeNode*, TreeNode*> transform(TreeNode* root) const {
+    if (root->left == nullptr && root->right == nullptr) {
+      return {root, root};
+    } else if (root->left == nullptr) {
+      auto [head, tail] = this->transform(root->right);
+      root->right = head;
+      return {root, tail};
+    } else if (root->right == nullptr) {
+      auto [head, tail] = this->transform(root->left);
+      root->right = head;
+      root->left = nullptr;
+      return {root, tail};
+    } else {
+      auto [leftHead, leftTail] = this->transform(root->left);
+      auto [rightHead, rightTail] = this->transform(root->right);
+
+      root->left = nullptr;
+      root->right = leftHead;
+      leftTail->right = rightHead;
+
+      return {root, rightTail};
+    }
+  }
 };
