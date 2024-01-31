@@ -40,6 +40,7 @@
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/PathSum.hpp"
+#include "../leetcode-cc/PathSumII.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
@@ -433,6 +434,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPathSum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPathSum>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PPathSumII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SPathSumII>(); });
 
   return 0;
 }
