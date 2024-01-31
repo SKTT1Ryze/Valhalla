@@ -12,6 +12,7 @@
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
+#include "../leetcode-cc/DistinctSubsequences.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
 #include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
@@ -446,6 +447,12 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SFlattenBTreeToLinkedList>();
+  });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PDistinctSubsequences>(); });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SDistinctSubsequences>();
   });
 
   return 0;
