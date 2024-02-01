@@ -25,5 +25,21 @@ class SPascalsTriangle : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> generate(int numRows) const {}
+  vector<vector<int>> generate(int numRows) const {
+    vector<vector<int>> res = {{1}};
+
+    for (int i = 1; i < numRows; i++) {
+      vector<int> current = {};
+
+      for (int j = 0; j < i - 1; j++)
+        current.push_back(res[i - 1][j] + res[i - 1][j + 1]);
+
+      current.push_back(1);
+      current.insert(current.begin(), 1);
+
+      res.push_back(current);
+    }
+
+    return res;
+  }
 };
