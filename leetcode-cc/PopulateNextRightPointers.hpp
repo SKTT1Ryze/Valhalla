@@ -23,7 +23,7 @@ class Node {
 
 IMPLEMENT_PROBLEM_CLASS(
     PPopulateNextRightPointers, 116, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
-    "Populating Next Right Pointers in Each Node",
+    "Populating Next Right Pointers in Each Node (II)",
     "Populate each next pointer to point to its next right node. If there is "
     "no next right node, the next pointer should be set to NULL.",
     {"Binary Tree"});
@@ -33,7 +33,7 @@ class SPopulateNextRightPointers : public ISolution {
   size_t problemId() const override { return 116; }
   string name() const override {
     return ("Solution for " +
-            string("Populating Next Right Pointers in Each Node"));
+            string("Populating Next Right Pointers in Each Node (II)"));
   }
   string location() const override { return __FILE_NAME__; }
   int test() const override { return 0; };
