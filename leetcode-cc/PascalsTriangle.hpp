@@ -7,7 +7,7 @@ using namespace std;
 IMPLEMENT_PROBLEM_CLASS(
     PPascalsTriangle, 118, DIFFI_EASY, TOPIC_ALGORITHMS, "Pascal's Triangle",
     "Given an integer numRows, return the first numRows of Pascal's triangle.",
-    {""});
+    {"Triangle"});
 
 class SPascalsTriangle : public ISolution {
  public:
