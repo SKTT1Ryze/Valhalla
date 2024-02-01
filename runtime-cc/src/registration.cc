@@ -43,6 +43,7 @@
 #include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/PathSum.hpp"
 #include "../leetcode-cc/PathSumII.hpp"
+#include "../leetcode-cc/PopulateNextRightPointers.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
@@ -453,6 +454,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PDistinctSubsequences>(); });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SDistinctSubsequences>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PPopulateNextRightPointers>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SPopulateNextRightPointers>();
   });
 
   return 0;
