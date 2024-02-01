@@ -1,3 +1,5 @@
+#include <queue>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -38,5 +40,31 @@ class SPopulateNextRightPointers : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  Node* connect(Node* root) const {}
+  Node* connect(Node* root) const {
+    if (!root) return root;
+    queue<Node*> current = {};
+    queue<Node*> next = {};
+    current.push(root);
+
+    while (!current.empty() || !next.empty()) {
+      if (current.empty()) {
+        current = next;
+        next = {};
+      } else {
+        auto node = current.front();
+        current.pop();
+
+        if (current.empty()) {
+          node->next = nullptr;
+        } else {
+          node->next = current.front();
+        }
+
+        if (node->left) next.push(node->left);
+        if (node->right) next.push(node->right);
+      }
+    }
+
+    return root;
+  }
 };
