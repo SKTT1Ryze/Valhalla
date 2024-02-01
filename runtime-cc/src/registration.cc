@@ -42,6 +42,7 @@
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/PascalsTriangle.hpp"
+#include "../leetcode-cc/PascalsTriangleII.hpp"
 #include "../leetcode-cc/PathSum.hpp"
 #include "../leetcode-cc/PathSumII.hpp"
 #include "../leetcode-cc/PopulateNextRightPointers.hpp"
@@ -468,6 +469,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPascalsTriangle>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPascalsTriangle>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PPascalsTriangleII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SPascalsTriangleII>(); });
 
   return 0;
 }
