@@ -65,6 +65,7 @@
 #include "../leetcode-cc/SymmetricTree.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
+#include "../leetcode-cc/Triangle.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/UniqueNumOfOccurrences.hpp"
@@ -474,6 +475,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPascalsTriangleII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPascalsTriangleII>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PTriangle>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<STriangle>(); });
 
   return 0;
 }
