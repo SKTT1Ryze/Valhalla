@@ -1,4 +1,4 @@
-#include <_ctype.h>
+#include <ctype.h>
 
 #include "TestHelper.h"
 #include "problem.h"
