@@ -69,6 +69,7 @@
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/UniqueNumOfOccurrences.hpp"
+#include "../leetcode-cc/ValidPalindrome.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
 
@@ -480,6 +481,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PTriangle>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<STriangle>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PValidPalindrome>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SValidPalindrome>(); });
 
   return 0;
 }
