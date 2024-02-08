@@ -28,6 +28,7 @@
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/LongestCommonSubsequence.hpp"
+#include "../leetcode-cc/LongestConsecutiveSeq.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
@@ -486,6 +487,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PValidPalindrome>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SValidPalindrome>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PLongestConsecutiveSeq>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SLongestConsecutiveSeq>();
+  });
 
   return 0;
 }
