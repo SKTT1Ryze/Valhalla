@@ -10,7 +10,7 @@ IMPLEMENT_PROBLEM_CLASS(PLongestConsecutiveSeq, 128, DIFFI_MEDIUM,
                         TOPIC_ALGORITHMS, "Longest Consecutive Sequence",
                         "Given an unsorted array of integers nums, return the "
                         "length of the longest consecutive elements sequence.",
-                        {""});
+                        {"Two Pointer"});
 
 class SLongestConsecutiveSeq : public ISolution {
  public:
