@@ -3,6 +3,7 @@
 #include "../leetcode-cc/BTreeLevelTraversalII.hpp"
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BalancedBTree.hpp"
+#include "../leetcode-cc/BestTimeToBuySellStockIII.hpp"
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
 #include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
@@ -493,6 +494,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SLongestConsecutiveSeq>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PBestTimeToBuySellStockIII>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SBestTimeToBuySellStockIII>();
   });
 
   return 0;
