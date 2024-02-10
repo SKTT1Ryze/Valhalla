@@ -74,6 +74,7 @@
 #include "../leetcode-cc/ValidPalindrome.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
+#include "../leetcode-cc/BTreeMaxPathSum.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -502,6 +503,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBestTimeToBuySellStockIII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PBTreeMaxPathSum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SBTreeMaxPathSum>(); });
 
   return 0;
 }
