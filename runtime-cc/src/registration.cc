@@ -1,6 +1,7 @@
 #include "registration.h"
 
 #include "../leetcode-cc/BTreeLevelTraversalII.hpp"
+#include "../leetcode-cc/BTreeMaxPathSum.hpp"
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BalancedBTree.hpp"
 #include "../leetcode-cc/BestTimeToBuySellStockIII.hpp"
@@ -502,6 +503,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBestTimeToBuySellStockIII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PBTreeMaxPathSum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SBTreeMaxPathSum>(); });
 
   return 0;
 }
