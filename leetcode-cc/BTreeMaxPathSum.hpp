@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <climits>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -22,5 +25,21 @@ class SBTreeMaxPathSum : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maxPathSum(TreeNode* root) const {}
+  int maxPathSum(TreeNode* root) const {
+    int ans = INT_MIN;
+    this->walk(root, ans);
+    return ans;
+  }
+
+  int walk(TreeNode* root, int& ans) const {
+    if (root == nullptr) {
+      return 0;
+    } else {
+      int leftMax = max(0, this->walk(root->left, ans));
+      int rightMax = max(0, this->walk(root->right, ans));
+      ans = max(ans, root->val + leftMax + rightMax);
+
+      return root->val + max(leftMax, rightMax);
+    }
+  }
 };

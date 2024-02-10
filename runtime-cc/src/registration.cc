@@ -1,6 +1,7 @@
 #include "registration.h"
 
 #include "../leetcode-cc/BTreeLevelTraversalII.hpp"
+#include "../leetcode-cc/BTreeMaxPathSum.hpp"
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BalancedBTree.hpp"
 #include "../leetcode-cc/BestTimeToBuySellStockIII.hpp"
@@ -74,7 +75,6 @@
 #include "../leetcode-cc/ValidPalindrome.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
-#include "../leetcode-cc/BTreeMaxPathSum.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
