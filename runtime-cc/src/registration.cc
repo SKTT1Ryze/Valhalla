@@ -75,6 +75,7 @@
 #include "../leetcode-cc/ValidPalindrome.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
+#include "../leetcode-cc/WordLadder.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -508,6 +509,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PBTreeMaxPathSum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SBTreeMaxPathSum>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PWordLadder>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SWordLadder>(); });
 
   return 0;
 }
