@@ -9,7 +9,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PWordLadder, 127, DIFFI_HARD, TOPIC_ALGORITHMS,
-                        "Word Ladder", "", {""});
+                        "Word Ladder", "", {"BFS"});
 
 class SWordLadder : public ISolution {
  public:
