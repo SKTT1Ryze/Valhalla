@@ -1,4 +1,6 @@
+#include <queue>
 #include <tuple>
+#include <unordered_set>
 
 #include "TestHelper.h"
 #include "problem.h"
@@ -21,8 +23,9 @@ class SWordLadder : public ISolution {
         {make_tuple("hit", "cog",
                     vector<string>({"hot", "dot", "dog", "lot", "log", "cog"})),
          make_tuple("hit", "cog",
-                    vector<string>({"hot", "dot", "dog", "lot", "log"}))},
-        {5, 0}, [this](auto input) {
+                    vector<string>({"hot", "dot", "dog", "lot", "log"})),
+         make_tuple("hot", "dog", vector<string>({"hot", "dog"}))},
+        {5, 0, 0}, [this](auto input) {
           return this->ladderLength(get<0>(input), get<1>(input),
                                     get<2>(input));
         });
@@ -31,5 +34,39 @@ class SWordLadder : public ISolution {
 
  private:
   int ladderLength(string beginWord, string endWord,
-                   vector<string>& wordList) const {}
+                   vector<string>& wordList) const {
+    unordered_set<string> wordSet(wordList.begin(), wordList.end());
+    if (!wordSet.contains(endWord)) return 0;
+
+    queue<string> q = {};
+    q.push(beginWord);
+
+    int ans = 1;
+
+    while (!q.empty()) {
+      int n = q.size();
+      for (int i = 0; i < n; i++) {
+        auto word = q.front();
+        q.pop();
+
+        for (int j = 0; j < word.size(); j++) {
+          char originalChar = word[j];
+          for (char c = 'a'; c <= 'z'; ++c) {
+            if (c == originalChar) continue;
+            word[j] = c;
+
+            if (word == endWord) return ans + 1;
+            if (wordSet.contains(word)) {
+              q.push(word);
+              wordSet.erase(word);
+            }
+          }
+          word[j] = originalChar;
+        }
+      }
+      ans++;
+    }
+
+    return 0;
+  }
 };
