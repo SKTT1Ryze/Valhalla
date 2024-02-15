@@ -76,6 +76,7 @@
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
 #include "../leetcode-cc/WordLadder.hpp"
+#include "../leetcode-cc/WordLadderII.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -514,6 +515,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PWordLadder>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SWordLadder>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PWordLadderII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SWordLadderII>(); });
 
   return 0;
 }
