@@ -1,3 +1,5 @@
+#include <numeric>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -22,5 +24,24 @@ class SSumRootToLeafNums : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int sumNumbers(TreeNode* root) const {}
+  int sumNumbers(TreeNode* root) const {
+    vector<int> paths = {};
+
+    this->dfs(root, 0, paths);
+
+    return accumulate(paths.begin(), paths.end(), 0);
+  }
+
+  void dfs(TreeNode* root, int current, vector<int>& paths) const {
+    if (root != nullptr) {
+      int path = current * 10 + root->val;
+
+      if (!root->left && !root->right) {
+        paths.push_back(path);
+      } else {
+        this->dfs(root->left, path, paths);
+        this->dfs(root->right, path, paths);
+      }
+    }
+  }
 };
