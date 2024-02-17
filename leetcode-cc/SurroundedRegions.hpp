@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <unordered_set>
 
 #include "TestHelper.h"
@@ -18,7 +17,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "Surrounded Regions",
     "Given an m x n matrix board containing 'X' and 'O', capture all regions "
     "that are 4-directionally surrounded by 'X'.",
-    {"Matrix"});
+    {"Matrix / DFS"});
 
 class SSurroundedRegions : public ISolution {
  public:
