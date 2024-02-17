@@ -66,6 +66,7 @@
 #include "../leetcode-cc/SubsetsII.hpp"
 #include "../leetcode-cc/SumOfSubArrayMin.hpp"
 #include "../leetcode-cc/SumRootToLeafNums.hpp"
+#include "../leetcode-cc/SurroundedRegions.hpp"
 #include "../leetcode-cc/SymmetricTree.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -526,6 +527,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSumRootToLeafNums>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSumRootToLeafNums>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSurroundedRegions>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSurroundedRegions>(); });
 
   return 0;
 }
