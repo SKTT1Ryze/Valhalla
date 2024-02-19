@@ -44,6 +44,7 @@
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PalindromePartitioning.hpp"
+#include "../leetcode-cc/PalindromePartitioningII.hpp"
 #include "../leetcode-cc/PartitionList.hpp"
 #include "../leetcode-cc/PascalsTriangle.hpp"
 #include "../leetcode-cc/PascalsTriangleII.hpp"
@@ -539,6 +540,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SPalindromePartitioning>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PPalindromePartitioningII>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SPalindromePartitioningII>();
   });
 
   return 0;
