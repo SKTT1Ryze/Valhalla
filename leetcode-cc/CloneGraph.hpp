@@ -1,3 +1,5 @@
+#include <unordered_map>
+
 #include "problem.h"
 #include "solution.h"
 
@@ -38,5 +40,32 @@ class SCloneGraph : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  GraphNode* cloneGraph(GraphNode* node) const {}
+  GraphNode* cloneGraph(GraphNode* node) const {
+    unordered_map<int, GraphNode*> map = {};
+    auto cloneNode = new GraphNode(node->val);
+
+    this->buildGraph(node, cloneNode, map);
+
+    return cloneNode;
+  }
+
+  void buildGraph(GraphNode* node, GraphNode* cloneNode,
+                  unordered_map<int, GraphNode*>& map) const {
+    if (!map.contains(cloneNode->val)) {
+      map.insert({cloneNode->val, cloneNode});
+
+      for (const auto v : node->neighbors) {
+        GraphNode* newNode = nullptr;
+        if (map.contains(v->val)) {
+          newNode = map[v->val];
+        } else {
+          newNode = new GraphNode(v->val);
+        }
+
+        cloneNode->neighbors.push_back(newNode);
+
+        this->buildGraph(v, newNode, map);
+      }
+    }
+  }
 };
