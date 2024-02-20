@@ -7,6 +7,7 @@
 #include "../leetcode-cc/BestTimeToBuySellStockIII.hpp"
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
+#include "../leetcode-cc/CloneGraph.hpp"
 #include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
 #include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
@@ -548,6 +549,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SPalindromePartitioningII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PCloneGraph>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SCloneGraph>(); });
 
   return 0;
 }
