@@ -1,3 +1,5 @@
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -8,7 +10,7 @@ IMPLEMENT_PROBLEM_CLASS(
     PSingleNumber, 136, DIFFI_EASY, TOPIC_ALGORITHMS, "Single Number",
     "Given a non-empty array of integers nums, every element appears twice "
     "except for one. Find that single one.",
-    {""});
+    {"Hash Table"});
 
 class SSingleNumber : public ISolution {
  public:
@@ -25,5 +27,17 @@ class SSingleNumber : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int singleNumber(vector<int>& nums) const {}
+  int singleNumber(vector<int>& nums) const {
+    unordered_set<int> set = {};
+
+    for (const auto& num : nums) {
+      if (set.contains(num)) {
+        set.erase(num);
+      } else {
+        set.insert(num);
+      }
+    }
+
+    return *set.begin();
+  }
 };
