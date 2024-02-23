@@ -82,6 +82,7 @@
 #include "../leetcode-cc/ValidPalindrome.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
+#include "../leetcode-cc/WordBreak.hpp"
 #include "../leetcode-cc/WordLadder.hpp"
 #include "../leetcode-cc/WordLadderII.hpp"
 
@@ -566,6 +567,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSingleNumberII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSingleNumberII>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PWordBreak>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SWordBreak>(); });
 
   return 0;
 }
