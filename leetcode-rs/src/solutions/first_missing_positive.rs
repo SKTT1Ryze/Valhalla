@@ -21,7 +21,7 @@ impl SolutionImpl {
 
         for i in 0..n {
             let target = i as i32 + 1;
-            if set.get(&target).is_none() {
+            if !set.contains(&target) {
                 return target;
             }
         }
