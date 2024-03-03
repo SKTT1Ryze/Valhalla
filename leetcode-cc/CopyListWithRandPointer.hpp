@@ -6,7 +6,7 @@ using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PCopyListWithRandPointer, 138, DIFFI_MEDIUM,
                         TOPIC_ALGORITHMS, "Copy List With Rand Pointer", "",
-                        {""});
+                        {"Hash Table"});
 
 class RandNode {
  public:
