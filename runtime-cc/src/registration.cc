@@ -12,6 +12,7 @@
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
 #include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
 #include "../leetcode-cc/ConvertSortedListToBST.hpp"
+#include "../leetcode-cc/CopyListWithRandPointer.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -572,6 +573,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PWordBreak>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SWordBreak>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PCopyListWithRandPointer>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SCopyListWithRandPointer>();
+  });
 
   return 0;
 }
