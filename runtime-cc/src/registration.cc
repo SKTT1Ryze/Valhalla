@@ -31,6 +31,7 @@
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LinkedListCycle.hpp"
+#include "../leetcode-cc/LinkedListCycleII.hpp"
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/LongestCommonSubsequence.hpp"
 #include "../leetcode-cc/LongestConsecutiveSeq.hpp"
@@ -592,6 +593,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PLinkedListCycle>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SLinkedListCycle>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PLinkedListCycleII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SLinkedListCycleII>(); });
 
   return 0;
 }
