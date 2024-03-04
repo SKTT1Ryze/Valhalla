@@ -1,4 +1,6 @@
 
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -23,5 +25,16 @@ class SLinkedListCycleII : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode *detectCycle(ListNode *head) const {}
+  ListNode *detectCycle(ListNode *head) const {
+    unordered_set<ListNode *> set = {};
+    auto p = head;
+
+    while (p) {
+      if (set.contains(p)) return p;
+      set.insert(p);
+      p = p->next;
+    }
+
+    return nullptr;
+  }
 };
