@@ -84,6 +84,7 @@
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
 #include "../leetcode-cc/WordBreak.hpp"
+#include "../leetcode-cc/WordBreakII.hpp"
 #include "../leetcode-cc/WordLadder.hpp"
 #include "../leetcode-cc/WordLadderII.hpp"
 
@@ -580,6 +581,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SCopyListWithRandPointer>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PWordBreakII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SWordBreakII>(); });
 
   return 0;
 }
