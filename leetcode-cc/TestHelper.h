@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <functional>
 #include <string>
 #include <vector>
@@ -21,6 +22,19 @@ int testHelper(std::vector<T> Inputs, std::vector<N> Expects,
 int testHelperLinkList(std::vector<std::vector<int>> Inputs,
                        std::vector<std::vector<int>> Expects,
                        std::function<ListNode*(ListNode*)> function);
+template <typename T>
+int testHelperLinkListV2(std::vector<std::vector<int>> Inputs,
+                         std::vector<T> Expects,
+                         std::function<T(ListNode*)> function) {
+  int n = std::min(Inputs.size(), Expects.size());
+  for (int i = 0; i < n; i++) {
+    auto head = vectorToLinkList(Inputs[i]);
+    auto output = function(head);
+    if (output != Expects[i]) return 1;
+  }
+
+  return 0;
+}
 
 int testHelperBinaryTree(std::vector<std::string> Inputs,
                          std::vector<std::string> Expects,
