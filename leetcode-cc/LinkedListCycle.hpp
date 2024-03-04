@@ -28,5 +28,19 @@ class SLinkedListCycle : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  bool hasCycle(ListNode *head) const {}
+  bool hasCycle(ListNode *head) const {
+    if (head == nullptr) return false;
+    auto fast = head->next;
+    auto slow = head;
+
+    while (fast && slow) {
+      if (fast == slow) return true;
+
+      slow = slow->next;
+      fast = fast->next;
+      if (fast) fast = fast->next;
+    }
+
+    return false;
+  }
 };
