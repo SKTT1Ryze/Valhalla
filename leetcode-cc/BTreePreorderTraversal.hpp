@@ -6,7 +6,7 @@
 
 using namespace std;
 
-IMPLEMENT_PROBLEM_CLASS(PBTreePreorderTraversal, 144, DIFFI_MEDIUM,
+IMPLEMENT_PROBLEM_CLASS(PBTreePreorderTraversal, 144, DIFFI_EASY,
                         TOPIC_ALGORITHMS, "Binary Tree Preorder Traversal",
                         "Given the root of a binary tree, return the preorder "
                         "traversal of its nodes' values.",
