@@ -27,6 +27,7 @@
 #include "../leetcode-cc/GrayCode.hpp"
 #include "../leetcode-cc/HouseRobber.hpp"
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
+#include "../leetcode-cc/InsertionSortList.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
 #include "../leetcode-cc/KInversePairsArray.hpp"
@@ -626,6 +627,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PLRUCache>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SLRUCache>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PInsertionSortList>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SInsertionSortList>(); });
 
   return 0;
 }
