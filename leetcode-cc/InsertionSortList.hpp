@@ -20,10 +20,35 @@ class SInsertionSortList : public ISolution {
   string location() const override { return __FILE_NAME__; }
   int test() const override {
     return testHelperLinkList(
-        {}, {}, [this](auto head) { return this->insertionSortList(head); });
+        {{4, 2, 1, 3}, {-1, 5, 3, 4, 0}}, {{1, 2, 3, 4}, {-1, 0, 3, 4, 5}},
+        [this](auto head) { return this->insertionSortList(head); });
   };
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* insertionSortList(ListNode* head) const {}
+  ListNode* insertionSortList(ListNode* head) const {
+    auto sortedHead = new ListNode(INT_MIN);
+    sortedHead->next = head;
+    auto p1 = head->next;
+    head->next = nullptr;
+
+    while (p1) {
+      auto p2 = sortedHead;
+
+      while (p2 && p2->next) {
+        if (p2->val <= p1->val && p2->next->val >= p1->val) {
+          break;
+        }
+        p2 = p2->next;
+      }
+
+      auto temp = p1->next;
+      p1->next = p2->next;
+      p2->next = p1;
+
+      p1 = temp;
+    }
+
+    return sortedHead->next;
+  }
 };
