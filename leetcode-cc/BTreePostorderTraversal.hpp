@@ -27,5 +27,28 @@ class SBTreePostorderTraversal : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<int> postorderTraversal(TreeNode* root) const {}
+  vector<int> postorderTraversal(TreeNode* root) const {
+    stack<TreeNode*> s1, s2;
+    vector<int> res = {};
+
+    if (!root) return res;
+
+    s1.push(root);
+
+    while (!s1.empty()) {
+      auto node = s1.top();
+      s1.pop();
+      s2.push(node);
+
+      if (node->left) s1.push(node->left);
+      if (node->right) s1.push(node->right);
+    }
+
+    while (!s2.empty()) {
+      res.push_back(s2.top()->val);
+      s2.pop();
+    }
+
+    return res;
+  }
 };
