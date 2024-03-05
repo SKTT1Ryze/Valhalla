@@ -37,6 +37,7 @@
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/LongestCommonSubsequence.hpp"
 #include "../leetcode-cc/LongestConsecutiveSeq.hpp"
+#include "../leetcode-cc/LruCache.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
@@ -620,6 +621,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBTreePostorderTraversal>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PLRUCache>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SLRUCache>(); });
 
   return 0;
 }
