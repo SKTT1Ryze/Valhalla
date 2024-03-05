@@ -1,3 +1,5 @@
+#include <stack>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -25,5 +27,23 @@ class SBTreePreorderTraversal : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<int> preorderTraversal(TreeNode* root) const {}
+  vector<int> preorderTraversal(TreeNode* root) const {
+    stack<TreeNode*> s = {};
+    auto node = root;
+    vector<int> res;
+
+    while (node || !s.empty()) {
+      if (node) {
+        res.push_back(node->val);
+        s.push(node);
+        node = node->left;
+      } else {
+        auto parent = s.top();
+        s.pop();
+        node = parent->right;
+      }
+    }
+
+    return res;
+  }
 };
