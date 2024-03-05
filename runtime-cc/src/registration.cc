@@ -2,6 +2,7 @@
 
 #include "../leetcode-cc/BTreeLevelTraversalII.hpp"
 #include "../leetcode-cc/BTreeMaxPathSum.hpp"
+#include "../leetcode-cc/BTreePreorderTraversal.hpp"
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BalancedBTree.hpp"
 #include "../leetcode-cc/BestTimeToBuySellStockIII.hpp"
@@ -604,6 +605,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PReorderList>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SReorderList>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PBTreePreorderTraversal>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SBTreePreorderTraversal>();
+  });
 
   return 0;
 }
