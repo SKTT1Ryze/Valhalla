@@ -20,6 +20,7 @@
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DistinctSubsequences.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
+#include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
 #include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
 #include "../leetcode-cc/FourSum.hpp"
@@ -638,6 +639,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSortList>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSortList>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PEvaluateReversePolishNotation>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SEvaluateReversePolishNotation>();
+  });
 
   return 0;
 }
