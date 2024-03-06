@@ -1,3 +1,5 @@
+#include <stack>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -25,5 +27,30 @@ class SReverseWords : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  string reverseWords(string s) const {}
+  string reverseWords(string s) const {
+    stack<string> st = {};
+    string current = "";
+
+    for (const auto& c : s) {
+      if (c == ' ') {
+        if (current != "") {
+          st.push(std::move(current));
+        }
+      } else {
+        current += c;
+      }
+    }
+
+    if (current != "") st.push(current);
+
+    string res = "";
+    while (!st.empty()) {
+      auto word = st.top();
+      st.pop();
+      res += word;
+      if (!st.empty()) res += " ";
+    }
+
+    return res;
+  }
 };
