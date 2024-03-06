@@ -9,7 +9,7 @@ using namespace std;
 IMPLEMENT_PROBLEM_CLASS(
     PReverseWords, 151, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
     "Reverse Words in a String",
-    "Given an input string s, reverse the order of the words.", {""});
+    "Given an input string s, reverse the order of the words.", {"Stack"});
 
 class SReverseWords : public ISolution {
  public:
