@@ -71,6 +71,7 @@
 #include "../leetcode-cc/RestoreIpAddresses.hpp"
 #include "../leetcode-cc/ReverseLinkedListII.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
+#include "../leetcode-cc/ReverseWords.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
 #include "../leetcode-cc/SameTree.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
@@ -652,6 +653,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMaxPointsLine>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMaxPointsLine>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PReverseWords>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SReverseWords>(); });
 
   return 0;
 }
