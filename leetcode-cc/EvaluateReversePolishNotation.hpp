@@ -1,3 +1,7 @@
+#include <stack>
+#include <string>
+#include <utility>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -29,5 +33,35 @@ class SEvaluateReversePolishNotation : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int evalRPN(vector<string>& tokens) const {}
+  int evalRPN(vector<string>& tokens) const {
+    stack<int> s = {};
+
+    auto f = [&s]() {
+      auto x = s.top();
+      s.pop();
+      auto y = s.top();
+      s.pop();
+      return make_pair(x, y);
+    };
+
+    for (const auto& token : tokens) {
+      if (token == "+") {
+        auto [x, y] = f();
+        s.push(x + y);
+      } else if (token == "-") {
+        auto [x, y] = f();
+        s.push(y - x);
+      } else if (token == "*") {
+        auto [x, y] = f();
+        s.push(x * y);
+      } else if (token == "/") {
+        auto [x, y] = f();
+        s.push(y / x);
+      } else {
+        s.push(stoi(token));
+      }
+    }
+
+    return s.top();
+  }
 };
