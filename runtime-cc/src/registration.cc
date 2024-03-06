@@ -76,6 +76,7 @@
 #include "../leetcode-cc/SetMismatch.hpp"
 #include "../leetcode-cc/SingleNumber.hpp"
 #include "../leetcode-cc/SingleNumberII.hpp"
+#include "../leetcode-cc/SortList.hpp"
 #include "../leetcode-cc/SubsetsII.hpp"
 #include "../leetcode-cc/SumOfSubArrayMin.hpp"
 #include "../leetcode-cc/SumRootToLeafNums.hpp"
@@ -632,6 +633,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PInsertionSortList>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SInsertionSortList>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSortList>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSortList>(); });
 
   return 0;
 }
