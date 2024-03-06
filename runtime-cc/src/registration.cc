@@ -43,6 +43,7 @@
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
+#include "../leetcode-cc/MaxPoints.hpp"
 #include "../leetcode-cc/MaximalRectangle.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
@@ -646,6 +647,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SEvaluateReversePolishNotation>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMaxPointsLine>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMaxPointsLine>(); });
 
   return 0;
 }
