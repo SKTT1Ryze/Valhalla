@@ -1,3 +1,8 @@
+#include <algorithm>
+#include <cstddef>
+#include <functional>
+#include <unordered_map>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -27,5 +32,50 @@ class SMaxPointsLine : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maxPoints(vector<vector<int>>& points) const {}
+  int maxPoints(vector<vector<int>>& points) const {
+    int n = points.size();
+    if (n <= 2) return n;
+
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+      unordered_map<pair<int, int>, int, pair_hash> map = {};
+
+      for (int j = i + 1; j < n; j++) {
+        auto slope = getSlope(points[i], points[j]);
+        map[slope]++;
+      }
+
+      for (const auto& pair : map) {
+        res = max(res, pair.second + 1);
+      }
+    }
+
+    return res;
+  }
+
+  struct pair_hash {
+    template <class T1, class T2>
+    size_t operator()(const pair<T1, T2>& p) const {
+      auto h1 = hash<T1>{}(p.first);
+      auto h2 = hash<T2>{}(p.first);
+      return h1 ^ h2;
+    }
+  };
+
+  static int getGCD(int a, int b) {
+    while (b) {
+      int temp = b;
+      b = a % b;
+      a = temp;
+    }
+
+    return a;
+  }
+
+  static pair<int, int> getSlope(const vector<int>& p1, const vector<int>& p2) {
+    int dx = p2[0] - p1[0];
+    int dy = p2[1] - p1[1];
+    int gcd = getGCD(dx, dy);
+    return {dx / gcd, dy / gcd};
+  }
 };
