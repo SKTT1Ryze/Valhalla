@@ -44,6 +44,7 @@
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
 #include "../leetcode-cc/MaxPoints.hpp"
+#include "../leetcode-cc/MaxProductSubarray.hpp"
 #include "../leetcode-cc/MaximalRectangle.hpp"
 #include "../leetcode-cc/MergeKSortedLists.hpp"
 #include "../leetcode-cc/MergeSortedArray.hpp"
@@ -658,6 +659,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PReverseWords>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SReverseWords>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMaxProductSubarray>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMaxProductSubarray>(); });
 
   return 0;
 }
