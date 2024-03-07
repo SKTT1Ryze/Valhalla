@@ -54,6 +54,7 @@
 #include "../leetcode-cc/MinDepthOfBTree.hpp"
 #include "../leetcode-cc/MinFallingPathSum.hpp"
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
+#include "../leetcode-cc/MinStack.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PalindromePartitioning.hpp"
@@ -680,6 +681,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SFindMinInRotatedSortedArrayII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMinStack>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMinStack>(); });
 
   return 0;
 }
