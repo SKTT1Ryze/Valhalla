@@ -7,7 +7,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PFindPeakElement, 162, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
-                        "Find Peak Element", "", {""});
+                        "Find Peak Element", "", {"Array"});
 
 class SFindPeakElement : public ISolution {
  public:
