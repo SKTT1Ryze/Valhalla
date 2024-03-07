@@ -33,6 +33,7 @@
 #include "../leetcode-cc/InsertionSortList.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
+#include "../leetcode-cc/IntersectionOfTwoLL.hpp"
 #include "../leetcode-cc/KInversePairsArray.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
@@ -686,6 +687,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMinStack>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMinStack>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PIntersectionOfTwoLL>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SIntersectionOfTwoLL>(); });
 
   return 0;
 }
