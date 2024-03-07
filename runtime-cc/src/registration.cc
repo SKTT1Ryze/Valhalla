@@ -23,6 +23,7 @@
 #include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArray.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArrayII.hpp"
+#include "../leetcode-cc/FindPeakElement.hpp"
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
 #include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
 #include "../leetcode-cc/FourSum.hpp"
@@ -692,6 +693,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PIntersectionOfTwoLL>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SIntersectionOfTwoLL>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PFindPeakElement>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SFindPeakElement>(); });
 
   return 0;
 }
