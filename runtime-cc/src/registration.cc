@@ -22,6 +22,7 @@
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArray.hpp"
+#include "../leetcode-cc/FindMinInRotatedSortedArrayII.hpp"
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
 #include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
 #include "../leetcode-cc/FourSum.hpp"
@@ -671,6 +672,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SFindMinInRotatedSortedArray>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PFindMinInRotatedSortedArrayII>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SFindMinInRotatedSortedArrayII>();
   });
 
   return 0;
