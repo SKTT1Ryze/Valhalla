@@ -29,5 +29,30 @@ class SFindMinInRotatedSortedArrayII : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int findMin(vector<int>& nums) const {}
+  int findMin(vector<int>& nums) const {
+    int n = nums.size();
+    int start = 0;
+    int end = n - 1;
+    int res = INT_MAX;
+
+    while (start <= end) {
+      int middle = (start + end) / 2;
+
+      while (start < middle && nums[start] == nums[middle]) {
+        start++;
+      }
+
+      if (nums[start] <= nums[middle]) {
+        // start..middle is sorted
+        res = min(res, nums[start]);
+        start = middle + 1;
+      } else {
+        // middle..end is sorted
+        res = min(res, nums[middle]);
+        end = middle - 1;
+      }
+    }
+
+    return res;
+  }
 };
