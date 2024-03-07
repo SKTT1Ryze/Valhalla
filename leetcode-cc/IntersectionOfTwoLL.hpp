@@ -1,3 +1,5 @@
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -23,5 +25,23 @@ class SIntersectionOfTwoLL : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) const {}
+  ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) const {
+    unordered_set<ListNode *> set = {};
+
+    auto p = headA;
+    while (p) {
+      set.insert(p);
+      p = p->next;
+    }
+
+    p = headB;
+    while (p) {
+      if (set.contains(p)) {
+        return p;
+      }
+      p = p->next;
+    }
+
+    return nullptr;
+  }
 };
