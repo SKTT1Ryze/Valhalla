@@ -11,7 +11,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "Given an integer array nums, return the maximum difference between two "
     "successive elements in its sorted form. If the array contains less than "
     "two elements, return 0.",
-    {""});
+    {"Bucket Sorting"});
 
 class SMaxGap : public ISolution {
  public:
