@@ -46,6 +46,7 @@
 #include "../leetcode-cc/LruCache.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
+#include "../leetcode-cc/MaxGap.hpp"
 #include "../leetcode-cc/MaxLenOfConcatenatedStrWithUniqueChars.hpp"
 #include "../leetcode-cc/MaxPoints.hpp"
 #include "../leetcode-cc/MaxProductSubarray.hpp"
@@ -698,6 +699,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PFindPeakElement>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SFindPeakElement>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMaxGap>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMaxGap>(); });
 
   return 0;
 }
