@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -26,5 +28,37 @@ class SMaxGap : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maximumGap(vector<int>& nums) const {}
+  int maximumGap(vector<int>& nums) const {
+    int n = nums.size();
+    if (n < 2) return 0;
+
+    auto minVal = *min_element(nums.begin(), nums.end());
+    auto maxVal = *max_element(nums.begin(), nums.end());
+
+    int interval = max((maxVal - minVal) / (n - 1), 1);
+    int bucketNum = (maxVal - minVal) / interval + 1;
+
+    vector<pair<int, int>> bucket(bucketNum, {-1, -1});
+
+    for (int num : nums) {
+      int index = (num - minVal) / interval;
+      if (bucket[index].first == -1) {
+        bucket[index].first = bucket[index].second = num;
+      } else {
+        bucket[index].first = min(num, bucket[index].first);
+        bucket[index].second = max(num, bucket[index].second);
+      }
+    }
+
+    int maxGap = INT_MIN;
+    int prevMax = minVal;
+    for (auto& e : bucket) {
+      if (e.first != -1) {
+        maxGap = max(maxGap, e.first - prevMax);
+        prevMax = e.second;
+      }
+    }
+
+    return maxGap;
+  }
 };
