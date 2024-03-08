@@ -11,7 +11,8 @@ using namespace std;
 IMPLEMENT_PROBLEM_CLASS(
     PCmpVersionNum, 165, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
     "Compare Version Number",
-    "Given two version numbers, version1 and version2, compare them.", {""});
+    "Given two version numbers, version1 and version2, compare them.",
+    {"Queue"});
 
 class SCmpVersionNum : public ISolution {
  public:
