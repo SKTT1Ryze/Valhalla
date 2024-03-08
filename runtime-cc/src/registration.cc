@@ -10,6 +10,7 @@
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
 #include "../leetcode-cc/CloneGraph.hpp"
+#include "../leetcode-cc/CmpVersionNum.hpp"
 #include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
 #include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
@@ -704,6 +705,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMaxGap>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMaxGap>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PCmpVersionNum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SCmpVersionNum>(); });
 
   return 0;
 }
