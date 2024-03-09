@@ -1,3 +1,5 @@
+#include <unordered_map>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -6,7 +8,7 @@ using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PTwoSumIIInputArraySorted, 167, DIFFI_MEDIUM,
                         TOPIC_ALGORITHMS, "Two Sum II - Input Array Is Sorted",
-                        "", {""});
+                        "", {"Hash Table"});
 
 class STwoSumIIInputArraySorted : public ISolution {
  public:
@@ -24,5 +26,19 @@ class STwoSumIIInputArraySorted : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<int> twoSum(vector<int>& numbers, int target) const {}
+  vector<int> twoSum(vector<int>& numbers, int target) const {
+    unordered_map<int, int> map = {};
+
+    for (int i = 0; i < numbers.size(); i++) {
+      int current = numbers[i];
+      int left = target - current;
+      if (map.contains(left)) {
+        return {map[left] + 1, i + 1};
+      } else {
+        map.insert({current, i});
+      }
+    }
+
+    return {};
+  }
 };
