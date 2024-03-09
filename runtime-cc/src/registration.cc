@@ -28,6 +28,7 @@
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
 #include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
 #include "../leetcode-cc/FourSum.hpp"
+#include "../leetcode-cc/FractionToDecimal.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
 #include "../leetcode-cc/HouseRobber.hpp"
@@ -710,6 +711,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PCmpVersionNum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SCmpVersionNum>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PFractionToDecimal>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SFractionToDecimal>(); });
 
   return 0;
 }
