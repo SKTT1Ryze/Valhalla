@@ -97,6 +97,7 @@
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/Triangle.hpp"
+#include "../leetcode-cc/TwoSumIIInputArraySorted.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/UniqueNumOfOccurrences.hpp"
@@ -716,6 +717,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PFractionToDecimal>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SFractionToDecimal>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PTwoSumIIInputArraySorted>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<STwoSumIIInputArraySorted>();
+  });
 
   return 0;
 }
