@@ -9,7 +9,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "Excel Sheet Column Title",
     "Given an integer columnNumber, return its corresponding column title as "
     "it appears in an Excel sheet.",
-    {""});
+    {"Math"});
 
 class SExcelSheetColTitle : public ISolution {
  public:
@@ -26,5 +26,16 @@ class SExcelSheetColTitle : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  string convertToTitle(int columnNumber) const {}
+  string convertToTitle(int columnNumber) const {
+    string res = "";
+
+    while (columnNumber) {
+      columnNumber--;
+      int mod = columnNumber % 26;
+      res = char('A' + mod) + res;
+      columnNumber /= 26;
+    }
+
+    return res;
+  }
 };
