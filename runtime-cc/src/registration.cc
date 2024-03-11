@@ -47,6 +47,7 @@
 #include "../leetcode-cc/LongestCommonSubsequence.hpp"
 #include "../leetcode-cc/LongestConsecutiveSeq.hpp"
 #include "../leetcode-cc/LruCache.hpp"
+#include "../leetcode-cc/MajorityElement.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxGap.hpp"
@@ -730,6 +731,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PExcelSheetColTitle>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SExcelSheetColTitle>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMajorityElement>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMajorityElement>(); });
 
   return 0;
 }
