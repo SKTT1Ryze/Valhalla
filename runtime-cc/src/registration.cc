@@ -22,6 +22,7 @@
 #include "../leetcode-cc/DistinctSubsequences.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
+#include "../leetcode-cc/ExcelSheetColTitle.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArray.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArrayII.hpp"
 #include "../leetcode-cc/FindPeakElement.hpp"
@@ -724,6 +725,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<STwoSumIIInputArraySorted>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PExcelSheetColTitle>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SExcelSheetColTitle>(); });
 
   return 0;
 }
