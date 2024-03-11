@@ -1,3 +1,5 @@
+#include <unordered_map>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -9,7 +11,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "Given an array nums of size n, return the majority element. The majority "
     "element is the element that appears more than ⌊n / 2⌋ times. You may "
     "assume that the majority element always exists in the array.",
-    {""});
+    {"Hash Table"});
 
 class SMajorityElement : public ISolution {
  public:
@@ -26,5 +28,22 @@ class SMajorityElement : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int majorityElement(vector<int>& nums) const {}
+  int majorityElement(vector<int>& nums) const {
+    unordered_map<int, int> map = {};
+
+    for (const auto& num : nums) {
+      map[num]++;
+    }
+
+    int res = 0;
+    int majority = INT_MIN;
+    for (const auto& [k, v] : map) {
+      if (v > majority) {
+        res = k;
+        majority = v;
+      }
+    }
+
+    return res;
+  }
 };
