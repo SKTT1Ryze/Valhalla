@@ -22,6 +22,7 @@
 #include "../leetcode-cc/DistinctSubsequences.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
+#include "../leetcode-cc/ExcelSheetColNum.hpp"
 #include "../leetcode-cc/ExcelSheetColTitle.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArray.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArrayII.hpp"
@@ -736,6 +737,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMajorityElement>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMajorityElement>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PExcelSheetColNum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SExcelSheetColNum>(); });
 
   return 0;
 }
