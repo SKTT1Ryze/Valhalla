@@ -26,5 +26,17 @@ class SExcelSheetColNum : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int titleToNumber(string columnTitle) const {}
+  int titleToNumber(string columnTitle) const {
+    int n = columnTitle.size();
+    int k = 0;
+    int res = 0;
+
+    for (int i = n - 1; i >= 0; i--) {
+      int num = columnTitle[i] - 'A' + 1;
+      res += num * pow(26, k);
+      k++;
+    }
+
+    return res;
+  }
 };
