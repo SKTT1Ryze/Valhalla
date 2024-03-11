@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
