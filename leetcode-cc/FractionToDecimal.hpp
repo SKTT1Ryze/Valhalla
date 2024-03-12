@@ -11,7 +11,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "Fraction to Recurring Decimal",
     "Given two integers representing the numerator and denominator of a "
     "fraction, return the fraction in string format.",
-    {""});
+    {"Math"});
 
 class SFractionToDecimal : public ISolution {
  public:
