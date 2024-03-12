@@ -24,6 +24,7 @@
 #include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
 #include "../leetcode-cc/ExcelSheetColNum.hpp"
 #include "../leetcode-cc/ExcelSheetColTitle.hpp"
+#include "../leetcode-cc/FactorialTrailingZeroes.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArray.hpp"
 #include "../leetcode-cc/FindMinInRotatedSortedArrayII.hpp"
 #include "../leetcode-cc/FindPeakElement.hpp"
@@ -742,6 +743,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PExcelSheetColNum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SExcelSheetColNum>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PFactorialTrailingZeroes>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SFactorialTrailingZeroes>();
+  });
 
   return 0;
 }
