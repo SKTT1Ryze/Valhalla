@@ -1,5 +1,6 @@
 #include "registration.h"
 
+#include "../leetcode-cc/BSTIterator.hpp"
 #include "../leetcode-cc/BTreeLevelTraversalII.hpp"
 #include "../leetcode-cc/BTreeMaxPathSum.hpp"
 #include "../leetcode-cc/BTreePostorderTraversal.hpp"
@@ -750,6 +751,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SFactorialTrailingZeroes>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PBSTIterator>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SBSTIterator>(); });
 
   return 0;
 }
