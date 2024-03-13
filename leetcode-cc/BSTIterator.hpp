@@ -1,3 +1,5 @@
+#include <stack>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -23,11 +25,27 @@ class SBSTIterator : public ISolution {
 
  private:
   class BSTIterator {
+   private:
+    stack<TreeNode*> s;
+    TreeNode* p;
+
    public:
-    BSTIterator(TreeNode* root) {}
+    BSTIterator(TreeNode* root) : s(), p(root) {}
 
-    int next() {}
+    int next() {
+      while (p) {
+        s.push(p);
+        p = p->left;
+      }
 
-    bool hasNext() {}
+      p = s.top();
+      s.pop();
+      int val = p->val;
+      p = p->right;
+
+      return val;
+    }
+
+    bool hasNext() { return p || !s.empty(); }
   };
 };
