@@ -43,6 +43,7 @@
 #include "../leetcode-cc/InterleavingString.hpp"
 #include "../leetcode-cc/IntersectionOfTwoLL.hpp"
 #include "../leetcode-cc/KInversePairsArray.hpp"
+#include "../leetcode-cc/KthLargestElement.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
 #include "../leetcode-cc/LetterCombsOfAPhoneNum.hpp"
 #include "../leetcode-cc/LinkedListCycle.hpp"
@@ -768,6 +769,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PBTRightSideView>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SBTRightSideView>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PKthLargestElement>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SKthLargestElement>(); });
 
   return 0;
 }
