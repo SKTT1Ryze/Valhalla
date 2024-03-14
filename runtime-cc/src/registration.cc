@@ -82,6 +82,7 @@
 #include "../leetcode-cc/RemoveElement.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/ReorderList.hpp"
+#include "../leetcode-cc/RepeatedDNASeq.hpp"
 #include "../leetcode-cc/RestoreIpAddresses.hpp"
 #include "../leetcode-cc/ReverseLinkedListII.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
@@ -756,6 +757,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PBSTIterator>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SBSTIterator>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PRepeatedDNASeq>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SRepeatedDNASeq>(); });
 
   return 0;
 }
