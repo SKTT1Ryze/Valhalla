@@ -1,6 +1,7 @@
 #include "registration.h"
 
 #include "../leetcode-cc/BSTIterator.hpp"
+#include "../leetcode-cc/BTRightSideView.hpp"
 #include "../leetcode-cc/BTreeLevelTraversalII.hpp"
 #include "../leetcode-cc/BTreeMaxPathSum.hpp"
 #include "../leetcode-cc/BTreePostorderTraversal.hpp"
@@ -762,6 +763,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRepeatedDNASeq>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRepeatedDNASeq>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PBTRightSideView>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SBTRightSideView>(); });
 
   return 0;
 }
