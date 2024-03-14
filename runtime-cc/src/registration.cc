@@ -770,5 +770,10 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SBTRightSideView>(); });
 
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PKthLargestElement>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SKthLargestElement>(); });
+
   return 0;
 }

@@ -1,3 +1,4 @@
+#include "Heap.h"
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -27,5 +28,18 @@ class SKthLargestElement : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int findKthLargest(vector<int>& nums, int k) const {}
+  int findKthLargest(vector<int>& nums, int k) const {
+    Heap<int> heap;
+
+    for (const int& num : nums) {
+      heap.insert(num);
+    }
+
+    while (k > 1) {
+      heap.pop();
+      k--;
+    }
+
+    return heap.top();
+  }
 };

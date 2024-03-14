@@ -19,3 +19,5 @@ template <typename T>
 T Heap<T>::top() {
   return inner[0];  // panic if inner is empty
 }
+
+template class Heap<int>;
