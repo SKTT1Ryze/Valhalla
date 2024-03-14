@@ -106,6 +106,7 @@
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/Triangle.hpp"
 #include "../leetcode-cc/TwoSumIIInputArraySorted.hpp"
+#include "../leetcode-cc/UglyNumberII.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/UniqueNumOfOccurrences.hpp"
@@ -774,6 +775,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PKthLargestElement>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SKthLargestElement>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PUglyNumberII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SUglyNumberII>(); });
 
   return 0;
 }
