@@ -11,7 +11,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "given stock on the ith day, and an integer k.Find the maximum profit you "
     "can achieve. You may complete at most k transactions: i.e. you may buy at "
     "most k times and sell at most k times.",
-    {""});
+    {"DP"});
 
 class SBestTimeToBuySellStockIV : public ISolution {
  public:
@@ -29,5 +29,24 @@ class SBestTimeToBuySellStockIV : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int maxProfit(int k, vector<int>& prices) const {}
+  int maxProfit(int k, vector<int>& prices) const {
+    int n = prices.size();
+    vector<int> dp(k * 2 + 1, 0);
+
+    for (int i = 0; i < dp.size(); i++) {
+      dp[i] = i % 2 == 0 ? 0 : INT_MIN;
+    }
+
+    for (int i = 0; i < n; i++) {
+      for (int j = 1; j < dp.size(); j++) {
+        if (j % 2 == 0) {
+          dp[j] = max(dp[j], dp[j - 1] + prices[i]);
+        } else {
+          dp[j] = max(dp[j], dp[j - 1] - prices[i]);
+        }
+      }
+    }
+
+    return dp[k * 2];
+  }
 };
