@@ -1,3 +1,5 @@
+#include <deque>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -31,6 +33,17 @@ class SRotateArray : public ISolution {
 
  private:
   void rotate(vector<int>& nums, int k) const {
-    
+    int n = nums.size();
+    k = k % n;
+    deque<int> v = {};
+
+    while (k) {
+      int e = nums.back();
+      nums.pop_back();
+      v.push_front(e);
+      k--;
+    }
+
+    nums.insert(nums.begin(), v.begin(), v.end());
   }
 };
