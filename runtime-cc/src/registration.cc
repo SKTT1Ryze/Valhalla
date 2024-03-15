@@ -9,6 +9,7 @@
 #include "../leetcode-cc/BTreeZigzagLevelOrderTraversal.hpp"
 #include "../leetcode-cc/BalancedBTree.hpp"
 #include "../leetcode-cc/BestTimeToBuySellStockIII.hpp"
+#include "../leetcode-cc/BestTimeToBuySellStockIV.hpp"
 #include "../leetcode-cc/BinaryTreeInorderTraversal.hpp"
 #include "../leetcode-cc/BinaryTreeLevelOrderTraversal.hpp"
 #include "../leetcode-cc/CloneGraph.hpp"
@@ -780,6 +781,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PUglyNumberII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SUglyNumberII>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PBestTimeToBuySellStockIV>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SBestTimeToBuySellStockIV>();
+  });
 
   return 0;
 }
