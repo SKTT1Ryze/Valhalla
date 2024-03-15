@@ -91,6 +91,7 @@
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/ReverseWords.hpp"
 #include "../leetcode-cc/RomanToInteger.hpp"
+#include "../leetcode-cc/RotateArray.hpp"
 #include "../leetcode-cc/SameTree.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
@@ -788,6 +789,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBestTimeToBuySellStockIV>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PRotateArray>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SRotateArray>(); });
 
   return 0;
 }
