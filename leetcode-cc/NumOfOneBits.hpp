@@ -27,5 +27,17 @@ class SNumOfOneBits : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int hammingWeight(uint32_t n) const {}
+  int hammingWeight(uint32_t n) const {
+    const int N = 32;
+    int res = 0;
+
+    for (int i = 0; i < N; i++) {
+      uint32_t mask = 0x1 << i;
+      if (mask & n) {
+        res++;
+      }
+    }
+
+    return res;
+  }
 };
