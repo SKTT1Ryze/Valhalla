@@ -87,6 +87,7 @@
 #include "../leetcode-cc/ReorderList.hpp"
 #include "../leetcode-cc/RepeatedDNASeq.hpp"
 #include "../leetcode-cc/RestoreIpAddresses.hpp"
+#include "../leetcode-cc/ReverseBits.hpp"
 #include "../leetcode-cc/ReverseLinkedListII.hpp"
 #include "../leetcode-cc/ReverseNodesinKGroup.hpp"
 #include "../leetcode-cc/ReverseWords.hpp"
@@ -794,6 +795,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRotateArray>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRotateArray>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PReverseBits>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SReverseBits>(); });
 
   return 0;
 }
