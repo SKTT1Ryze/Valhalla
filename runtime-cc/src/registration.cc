@@ -69,6 +69,7 @@
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/MinStack.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
+#include "../leetcode-cc/NumOfOneBits.hpp"
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PalindromePartitioning.hpp"
 #include "../leetcode-cc/PalindromePartitioningII.hpp"
@@ -800,6 +801,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PReverseBits>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SReverseBits>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PNumOfOneBits>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SNumOfOneBits>(); });
 
   return 0;
 }
