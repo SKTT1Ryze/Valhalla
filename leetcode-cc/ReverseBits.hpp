@@ -7,7 +7,7 @@ using namespace std;
 IMPLEMENT_PROBLEM_CLASS(PReverseBits, 190, DIFFI_EASY, TOPIC_ALGORITHMS,
                         "Reverse Bits",
                         "Reverse bits of a given 32 bits unsigned integer.",
-                        {""});
+                        {"Bit"});
 
 class SReverseBits : public ISolution {
  public:
@@ -27,5 +27,14 @@ class SReverseBits : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  uint32_t reverseBits(uint32_t n) const {}
+  uint32_t reverseBits(uint32_t n) const {
+    const int N = 32;
+    uint32_t res = 0;
+
+    for (int i = 0; i < N; i++) {
+      res = (res << 1) + ((n >> i) & 0x1);
+    }
+
+    return res;
+  }
 };
