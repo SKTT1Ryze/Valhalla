@@ -1,16 +1,11 @@
 #include <unordered_set>
 
+#include "PairHash.h"
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
 
 using namespace std;
-
-struct pair_hash {
-  inline size_t operator()(const pair<int, int>& v) const {
-    return v.first * 31 + v.second;
-  }
-};
 
 IMPLEMENT_PROBLEM_CLASS(
     PSurroundedRegions, 130, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
