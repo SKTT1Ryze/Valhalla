@@ -12,7 +12,7 @@ IMPLEMENT_PROBLEM_CLASS(
     PNumOfIslands, 200, DIFFI_MEDIUM, TOPIC_ALGORITHMS, "Number of Islands",
     "Given an m x n 2D binary grid grid which represents a map of '1's (land) "
     "and '0's (water), return the number of islands.",
-    {"Matrix"});
+    {"Matrix && DFS"});
 
 class SNumOfIslands : public ISolution {
  public:
