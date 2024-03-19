@@ -1,3 +1,6 @@
+#include <unordered_set>
+
+#include "PairHash.h"
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -30,5 +33,11 @@ class SNumOfIslands : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int numIslands(vector<vector<char>>& grid) const {}
+  int numIslands(vector<vector<char>>& grid) const {
+    int m = grid.size();
+    int n = grid[0].size();
+  }
+
+  static void dfs(vector<vector<char>>& grid, int row, int col,
+                  unordered_set<pair<int, int>, pair_hash>) {}
 };
