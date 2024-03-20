@@ -88,6 +88,7 @@
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedListII.hpp"
 #include "../leetcode-cc/RemoveElement.hpp"
+#include "../leetcode-cc/RemoveLinkedListElements.hpp"
 #include "../leetcode-cc/RemoveNthNode.hpp"
 #include "../leetcode-cc/ReorderList.hpp"
 #include "../leetcode-cc/RepeatedDNASeq.hpp"
@@ -831,6 +832,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PHappyNumber>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SHappyNumber>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PRemoveLinkedListElements>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SRemoveLinkedListElements>();
+  });
 
   return 0;
 }
