@@ -30,5 +30,22 @@ class SRemoveLinkedListElements : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* removeElements(ListNode* head, int val) const {}
+  ListNode* removeElements(ListNode* head, int val) const {
+    auto newHead = new ListNode();
+    newHead->next = head;
+    auto prev = newHead;
+    auto curr = head;
+
+    while (curr) {
+      if (curr->val == val) {
+        prev->next = curr->next;
+        curr = curr->next;
+      } else {
+        prev = prev->next;
+        curr = curr->next;
+      }
+    }
+
+    return newHead->next;
+  }
 };
