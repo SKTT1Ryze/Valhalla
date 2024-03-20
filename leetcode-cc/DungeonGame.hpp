@@ -11,7 +11,7 @@ IMPLEMENT_PROBLEM_CLASS(PDungeonGame, 174, DIFFI_HARD, TOPIC_ALGORITHMS,
                         "Dungeon Game",
                         "Return the knight's minimum initial health so that he "
                         "can rescue the princess.",
-                        {""});
+                        {"DP"});
 
 class SDungeonGame : public ISolution {
  public:
