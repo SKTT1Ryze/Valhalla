@@ -39,6 +39,7 @@
 #include "../leetcode-cc/FractionToDecimal.hpp"
 #include "../leetcode-cc/GenerateParentheses.hpp"
 #include "../leetcode-cc/GrayCode.hpp"
+#include "../leetcode-cc/HappyNumber.hpp"
 #include "../leetcode-cc/HouseRobber.hpp"
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/InsertionSortList.hpp"
@@ -825,6 +826,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SBitWiseANDOfNumRange>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PHappyNumber>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SHappyNumber>(); });
 
   return 0;
 }
