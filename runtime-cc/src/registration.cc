@@ -827,5 +827,10 @@ const int registerAll(std::shared_ptr<Container> handle) {
     return std::make_shared<SBitWiseANDOfNumRange>();
   });
 
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PHappyNumber>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SHappyNumber>(); });
+
   return 0;
 }

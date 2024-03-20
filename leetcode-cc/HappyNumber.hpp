@@ -1,3 +1,5 @@
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -23,5 +25,30 @@ class SHappyNumber : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  bool isHappy(int n) const {}
+  bool isHappy(int n) const {
+    unordered_set<int> memo = {};
+    return check(n, memo);
+  }
+
+  static bool check(int n, unordered_set<int>& memo) {
+    if (n == 1) {
+      return true;
+    } else if (memo.contains(n)) {
+      return false;
+    } else {
+      memo.insert(n);
+      return check(calNum(n), memo);
+    }
+  }
+
+  static int calNum(int n) {
+    int res = 0;
+
+    while (n > 0) {
+      res += pow(n % 10, 2);
+      n /= 10;
+    }
+
+    return res;
+  }
 };
