@@ -24,6 +24,7 @@
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DistinctSubsequences.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
+#include "../leetcode-cc/DungeonGame.hpp"
 #include "../leetcode-cc/EvaluateReversePolishNotation.hpp"
 #include "../leetcode-cc/ExcelSheetColNum.hpp"
 #include "../leetcode-cc/ExcelSheetColTitle.hpp"
@@ -812,6 +813,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PNumOfIslands>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SNumOfIslands>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PDungeonGame>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SDungeonGame>(); });
 
   return 0;
 }
