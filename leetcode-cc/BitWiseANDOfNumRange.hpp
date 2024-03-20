@@ -27,5 +27,14 @@ class SBitWiseANDOfNumRange : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int rangeBitwiseAnd(int left, int right) const {}
+  int rangeBitwiseAnd(int left, int right) const {
+    int shift = 0;
+    while (left < right) {
+      left >>= 1;
+      right >>= 1;
+      shift++;
+    }
+
+    return left << shift;
+  }
 };
