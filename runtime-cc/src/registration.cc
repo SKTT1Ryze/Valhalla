@@ -21,6 +21,7 @@
 #include "../leetcode-cc/ConvertSortedListToBST.hpp"
 #include "../leetcode-cc/CopyListWithRandPointer.hpp"
 #include "../leetcode-cc/CountPrimes.hpp"
+#include "../leetcode-cc/CourseSchedule.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -857,6 +858,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PReverseLinkedList>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SReverseLinkedList>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PCourseSchedule>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SCourseSchedule>(); });
 
   return 0;
 }
