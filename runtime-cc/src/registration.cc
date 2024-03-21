@@ -20,6 +20,7 @@
 #include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
 #include "../leetcode-cc/ConvertSortedListToBST.hpp"
 #include "../leetcode-cc/CopyListWithRandPointer.hpp"
+#include "../leetcode-cc/CountPrimes.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -839,6 +840,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SRemoveLinkedListElements>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PCountPrimes>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SCountPrimes>(); });
 
   return 0;
 }
