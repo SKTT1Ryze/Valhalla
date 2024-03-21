@@ -25,5 +25,21 @@ class SReverseLinkedList : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  ListNode* reverseList(ListNode* head) const {}
+  ListNode* reverseList(ListNode* head) const {
+    auto newHead = new ListNode();
+    newHead->next = head;
+    auto p = head;
+    ListNode* prev = nullptr;
+
+    while (p && p->next) {
+      newHead->next = p->next;
+      p->next = prev;
+      prev = p;
+      p = newHead->next;
+    }
+
+    if (p) p->next = prev;
+
+    return newHead->next;
+  }
 };
