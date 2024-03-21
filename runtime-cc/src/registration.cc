@@ -47,6 +47,7 @@
 #include "../leetcode-cc/IntegerToRoman.hpp"
 #include "../leetcode-cc/InterleavingString.hpp"
 #include "../leetcode-cc/IntersectionOfTwoLL.hpp"
+#include "../leetcode-cc/IsomorphicStrings.hpp"
 #include "../leetcode-cc/KInversePairsArray.hpp"
 #include "../leetcode-cc/KthLargestElement.hpp"
 #include "../leetcode-cc/LargestRectangleInHistogram.hpp"
@@ -845,6 +846,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PCountPrimes>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SCountPrimes>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PIsomorphicStrings>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SIsomorphicStrings>(); });
 
   return 0;
 }
