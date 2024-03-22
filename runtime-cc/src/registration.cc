@@ -22,6 +22,7 @@
 #include "../leetcode-cc/CopyListWithRandPointer.hpp"
 #include "../leetcode-cc/CountPrimes.hpp"
 #include "../leetcode-cc/CourseSchedule.hpp"
+#include "../leetcode-cc/CourseScheduleII.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
@@ -875,6 +876,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMinSizeSubarraySum>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMinSizeSubarraySum>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PCourseScheduleII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SCourseScheduleII>(); });
 
   return 0;
 }
