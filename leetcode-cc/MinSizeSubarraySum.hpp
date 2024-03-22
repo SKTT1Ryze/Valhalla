@@ -10,7 +10,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "Given an array of positive integers nums and a positive integer target, "
     "return the minimal length of a subarray whose sum is greater than or "
     "equal to target. If there is no such subarray, return 0 instead.",
-    {""});
+    {"Sliding Window"});
 
 class SMinSizeSubarraySum : public ISolution {
  public:
@@ -31,5 +31,46 @@ class SMinSizeSubarraySum : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int minSubArrayLen(int target, vector<int>& nums) const {}
+  // Memory Limit Exceeded
+  // int minSubArrayLen(int target, vector<int>& nums) const {
+  //   int n = nums.size();
+  //   vector<vector<int>> dp(n, vector(n, 0));
+  //
+  //   for (int i = 0; i < n; i++) {
+  //     if (nums[i] >= target) {
+  //       return 1;
+  //     } else {
+  //       dp[i][i] = nums[i];
+  //     }
+  //   }
+  //
+  //   for (int len = 2; len <= n; len++) {
+  //     for (int i = 0; i <= n - len; i++) {
+  //       int j = i + len - 1;
+  //       dp[i][j] = dp[i][j - 1] + nums[j];
+  //
+  //       if (dp[i][j] >= target) return len;
+  //     }
+  //   }
+  //
+  //   return 0;
+  // }
+
+  int minSubArrayLen(int target, vector<int>& nums) const {
+    int n = nums.size();
+    int left = 0, right = 0;
+    int sum = 0;
+    int minLen = INT_MAX;
+
+    while (right < n) {
+      sum += nums[right];
+      while (sum >= target) {
+        minLen = min(minLen, right - left + 1);
+        sum -= nums[left++];
+      }
+      right++;
+    }
+
+    return minLen == INT_MAX ? 0 : minLen;
+  }
 };
