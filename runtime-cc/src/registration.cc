@@ -74,6 +74,7 @@
 #include "../leetcode-cc/MinDepthOfBTree.hpp"
 #include "../leetcode-cc/MinFallingPathSum.hpp"
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
+#include "../leetcode-cc/MinSizeSubarraySum.hpp"
 #include "../leetcode-cc/MinStack.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/NumOfIslands.hpp"
@@ -869,6 +870,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PImplTriePrefixTree>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SImplTriePrefixTree>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMinSizeSubarraySum>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMinSizeSubarraySum>(); });
 
   return 0;
 }
