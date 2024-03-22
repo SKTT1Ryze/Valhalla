@@ -43,6 +43,7 @@
 #include "../leetcode-cc/GrayCode.hpp"
 #include "../leetcode-cc/HappyNumber.hpp"
 #include "../leetcode-cc/HouseRobber.hpp"
+#include "../leetcode-cc/ImplTriePrefixTree.hpp"
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/InsertionSortList.hpp"
 #include "../leetcode-cc/IntegerToRoman.hpp"
@@ -863,6 +864,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PCourseSchedule>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SCourseSchedule>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PImplTriePrefixTree>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SImplTriePrefixTree>(); });
 
   return 0;
 }
