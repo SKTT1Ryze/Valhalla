@@ -133,6 +133,7 @@
 #include "../leetcode-cc/WordBreakII.hpp"
 #include "../leetcode-cc/WordLadder.hpp"
 #include "../leetcode-cc/WordLadderII.hpp"
+#include "../leetcode-cc/WordSearchII.hpp"
 #include "../leetcode-cc/WordsDataStructure.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
@@ -887,6 +888,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PWordsDataStructure>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SWordsDataStructure>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PWordSearchII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SWordSearchII>(); });
 
   return 0;
 }
