@@ -153,5 +153,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, search_in_rotated_sorted_array_ii);
 
+    register!(handle, house_robber_ii);
+
     Ok(())
 }

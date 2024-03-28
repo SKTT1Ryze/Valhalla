@@ -15,6 +15,7 @@ pub mod find_first_occurrence;
 pub mod first_missing_positive;
 pub mod gas_station;
 pub mod group_anagrams;
+pub mod house_robber_ii;
 pub mod insert_interval;
 pub mod jump_game;
 pub mod jump_game_ii;
