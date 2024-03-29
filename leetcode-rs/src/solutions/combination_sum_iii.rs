@@ -1,4 +1,5 @@
 use super::{test_helper, Solution};
+use std::collections::HashSet;
 
 pub struct SolutionImpl;
 
@@ -17,6 +18,47 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn combination_sum3(k: i32, n: i32) -> Vec<Vec<i32>> {
-        todo!()
+        let mut current = HashSet::new();
+        let mut ans = HashSet::new();
+
+        Self::backtracking(k, n, &mut current, &mut ans);
+
+        ans.into_iter().collect()
+    }
+
+    fn backtracking(
+        k: i32,
+        target: i32,
+        current: &mut HashSet<i32>,
+        ans: &mut HashSet<Vec<i32>>,
+    ) {
+        if k == 0 {
+            if target == 0 {
+                let mut v: Vec<_> = current.clone().into_iter().collect();
+                v.sort();
+                ans.insert(v);
+            }
+        } else if Self::max_sum(k) >= target {
+            for i in (current.len() as i32 + 1)..=9 {
+                if !current.contains(&i) {
+                    current.insert(i);
+                    Self::backtracking(k - 1, target - i, current, ans);
+                    current.remove(&i);
+                }
+            }
+        }
+    }
+
+    fn max_sum(mut k: i32) -> i32 {
+        let mut i = 9;
+        let mut res = 0;
+
+        while k > 0 {
+            res += i;
+            i -= 1;
+            k -= 1;
+        }
+
+        res
     }
 }

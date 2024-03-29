@@ -11,5 +11,5 @@ crate::derive_problem!(
     "Return a list of all possible valid combinations. The list must not \
      contain the same combination twice, and the combinations may be returned \
      in any order.",
-    "".into()
+    "Backtracking".into()
 );
