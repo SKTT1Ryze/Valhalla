@@ -10,7 +10,7 @@ IMPLEMENT_PROBLEM_CLASS(PShortestPalindrome, 214, DIFFI_HARD, TOPIC_ALGORITHMS,
                         "Shortest Palindrome",
                         "Return the shortest palindrome you can find by "
                         "performing this transformation.",
-                        {""});
+                        {"Logic / KMP"});
 
 class SShortestPalindrome : public ISolution {
  public:
