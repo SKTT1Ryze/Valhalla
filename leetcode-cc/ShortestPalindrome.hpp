@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -25,5 +27,24 @@ class SShortestPalindrome : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  string shortestPalindrome(string s) const {}
+  string shortestPalindrome(string s) const {
+    int offset = 1;
+    int n = s.size();
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+
+    if (s == rev) return s;
+
+    while (offset <= n) {
+      char ch = s[s.size() - offset];
+      s.insert(s.begin() + offset - 1, ch);
+      rev.insert(rev.end() - offset + 1, ch);
+
+      if (s == rev) break;
+
+      offset++;
+    }
+
+    return s;
+  }
 };
