@@ -155,5 +155,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, house_robber_ii);
 
+    register!(handle, combination_sum_iii);
+
     Ok(())
 }

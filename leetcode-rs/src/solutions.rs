@@ -13,6 +13,7 @@ pub mod candy;
 pub mod climbing_stairs;
 pub mod combination_sum;
 pub mod combination_sum2;
+pub mod combination_sum_iii;
 pub mod combinations;
 pub mod container_with_most_water;
 pub mod count_and_say;
