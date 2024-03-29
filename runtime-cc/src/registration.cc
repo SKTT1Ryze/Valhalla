@@ -110,6 +110,7 @@
 #include "../leetcode-cc/ScrambleString.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/SetMismatch.hpp"
+#include "../leetcode-cc/ShortestPalindrome.hpp"
 #include "../leetcode-cc/SingleNumber.hpp"
 #include "../leetcode-cc/SingleNumberII.hpp"
 #include "../leetcode-cc/SortList.hpp"
@@ -893,6 +894,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PWordSearchII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SWordSearchII>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PShortestPalindrome>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SShortestPalindrome>(); });
 
   return 0;
 }
