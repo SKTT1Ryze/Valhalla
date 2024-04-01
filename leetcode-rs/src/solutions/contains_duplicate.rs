@@ -1,4 +1,5 @@
 use super::{test_helper, Solution};
+use std::collections::HashSet;
 
 pub struct SolutionImpl;
 
@@ -17,6 +18,16 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-        todo!()
+        let mut set = HashSet::new();
+
+        for num in nums {
+            if set.contains(&num) {
+                return true;
+            }
+
+            set.insert(num);
+        }
+
+        false
     }
 }
