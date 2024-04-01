@@ -9,6 +9,7 @@ pub mod combination_sum2;
 pub mod combination_sum_iii;
 pub mod combinations;
 pub mod container_with_most_water;
+pub mod contains_duplicate;
 pub mod count_and_say;
 pub mod edit_distance;
 pub mod find_first_last_in_sorted_array;

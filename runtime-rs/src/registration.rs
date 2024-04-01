@@ -157,5 +157,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, combination_sum_iii);
 
+    register!(handle, contains_duplicate);
+
     Ok(())
 }
