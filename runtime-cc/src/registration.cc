@@ -119,6 +119,7 @@
 #include "../leetcode-cc/SumRootToLeafNums.hpp"
 #include "../leetcode-cc/SurroundedRegions.hpp"
 #include "../leetcode-cc/SymmetricTree.hpp"
+#include "../leetcode-cc/TheSkylineProblem.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/Triangle.hpp"
@@ -899,6 +900,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PShortestPalindrome>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SShortestPalindrome>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PTheSkylineProblem>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<STheSkylineProblem>(); });
 
   return 0;
 }
