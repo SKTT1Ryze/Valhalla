@@ -40,6 +40,6 @@ impl SolutionImpl {
             }
         }
 
-        (max_side * max_side) as i32
+        max_side * max_side
     }
 }
