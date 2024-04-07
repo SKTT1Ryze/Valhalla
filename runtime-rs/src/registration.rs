@@ -161,5 +161,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, contains_duplicate_ii);
 
+    register!(handle, maximal_square);
+
     Ok(())
 }

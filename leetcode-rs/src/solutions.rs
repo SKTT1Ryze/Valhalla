@@ -34,6 +34,7 @@ pub mod length_of_last_word;
 pub mod longest_palindromic_substring;
 pub mod longest_substring;
 pub mod longest_valid_parentheses;
+pub mod maximal_square;
 pub mod maximum_subarray;
 pub mod median_of_two_sorted_arrays;
 pub mod merge_intervals;
