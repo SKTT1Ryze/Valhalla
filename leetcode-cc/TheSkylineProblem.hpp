@@ -1,3 +1,5 @@
+#include <set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -11,7 +13,7 @@ IMPLEMENT_PROBLEM_CLASS(
     "buildings in that city when viewed from a distance. Given the locations "
     "and heights of all the buildings, return the skyline formed by these "
     "buildings collectively.",
-    {""});
+    {"Line Sweep"});
 
 class STheSkylineProblem : public ISolution {
  public:
@@ -31,5 +33,36 @@ class STheSkylineProblem : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<vector<int>> getSkyline(vector<vector<int>>& buildings) const {}
+  vector<vector<int>> getSkyline(vector<vector<int>>& buildings) const {
+    vector<vector<int>> result;
+    vector<pair<int, int>> points;  // (pos, height) pair
+    multiset<int> heights;
+    int prevHeight = 0;
+
+    for (auto& building : buildings) {
+      // Encode left and right edges with negative and positive heights
+      points.emplace_back(building[0], -building[2]);  // left edge
+      points.emplace_back(building[1], building[2]);   // right edge
+    }
+
+    // Sort points: if x-coordinates are same, sort by height
+    sort(points.begin(), points.end());
+
+    heights.insert(0);  // Insert ground level
+    for (auto& point : points) {
+      if (point.second < 0) {  // Left edge
+        heights.insert(-point.second);
+      } else {  // Right edge
+        heights.erase(heights.find(point.second));
+      }
+
+      int currHeight = *heights.rbegin();  // Current max height
+      if (currHeight != prevHeight) {
+        result.push_back({point.first, currHeight});
+        prevHeight = currHeight;
+      }
+    }
+
+    return result;
+  }
 };
