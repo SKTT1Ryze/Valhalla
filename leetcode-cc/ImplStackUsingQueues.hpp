@@ -1,3 +1,5 @@
+#include <queue>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -24,15 +26,33 @@ class SImplStackUsingQueues : public ISolution {
 
  private:
   class MyStack {
+    queue<int> q1;
+    queue<int> q2;
+
    public:
-    MyStack() {}
+    MyStack() : q1(), q2() {}
 
-    void push(int x) {}
+    void push(int x) {
+      q2.push(x);
+      while (!q1.empty()) {
+        q2.push(q1.front());
+        q1.pop();
+      }
+      swap(q1, q2);
+    }
 
-    int pop() {}
+    int pop() {
+      if (q1.empty()) {
+        return -1;
+      } else {
+        auto ans = q1.front();
+        q1.pop();
+        return ans;
+      }
+    }
 
-    int top() {}
+    int top() { return q1.empty() ? -1 : q1.front(); }
 
-    bool empty() {}
+    bool empty() { return q1.empty(); }
   };
 };
