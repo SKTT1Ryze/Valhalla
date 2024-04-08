@@ -44,6 +44,7 @@
 #include "../leetcode-cc/GrayCode.hpp"
 #include "../leetcode-cc/HappyNumber.hpp"
 #include "../leetcode-cc/HouseRobber.hpp"
+#include "../leetcode-cc/ImplStackUsingQueues.hpp"
 #include "../leetcode-cc/ImplTriePrefixTree.hpp"
 #include "../leetcode-cc/InsertDeleteGetrandomO1.hpp"
 #include "../leetcode-cc/InsertionSortList.hpp"
@@ -905,6 +906,12 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PTheSkylineProblem>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<STheSkylineProblem>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PImplStackUsingQueues>(); });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SImplStackUsingQueues>();
+  });
 
   return 0;
 }
