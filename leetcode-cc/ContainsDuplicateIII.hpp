@@ -1,3 +1,5 @@
+#include <set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -5,7 +7,8 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PContainsDuplicateIII, 220, DIFFI_HARD,
-                        TOPIC_ALGORITHMS, "Contains Duplicate III", "", {""});
+                        TOPIC_ALGORITHMS, "Contains Duplicate III", "",
+                        {"Sliding Window"});
 
 class SContainsDuplicateIII : public ISolution {
  public:
@@ -26,5 +29,24 @@ class SContainsDuplicateIII : public ISolution {
 
  private:
   bool containsNearbyAlmostDuplicate(vector<int>& nums, int indexDiff,
-                                     int valueDiff) const {}
+                                     int valueDiff) const {
+    int n = nums.size();
+
+    set<long> s = {};
+
+    for (int start = 0; start < n; start++) {
+      long lowerTarget = static_cast<long>(nums[start] - valueDiff);
+
+      auto it = s.lower_bound(lowerTarget);
+      if (it != s.end() && *it - nums[start] <= valueDiff) {
+        return true;
+      }
+
+      s.insert(nums[start]);
+
+      if (start >= indexDiff) s.erase(nums[start - indexDiff]);
+    }
+
+    return false;
+  }
 };
