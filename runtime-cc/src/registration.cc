@@ -17,6 +17,7 @@
 #include "../leetcode-cc/CmpVersionNum.hpp"
 #include "../leetcode-cc/ConstructBTreeInorderPostorder.hpp"
 #include "../leetcode-cc/ConstructBTreePreorderInorder.hpp"
+#include "../leetcode-cc/ContainsDuplicateIII.hpp"
 #include "../leetcode-cc/ConvertSortedArrayToBST.hpp"
 #include "../leetcode-cc/ConvertSortedListToBST.hpp"
 #include "../leetcode-cc/CopyListWithRandPointer.hpp"
@@ -911,6 +912,12 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PImplStackUsingQueues>(); });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SImplStackUsingQueues>();
+  });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PContainsDuplicateIII>(); });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SContainsDuplicateIII>();
   });
 
   return 0;
