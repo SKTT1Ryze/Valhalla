@@ -93,6 +93,7 @@
 #include "../leetcode-cc/PopulateNextRightPointers.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
+#include "../leetcode-cc/RectangleArea.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedList.hpp"
 #include "../leetcode-cc/RemoveDuplicatesFromSortedListII.hpp"
 #include "../leetcode-cc/RemoveElement.hpp"
@@ -919,6 +920,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SContainsDuplicateIII>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PRectangleArea>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SRectangleArea>(); });
 
   return 0;
 }
