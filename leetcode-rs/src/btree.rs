@@ -89,11 +89,11 @@ impl TreeNodeHandle {
                     }
 
                     stack.push(node.as_ref().unwrap().clone());
-                    node = node.unwrap().borrow().left.clone();
+                    node.clone_from(&node.unwrap().borrow().left);
                     i += 1;
                 }
             } else {
-                node = stack.pop().unwrap().borrow().right.clone();
+                node.clone_from(&stack.pop().unwrap().borrow().right);
             }
         }
 
