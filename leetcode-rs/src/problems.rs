@@ -20,6 +20,7 @@ pub mod gas_station;
 pub mod group_anagrams;
 pub mod house_robber_ii;
 pub mod insert_interval;
+pub mod invert_binary_tree;
 pub mod jump_game;
 pub mod jump_game_ii;
 pub mod largest_number;

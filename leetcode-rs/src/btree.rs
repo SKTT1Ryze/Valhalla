@@ -74,6 +74,7 @@ impl TreeNodeHandle {
         }
     }
 
+    #[cfg(test)]
     pub fn preorder_cmp(&self, expect: &[i32]) -> bool {
         let mut stack = Vec::<Rc<RefCell<TreeNode>>>::new();
         let mut i = 0;

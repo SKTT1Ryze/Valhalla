@@ -27,6 +27,7 @@ pub mod gas_station;
 pub mod group_anagrams;
 pub mod house_robber_ii;
 pub mod insert_interval;
+pub mod invert_binary_tree;
 pub mod jump_game;
 pub mod jump_game_ii;
 pub mod largest_number;
@@ -277,16 +278,17 @@ pub fn btree_test_helper<'a, I, E, F>(
 ) -> Result<()>
 where
     I: IntoIterator<Item = &'a str>,
-    E: IntoIterator<Item = Vec<i32>>,
+    E: IntoIterator<Item = &'a str>,
     F: Fn(Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>>,
 {
     for (input, expect) in testcases.into_iter().zip(expects) {
         let root = TreeNodeHandle::from(input.to_string());
+        let expect = TreeNodeHandle::from(expect.to_string());
         let output = TreeNodeHandle {
             inner: f(root.inner),
         };
 
-        if !output.preorder_cmp(&expect) {
+        if output != expect {
             anyhow::bail!("test failed!")
         }
     }
