@@ -9,9 +9,9 @@ jobs:
         with:
           toolchain: nightly
       - name: Test in Rust LeetCode
-        run: cargo test -- --ignored
+        run: cargo test
         working-directory: ./leetcode-rs
           
       - name: Test in Rust Runtime
-        run: cargo test -- --ignored
+        run: cargo test
         working-directory: ./runtime-rs

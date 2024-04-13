@@ -163,5 +163,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, maximal_square);
 
+    register!(handle, invert_binary_tree);
+
     Ok(())
 }
