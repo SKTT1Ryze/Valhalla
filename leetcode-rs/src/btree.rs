@@ -13,7 +13,7 @@ impl From<String> for TreeNodeHandle {
 
         let nodes: Vec<&str> = value.split(',').collect();
 
-        if nodes.is_empty() {
+        if nodes.is_empty() || nodes[0].is_empty() {
             Self { inner: None }
         } else {
             let mut queue = VecDeque::<Rc<RefCell<TreeNode>>>::new();
@@ -62,7 +62,7 @@ impl TreeNodeHandle {
     pub fn cmp(&self, other: &Self) -> bool {
         if self.inner.is_some() && other.inner.is_some() {
             let self_ = self.inner.as_ref().unwrap().borrow();
-            let other_ = self.inner.as_ref().unwrap().borrow();
+            let other_ = other.inner.as_ref().unwrap().borrow();
 
             self_.val == other_.val
                 && Self::new(self_.left.clone())
