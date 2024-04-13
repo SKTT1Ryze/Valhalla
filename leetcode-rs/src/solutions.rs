@@ -1,9 +1,9 @@
 #![allow(clippy::needless_range_loop)]
 
-use super::list::ListNode;
-use crate::list::assert_eq_list;
+use super::{btree::TreeNode, list::ListNode};
+use crate::{btree::TreeNodeHandle, list::assert_eq_list};
 use anyhow::Result;
-use std::fmt::Debug;
+use std::{cell::RefCell, fmt::Debug, rc::Rc};
 
 pub mod add_binary;
 pub mod add_two_numbers;
@@ -141,6 +141,7 @@ macro_rules! derive_solution {
     };
 }
 
+// TODO: reuse the code
 #[macro_export]
 macro_rules! derive_inplace_solution {
     ($struct:ident, $id:expr, $name:expr, $testcases:expr, $expects:expr, $test_function:expr) => {
@@ -176,6 +177,26 @@ macro_rules! derive_list_solution {
             }
             fn test(&self) -> anyhow::Result<()> {
                 list_test_helper($testcases, $expects, $test_function)
+            }
+        }
+    };
+}
+
+#[macro_export]
+macro_rules! derive_btree_solution {
+    ($struct:ident, $id:expr, $name:expr, $testcases:expr, $expects:expr, $test_function:expr) => {
+        impl Solution for $struct {
+            fn name(&self) -> String {
+                format!("Solution for {}", $name)
+            }
+            fn problem_id(&self) -> usize {
+                $id
+            }
+            fn location(&self) -> String {
+                $crate::location!()
+            }
+            fn test(&self) -> anyhow::Result<()> {
+                btree_test_helper($testcases, $expects, $test_function)
             }
         }
     };
@@ -246,5 +267,28 @@ where
         }
     }
 
+    Ok(())
+}
+
+pub fn btree_test_helper<'a, I, E, F>(
+    testcases: I,
+    expects: E,
+    f: F,
+) -> Result<()>
+where
+    I: IntoIterator<Item = &'a str>,
+    E: IntoIterator<Item = Vec<i32>>,
+    F: Fn(Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>>,
+{
+    for (input, expect) in testcases.into_iter().zip(expects) {
+        let root = TreeNodeHandle::from(input.to_string());
+        let output = TreeNodeHandle {
+            inner: f(root.inner),
+        };
+
+        if !output.preorder_cmp(&expect) {
+            anyhow::bail!("test failed!")
+        }
+    }
     Ok(())
 }
