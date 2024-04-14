@@ -75,7 +75,6 @@ impl TreeNodeHandle {
     }
 
     #[cfg(test)]
-    #[allow(clippy::assigning_clones)]
     pub fn preorder_cmp(&self, expect: &[i32]) -> bool {
         let mut stack = Vec::<Rc<RefCell<TreeNode>>>::new();
         let mut i = 0;
@@ -90,11 +89,14 @@ impl TreeNodeHandle {
                     }
 
                     stack.push(node.as_ref().unwrap().clone());
-                    node = node.unwrap().borrow().left.clone();
+                    #[allow(clippy::assigning_clones)]
+                    {
+                        node = node.unwrap().borrow().left.clone();
+                    }
                     i += 1;
                 }
             } else {
-                node = stack.pop().unwrap().borrow().right.clone();
+                node.clone_from(&stack.pop().unwrap().borrow().right);
             }
         }
 

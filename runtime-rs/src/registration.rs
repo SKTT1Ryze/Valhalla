@@ -165,5 +165,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, invert_binary_tree);
 
+    register!(handle, basic_calculator);
+
     Ok(())
 }
