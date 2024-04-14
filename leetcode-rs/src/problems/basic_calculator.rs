@@ -10,5 +10,6 @@ crate::derive_problem!(
     "Basic Calculator",
     "Given a string s representing a valid expression, implement a basic \
      calculator to evaluate it, and return the result of the evaluation.",
-    "Math".into()
+    "Math".into(),
+    "Stack".into()
 );
