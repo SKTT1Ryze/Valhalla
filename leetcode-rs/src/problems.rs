@@ -1,5 +1,6 @@
 pub mod add_binary;
 pub mod add_two_numbers;
+pub mod basic_calculator;
 pub mod best_time_to_buy_and_sell_stock;
 pub mod best_time_to_buy_and_sell_stock_ii;
 pub mod candy;
