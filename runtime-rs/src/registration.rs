@@ -167,5 +167,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, basic_calculator);
 
+    register!(handle, basic_calculator_ii);
+
     Ok(())
 }
