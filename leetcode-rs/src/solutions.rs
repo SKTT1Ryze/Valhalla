@@ -48,6 +48,7 @@ pub mod minimum_window_substring;
 pub mod multiply_strings;
 pub mod n_queens;
 pub mod n_queens_ii;
+pub mod palindrome_linked_list;
 pub mod palindrome_number;
 pub mod permutation_sequence;
 pub mod permutations;

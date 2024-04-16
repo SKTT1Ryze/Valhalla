@@ -177,5 +177,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, power_of_two);
 
+    register!(handle, palindrome_linked_list);
+
     Ok(())
 }
