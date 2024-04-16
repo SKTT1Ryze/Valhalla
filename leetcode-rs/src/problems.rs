@@ -25,6 +25,7 @@ pub mod insert_interval;
 pub mod invert_binary_tree;
 pub mod jump_game;
 pub mod jump_game_ii;
+pub mod kth_smallest_in_bst;
 pub mod largest_number;
 pub mod length_of_last_word;
 pub mod longest_palindromic_substring;
