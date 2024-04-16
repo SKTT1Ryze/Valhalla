@@ -175,5 +175,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, kth_smallest_in_bst);
 
+    register!(handle, power_of_two);
+
     Ok(())
 }
