@@ -22,7 +22,31 @@ crate::derive_solution!(
 );
 
 impl SolutionImpl {
-    pub fn kth_smallest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
-        todo!()
+    pub fn kth_smallest(
+        root: Option<Rc<RefCell<TreeNode>>>,
+        mut k: i32,
+    ) -> i32 {
+        Self::in_order_walk(root, &mut k)
+    }
+
+    pub fn in_order_walk(
+        root: Option<Rc<RefCell<TreeNode>>>,
+        k: &mut i32,
+    ) -> i32 {
+        if let Some(root) = root {
+            let left = Self::in_order_walk(root.borrow().left.clone(), k);
+            if left != -1 {
+                left
+            } else {
+                *k -= 1;
+                if *k == 0 {
+                    root.borrow().val
+                } else {
+                    Self::in_order_walk(root.borrow().right.clone(), k)
+                }
+            }
+        } else {
+            -1
+        }
     }
 }
