@@ -173,5 +173,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, majority_element_ii);
 
+    register!(handle, kth_smallest_in_bst);
+
     Ok(())
 }
