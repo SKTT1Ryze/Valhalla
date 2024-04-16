@@ -171,5 +171,7 @@ pub fn register_all(handle: ContainerHandle) -> anyhow::Result<()> {
 
     register!(handle, summary_ranges);
 
+    register!(handle, majority_element_ii);
+
     Ok(())
 }
