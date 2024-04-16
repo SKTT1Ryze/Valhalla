@@ -18,6 +18,26 @@ crate::derive_solution!(
 
 impl SolutionImpl {
     pub fn is_palindrome(head: Option<Box<ListNode<i32>>>) -> bool {
-        todo!()
+        let mut v = Vec::new();
+        let mut p = &head;
+
+        while p.is_some() {
+            v.push(p.as_ref().unwrap().val);
+            p = &p.as_ref().unwrap().next;
+        }
+
+        let n = v.len();
+        let mut start = 0;
+        let mut end = n - 1;
+
+        while start < end {
+            if v[start] != v[end] {
+                return false;
+            }
+            start += 1;
+            end -= 1;
+        }
+
+        true
     }
 }
