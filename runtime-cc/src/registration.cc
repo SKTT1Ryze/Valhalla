@@ -82,6 +82,7 @@
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/NumOfIslands.hpp"
 #include "../leetcode-cc/NumOfOneBits.hpp"
+#include "../leetcode-cc/NumberOfDigitOne.hpp"
 #include "../leetcode-cc/OutOfBoundaryPaths.hpp"
 #include "../leetcode-cc/PalindromePartitioning.hpp"
 #include "../leetcode-cc/PalindromePartitioningII.hpp"
@@ -925,6 +926,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PRectangleArea>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SRectangleArea>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PNumberOfDigitOne>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SNumberOfDigitOne>(); });
 
   return 0;
 }
