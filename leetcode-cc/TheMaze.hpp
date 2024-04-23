@@ -1,5 +1,8 @@
+#include <queue>
+#include <unordered_set>
 #include <utility>
 
+#include "PairHash.h"
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -29,8 +32,17 @@ class STheMaze : public ISolution {
              },
              {0, 4},
              {4, 4}},
+            {{
+                 {0, 0, 1, 0, 0},
+                 {0, 0, 0, 0, 0},
+                 {0, 0, 0, 1, 0},
+                 {1, 1, 0, 1, 1},
+                 {0, 0, 0, 0, 0},
+             },
+             {0, 4},
+             {3, 2}},
         },
-        {true}, [this](auto input) {
+        {true, false}, [this](auto input) {
           return this->hasPath(get<0>(input), get<1>(input), get<2>(input));
         });
   };
@@ -38,5 +50,35 @@ class STheMaze : public ISolution {
 
  private:
   bool hasPath(const vector<vector<int>>& maze, pair<int, int> start,
-               pair<int, int> destination) const {}
+               pair<int, int> destination) const {
+    int m = maze.size();
+    int n = maze[0].size();
+    queue<pair<int, int>> q = {};
+    q.push(start);
+    unordered_set<pair<int, int>, pair_hash> memo = {};
+
+    while (!q.empty()) {
+      auto current = q.front();
+      q.pop();
+
+      if (current == destination) {
+        return true;
+      }
+
+      memo.insert(current);
+
+      for (const auto& [x, y] :
+           vector<pair<int, int>>({{current.first - 1, current.second},
+                                   {current.first + 1, current.second},
+                                   {current.first, current.second - 1},
+                                   {current.first, current.second + 1}})) {
+        if (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0 &&
+            !memo.contains({x, y})) {
+          q.push({x, y});
+        }
+      }
+    }
+
+    return false;
+  }
 };
