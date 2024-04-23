@@ -123,6 +123,7 @@
 #include "../leetcode-cc/SumRootToLeafNums.hpp"
 #include "../leetcode-cc/SurroundedRegions.hpp"
 #include "../leetcode-cc/SymmetricTree.hpp"
+#include "../leetcode-cc/TheMaze.hpp"
 #include "../leetcode-cc/TheSkylineProblem.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -931,6 +932,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PNumberOfDigitOne>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SNumberOfDigitOne>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PTheMaze>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<STheMaze>(); });
 
   return 0;
 }
