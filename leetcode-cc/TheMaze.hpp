@@ -56,6 +56,7 @@ class STheMaze : public ISolution {
     queue<pair<int, int>> q = {};
     q.push(start);
     unordered_set<pair<int, int>, pair_hash> memo = {};
+    vector<pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     while (!q.empty()) {
       auto current = q.front();
@@ -67,14 +68,21 @@ class STheMaze : public ISolution {
 
       memo.insert(current);
 
-      for (const auto& [x, y] :
-           vector<pair<int, int>>({{current.first - 1, current.second},
-                                   {current.first + 1, current.second},
-                                   {current.first, current.second - 1},
-                                   {current.first, current.second + 1}})) {
-        if (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0 &&
-            !memo.contains({x, y})) {
-          q.push({x, y});
+      for (const auto& [dirX, dirY] : dirs) {
+        auto nextX = current.first + dirX;
+        auto nextY = current.second + dirY;
+
+        while (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n &&
+               maze[nextX][nextY] != 1) {
+          nextX += dirX;
+          nextY += dirY;
+        }
+
+        nextX -= dirX;
+        nextY -= dirY;
+
+        if (!memo.contains({nextX, nextY})) {
+          q.push({nextX, nextY});
         }
       }
     }
