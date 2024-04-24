@@ -142,6 +142,7 @@
 #include "../leetcode-cc/WordLadderII.hpp"
 #include "../leetcode-cc/WordSearchII.hpp"
 #include "../leetcode-cc/WordsDataStructure.hpp"
+#include "../leetcode-cc/ZeroOneMatrix.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -937,6 +938,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PTheMaze>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<STheMaze>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PZeroOneMatrix>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SZeroOneMatrix>(); });
 
   return 0;
 }
