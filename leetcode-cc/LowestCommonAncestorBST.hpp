@@ -23,5 +23,55 @@ class SLowestCommonAncestorBST : public ISolution {
 
  private:
   TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p,
-                                 TreeNode* q) const {}
+                                 TreeNode* q) const {
+    TreeNode* left = nullptr;
+    TreeNode* right = nullptr;
+    TreeNode* target = root;
+
+    if (p->val > q->val) {
+      left = q;
+      right = p;
+    } else {
+      left = p;
+      right = q;
+    }
+
+    while (!(target->val >= left->val && target->val <= right->val)) {
+      if (target->val < left->val) target = target->right;
+      if (target->val > right->val) target = target->left;
+    }
+
+    if (target->val == left->val || target->val == right->val) return target;
+
+    while (true) {
+      if (this->isCommonAncestor(target->left, left, true) &&
+          this->isCommonAncestor(target->left, right, false)) {
+        target = target->left;
+      } else if (this->isCommonAncestor(target->right, left, true) &&
+                 this->isCommonAncestor(target->right, right, false)) {
+        target = target->right;
+      } else {
+        break;
+      }
+    }
+
+    return target;
+  }
+
+  bool isCommonAncestor(TreeNode* root, TreeNode* node, bool isLeft) const {
+    if (root == nullptr) return false;
+    if (isLeft) {
+      if (root->val == node->val) {
+        return true;
+      } else {
+        return this->isCommonAncestor(root->left, node, isLeft);
+      }
+    } else {
+      if (root->val == node->val) {
+        return true;
+      } else {
+        return this->isCommonAncestor(root->right, node, isLeft);
+      }
+    }
+  }
 };
