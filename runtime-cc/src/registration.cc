@@ -62,6 +62,7 @@
 #include "../leetcode-cc/LongestCommonPrefix.hpp"
 #include "../leetcode-cc/LongestCommonSubsequence.hpp"
 #include "../leetcode-cc/LongestConsecutiveSeq.hpp"
+#include "../leetcode-cc/LowestCommonAncestorBST.hpp"
 #include "../leetcode-cc/LruCache.hpp"
 #include "../leetcode-cc/MajorityElement.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
@@ -943,6 +944,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PZeroOneMatrix>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SZeroOneMatrix>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PLowestCommonAncestorBST>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SLowestCommonAncestorBST>();
+  });
 
   return 0;
 }
