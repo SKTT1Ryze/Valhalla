@@ -52,7 +52,6 @@ class STheMazeII : public ISolution {
     int n = maze[0].size();
 
     vector<pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    vector<vector<bool>> memo(m, vector(n, false));
 
     queue<pair<int, int>> q = {};
     q.push(start);
@@ -64,8 +63,6 @@ class STheMazeII : public ISolution {
       if (destination == q.front()) break;
       auto [currentX, currentY] = q.front();
       q.pop();
-
-      memo[currentX][currentY] = true;
 
       for (const auto& [dirX, dirY] : dirs) {
         auto nextX = currentX + dirX;
@@ -82,13 +79,15 @@ class STheMazeII : public ISolution {
         nextX -= dirX;
         nextY -= dirY;
 
-        if (!memo[nextX][nextY]) {
+        if (dis[currentX][currentY] + delta < dis[nextX][nextY]) {
           dis[nextX][nextY] = dis[currentX][currentY] + delta;
           q.push({nextX, nextY});
         }
       }
     }
 
-    return dis[destination.first][destination.second];
+    return dis[destination.first][destination.second] == INT_MAX
+               ? -1
+               : dis[destination.first][destination.second];
   }
 };
