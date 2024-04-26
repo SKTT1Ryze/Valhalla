@@ -126,6 +126,7 @@
 #include "../leetcode-cc/SurroundedRegions.hpp"
 #include "../leetcode-cc/SymmetricTree.hpp"
 #include "../leetcode-cc/TheMaze.hpp"
+#include "../leetcode-cc/TheMazeII.hpp"
 #include "../leetcode-cc/TheSkylineProblem.hpp"
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
@@ -959,6 +960,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SLowestCommonAncestorBTree>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PTheMazeII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<STheMazeII>(); });
 
   return 0;
 }
