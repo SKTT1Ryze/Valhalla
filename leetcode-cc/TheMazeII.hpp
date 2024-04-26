@@ -1,3 +1,5 @@
+#include <queue>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -35,7 +37,7 @@ class STheMazeII : public ISolution {
           },
           {0, 4},
           {3, 2}}},
-        {0, -1}, [this](auto input) {
+        {12, -1}, [this](auto input) {
           return this->shortestDistance(get<0>(input), get<1>(input),
                                         get<2>(input));
         });
@@ -44,5 +46,48 @@ class STheMazeII : public ISolution {
 
  private:
   int shortestDistance(const vector<vector<int>>& maze, pair<int, int> start,
-                       pair<int, int> destination) const {}
+                       pair<int, int> destination) const {
+    int m = maze.size();
+    int n = maze[0].size();
+
+    vector<pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    vector<vector<bool>> memo(m, vector(m, false));
+
+    queue<pair<int, int>> current = {};
+    queue<pair<int, int>> next = {};
+    current.push(start);
+
+    int dis = 0;
+
+    while (!current.empty() || !next.empty()) {
+      if (current.empty()) {
+        dis++;
+        current = std::move(next);
+      } else {
+        if (destination == current.front()) break;
+        auto [currentX, currentY] = current.front();
+        current.pop();
+
+        memo[currentX][currentY] = true;
+
+        for (const auto& [dirX, dirY] : dirs) {
+          auto nextX = currentX + dirX;
+          auto nextY = currentY + dirY;
+
+          while (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n &&
+                 maze[nextX][nextY] != 1) {
+            nextX += dirX;
+            nextY += dirY;
+          }
+
+          nextX -= dirX;
+          nextY -= dirY;
+
+          if (!memo[nextX][nextY]) next.push({nextX, nextY});
+        }
+      }
+    }
+
+    return dis;
+  }
 };
