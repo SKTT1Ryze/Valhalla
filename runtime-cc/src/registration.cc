@@ -63,6 +63,7 @@
 #include "../leetcode-cc/LongestCommonSubsequence.hpp"
 #include "../leetcode-cc/LongestConsecutiveSeq.hpp"
 #include "../leetcode-cc/LowestCommonAncestorBST.hpp"
+#include "../leetcode-cc/LowestCommonAncestorBTree.hpp"
 #include "../leetcode-cc/LruCache.hpp"
 #include "../leetcode-cc/MajorityElement.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
@@ -950,6 +951,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SLowestCommonAncestorBST>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PLowestCommonAncestorBTree>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SLowestCommonAncestorBTree>();
   });
 
   return 0;
