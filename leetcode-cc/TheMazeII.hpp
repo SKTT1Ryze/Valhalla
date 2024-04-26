@@ -1,3 +1,4 @@
+#include <climits>
 #include <queue>
 
 #include "TestHelper.h"
@@ -51,43 +52,43 @@ class STheMazeII : public ISolution {
     int n = maze[0].size();
 
     vector<pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    vector<vector<bool>> memo(m, vector(m, false));
+    vector<vector<bool>> memo(m, vector(n, false));
 
-    queue<pair<int, int>> current = {};
-    queue<pair<int, int>> next = {};
-    current.push(start);
+    queue<pair<int, int>> q = {};
+    q.push(start);
 
-    int dis = 0;
+    vector<vector<int>> dis(m, vector(n, INT_MAX));
+    dis[start.first][start.second] = 0;
 
-    while (!current.empty() || !next.empty()) {
-      if (current.empty()) {
-        dis++;
-        current = std::move(next);
-      } else {
-        if (destination == current.front()) break;
-        auto [currentX, currentY] = current.front();
-        current.pop();
+    while (!q.empty()) {
+      if (destination == q.front()) break;
+      auto [currentX, currentY] = q.front();
+      q.pop();
 
-        memo[currentX][currentY] = true;
+      memo[currentX][currentY] = true;
 
-        for (const auto& [dirX, dirY] : dirs) {
-          auto nextX = currentX + dirX;
-          auto nextY = currentY + dirY;
+      for (const auto& [dirX, dirY] : dirs) {
+        auto nextX = currentX + dirX;
+        auto nextY = currentY + dirY;
+        int delta = 0;
 
-          while (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n &&
-                 maze[nextX][nextY] != 1) {
-            nextX += dirX;
-            nextY += dirY;
-          }
+        while (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n &&
+               maze[nextX][nextY] != 1) {
+          nextX += dirX;
+          nextY += dirY;
+          delta++;
+        }
 
-          nextX -= dirX;
-          nextY -= dirY;
+        nextX -= dirX;
+        nextY -= dirY;
 
-          if (!memo[nextX][nextY]) next.push({nextX, nextY});
+        if (!memo[nextX][nextY]) {
+          dis[nextX][nextY] = dis[currentX][currentY] + delta;
+          q.push({nextX, nextY});
         }
       }
     }
 
-    return dis;
+    return dis[destination.first][destination.second];
   }
 };
