@@ -67,6 +67,6 @@ class SZeroOneMatrix : public ISolution {
       }
     }
 
-    return std::move(dis);
+    return dis;
   }
 };
