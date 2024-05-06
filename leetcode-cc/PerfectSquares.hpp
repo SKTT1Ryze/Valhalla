@@ -1,3 +1,6 @@
+#include <queue>
+#include <unordered_set>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -25,5 +28,26 @@ class SPerfectSquares : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  int numSquares(int n) const {}
+  int numSquares(int n) const {
+    queue<pair<int, int>> q = {};
+    unordered_set<int> memo = {};
+
+    q.push({0, 0});
+
+    while (!q.empty()) {
+      auto [val, step] = q.front();
+      q.pop();
+
+      if (val == n) return step;
+
+      memo.insert({val, step});
+
+      for (int i = 1; i * i + val <= n; i++) {
+        auto nextVal = val + i * i;
+        if (!memo.contains(nextVal)) q.push({nextVal, step + 1});
+      }
+    }
+
+    return -1;
+  }
 };
