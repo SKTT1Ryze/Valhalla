@@ -94,6 +94,7 @@
 #include "../leetcode-cc/PascalsTriangleII.hpp"
 #include "../leetcode-cc/PathSum.hpp"
 #include "../leetcode-cc/PathSumII.hpp"
+#include "../leetcode-cc/PerfectSquares.hpp"
 #include "../leetcode-cc/PopulateNextRightPointers.hpp"
 #include "../leetcode-cc/ProductOfArrayExceptSelf.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
@@ -981,6 +982,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SProductOfArrayExceptSelf>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PPerfectSquares>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SPerfectSquares>(); });
 
   return 0;
 }
