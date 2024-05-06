@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <numeric>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
@@ -26,5 +29,33 @@ class SProductOfArrayExceptSelf : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  vector<int> productExceptSelf(vector<int>& nums) const {}
+  vector<int> productExceptSelf(vector<int>& nums) const {
+    int n = nums.size();
+    auto zeroCount = count(nums.begin(), nums.end(), 0);
+    if (zeroCount > 1) {
+      vector<int> ans(n, 0);
+      return ans;
+    }
+    int product = accumulate(nums.begin(), nums.end(), 1, [](int a, int b) {
+      if (a != 0 && b != 0) {
+        return a * b;
+      } else if (a == 0) {
+        return b;
+      } else {
+        return a;
+      }
+    });
+    vector<int> ans(n, 0);
+    for (int i = 0; i < n; i++) {
+      if (nums[i] == 0) {
+        ans[i] = product;
+      } else if (zeroCount > 0) {
+        ans[i] = 0;
+      } else {
+        ans[i] = product / nums[i];
+      }
+    }
+
+    return ans;
+  }
 };
