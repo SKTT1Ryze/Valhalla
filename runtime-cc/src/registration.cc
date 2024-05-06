@@ -95,6 +95,7 @@
 #include "../leetcode-cc/PathSum.hpp"
 #include "../leetcode-cc/PathSumII.hpp"
 #include "../leetcode-cc/PopulateNextRightPointers.hpp"
+#include "../leetcode-cc/ProductOfArrayExceptSelf.hpp"
 #include "../leetcode-cc/PseudoPalindromicPathsInBTree.hpp"
 #include "../leetcode-cc/RecoverBST.hpp"
 #include "../leetcode-cc/RectangleArea.hpp"
@@ -972,6 +973,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SDeleteNodeInLinkedList>();
+  });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PProductOfArrayExceptSelf>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SProductOfArrayExceptSelf>();
   });
 
   return 0;
