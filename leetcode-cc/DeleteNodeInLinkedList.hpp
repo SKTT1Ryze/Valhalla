@@ -23,5 +23,17 @@ class SDeleteNodeInLinkedList : public ISolution {
   int benchmark() const override { return 0; }
 
  private:
-  void deleteNode(ListNode* node) const {}
+  void deleteNode(ListNode* node) const {
+    if (node != nullptr) {
+      if (node->next) {
+        node->val = node->next->val;
+
+        if (node->next->next) {
+          deleteNode(node->next);
+        } else {
+          node->next = nullptr;
+        }
+      }
+    }
+  }
 };
