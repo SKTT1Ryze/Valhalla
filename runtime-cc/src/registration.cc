@@ -25,6 +25,7 @@
 #include "../leetcode-cc/CourseSchedule.hpp"
 #include "../leetcode-cc/CourseScheduleII.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
+#include "../leetcode-cc/DeleteNodeInLinkedList.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
 #include "../leetcode-cc/DistinctSubsequences.hpp"
@@ -965,6 +966,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PTheMazeII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<STheMazeII>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PDeleteNodeInLinkedList>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SDeleteNodeInLinkedList>();
+  });
 
   return 0;
 }
