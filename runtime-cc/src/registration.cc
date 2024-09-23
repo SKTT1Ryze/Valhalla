@@ -117,6 +117,7 @@
 #include "../leetcode-cc/RotateArray.hpp"
 #include "../leetcode-cc/SameTree.hpp"
 #include "../leetcode-cc/ScrambleString.hpp"
+#include "../leetcode-cc/SearchA2dMatrixII.hpp"
 #include "../leetcode-cc/SearchInRotaedSortedArray.hpp"
 #include "../leetcode-cc/SetMismatch.hpp"
 #include "../leetcode-cc/ShortestPalindrome.hpp"
@@ -987,6 +988,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPerfectSquares>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPerfectSquares>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSearchA2dMatrixII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSearchA2dMatrixII>(); });
 
   return 0;
 }
