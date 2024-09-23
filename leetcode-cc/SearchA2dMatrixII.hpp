@@ -1,8 +1,9 @@
+#include <utility>
+#include <vector>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
-#include <utility>
-#include <vector>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ IMPLEMENT_PROBLEM_CLASS(PSearchA2dMatrixII, 240, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
                         {"Matrix"});
 
 class SSearchA2dMatrixII : public ISolution {
-public:
+ public:
   size_t problemId() const override { return 240; }
   string name() const override {
     return ("Solution for " + string("Search a 2D Matrix II"));
@@ -33,7 +34,7 @@ public:
   };
   int benchmark() const override { return 0; }
 
-private:
+ private:
   bool searchMatrix(vector<vector<int>> &matrix, int target) const {
     int m = matrix.size();
     int n = matrix[0].size();
