@@ -149,6 +149,7 @@
 #include "../leetcode-cc/WordSearchII.hpp"
 #include "../leetcode-cc/WordsDataStructure.hpp"
 #include "../leetcode-cc/ZeroOneMatrix.hpp"
+#include "../leetcode-cc/SearchA2dMatrixII.hpp"
 
 const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerProblem(
@@ -987,6 +988,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PPerfectSquares>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SPerfectSquares>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PSearchA2dMatrixII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SSearchA2dMatrixII>(); });
 
   return 0;
 }
