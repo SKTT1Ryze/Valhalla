@@ -1,6 +1,8 @@
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -32,5 +34,24 @@ public:
   int benchmark() const override { return 0; }
 
 private:
-  bool searchMatrix(vector<vector<int>> &matrix, int target) const {}
+  bool searchMatrix(vector<vector<int>> &matrix, int target) const {
+    int m = matrix.size();
+    int n = matrix[0].size();
+
+    int i = 0;
+    int j = n - 1;
+
+    while (i < m && j >= 0) {
+      auto current = matrix[i][j];
+      if (current > target) {
+        j--;
+      } else if (current < target) {
+        i++;
+      } else {
+        return true;
+      }
+    }
+
+    return false;
+  }
 };
