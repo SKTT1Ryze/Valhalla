@@ -28,6 +28,7 @@
 #include "../leetcode-cc/DeleteNodeInLinkedList.hpp"
 #include "../leetcode-cc/DetIfTwoStrsAreClose.hpp"
 #include "../leetcode-cc/DeterIfStringHalvesAreAlike.hpp"
+#include "../leetcode-cc/DifferentWaysToAddParentheses.hpp"
 #include "../leetcode-cc/DistinctSubsequences.hpp"
 #include "../leetcode-cc/DivideTwoIntegers.hpp"
 #include "../leetcode-cc/DungeonGame.hpp"
@@ -993,6 +994,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PSearchA2dMatrixII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SSearchA2dMatrixII>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PDiffWaysToAddParentheses>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SDiffWaysToAddParentheses>();
+  });
 
   return 0;
 }
