@@ -1,7 +1,8 @@
+#include <unordered_map>
+
 #include "TestHelper.h"
 #include "problem.h"
 #include "solution.h"
-#include <unordered_map>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ IMPLEMENT_PROBLEM_CLASS(
     {"Math"});
 
 class SDiffWaysToAddParentheses : public ISolution {
-public:
+ public:
   size_t problemId() const override { return 241; }
   string name() const override {
     return ("Solution for " + string("Different Ways to Add Parentheses"));
@@ -27,7 +28,7 @@ public:
   };
   int benchmark() const override { return 0; }
 
-private:
+ private:
   vector<int> diffWaysToCompute(string expression) const {
     unordered_map<string, vector<int>> memo;
     return this->compute(expression, memo);
