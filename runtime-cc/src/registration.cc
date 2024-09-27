@@ -83,6 +83,7 @@
 #include "../leetcode-cc/MinNumStepsMakeTwoStrAnagram.hpp"
 #include "../leetcode-cc/MinSizeSubarraySum.hpp"
 #include "../leetcode-cc/MinStack.hpp"
+#include "../leetcode-cc/MyCalendarII.hpp"
 #include "../leetcode-cc/NextPermutation.hpp"
 #include "../leetcode-cc/NumOfIslands.hpp"
 #include "../leetcode-cc/NumOfOneBits.hpp"
@@ -1001,6 +1002,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SDiffWaysToAddParentheses>();
   });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMyCalendarII>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMyCalendarII>(); });
 
   return 0;
 }
