@@ -142,6 +142,7 @@
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTreesII.hpp"
 #include "../leetcode-cc/UniqueNumOfOccurrences.hpp"
+#include "../leetcode-cc/ValidAnagram.hpp"
 #include "../leetcode-cc/ValidPalindrome.hpp"
 #include "../leetcode-cc/ValidParentheses.hpp"
 #include "../leetcode-cc/ValidateBST.hpp"
@@ -1007,6 +1008,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMyCalendarII>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMyCalendarII>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PValidAnagram>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SValidAnagram>(); });
 
   return 0;
 }
