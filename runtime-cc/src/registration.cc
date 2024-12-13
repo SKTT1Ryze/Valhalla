@@ -40,6 +40,7 @@
 #include "../leetcode-cc/FindMinInRotatedSortedArrayII.hpp"
 #include "../leetcode-cc/FindPeakElement.hpp"
 #include "../leetcode-cc/FindPlayersWithZeroOrOneLosses.hpp"
+#include "../leetcode-cc/FindScoreArray.hpp"
 #include "../leetcode-cc/FlattenBTreeToLinkedList.hpp"
 #include "../leetcode-cc/FourSum.hpp"
 #include "../leetcode-cc/FractionToDecimal.hpp"
@@ -1013,6 +1014,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PValidAnagram>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SValidAnagram>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PFindScoreArray>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SFindScoreArray>(); });
 
   return 0;
 }
