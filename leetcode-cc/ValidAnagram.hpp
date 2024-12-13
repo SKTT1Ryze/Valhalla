@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <unordered_map>
+
 #include "problem.h"
 #include "solution.h"
 
@@ -10,7 +13,7 @@ IMPLEMENT_PROBLEM_CLASS(PValidAnagram, 242, DIFFI_EASY, TOPIC_ALGORITHMS,
                         {"Math"});
 
 class SValidAnagram : public ISolution {
-public:
+ public:
   size_t problemId() const override { return 242; }
   string name() const override {
     return ("Solution for " + string("Valid Anagram"));
@@ -19,5 +22,23 @@ public:
   int test() const override { return 0; };
   int benchmark() const override { return 0; }
 
-  bool isAnagram(string s, string t) {}
+  bool isAnagram(string s, string t) {
+    int memo[26];
+
+    for (auto ch : s) {
+      memo[ch - 'a']++;
+    }
+
+    for (auto ch : t) {
+      if (memo[ch - 'a'] == 0) return false;
+
+      memo[ch - 'a']--;
+    }
+
+    for (int x : memo) {
+      if (x != 0) return false;
+    }
+
+    return true;
+  }
 };
