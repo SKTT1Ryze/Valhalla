@@ -2,7 +2,7 @@ on: [pull_request]
 name: Frontend Build Check
 jobs:
   frontend_build_check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
