@@ -2,7 +2,7 @@ on: [pull_request]
 name: C++ Runtime Check
 jobs:
   runtime_check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - name: Install LLVM and Clang

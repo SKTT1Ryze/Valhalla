@@ -69,6 +69,7 @@
 #include "../leetcode-cc/LowestCommonAncestorBTree.hpp"
 #include "../leetcode-cc/LruCache.hpp"
 #include "../leetcode-cc/MajorityElement.hpp"
+#include "../leetcode-cc/MapOfHighestPeak.hpp"
 #include "../leetcode-cc/MaxDepthOfBTree.hpp"
 #include "../leetcode-cc/MaxDiffBetNodeAndAncestor.hpp"
 #include "../leetcode-cc/MaxGap.hpp"
@@ -1019,6 +1020,11 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PFindScoreArray>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SFindScoreArray>(); });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PMapOfHighestPeak>(); });
+  handle->registerSolution(
+      []() -> ArcSolution { return std::make_shared<SMapOfHighestPeak>(); });
 
   return 0;
 }
