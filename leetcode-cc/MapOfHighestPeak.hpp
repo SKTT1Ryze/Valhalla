@@ -7,8 +7,7 @@
 using namespace std;
 
 IMPLEMENT_PROBLEM_CLASS(PMapOfHighestPeak, 1765, DIFFI_MEDIUM, TOPIC_ALGORITHMS,
-                        "Find an assignment of heights such that the maximum ",
-                        "height in the matrix is maximized", {"Map"});
+                        "Map of highest Peak", "", {"Map"});
 
 class SMapOfHighestPeak : public ISolution {
  public:

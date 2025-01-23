@@ -22,6 +22,7 @@
 #include "../leetcode-cc/ConvertSortedListToBST.hpp"
 #include "../leetcode-cc/CopyListWithRandPointer.hpp"
 #include "../leetcode-cc/CountPrimes.hpp"
+#include "../leetcode-cc/CountServersThatCommunicate.hpp"
 #include "../leetcode-cc/CourseSchedule.hpp"
 #include "../leetcode-cc/CourseScheduleII.hpp"
 #include "../leetcode-cc/DecodeWays.hpp"
@@ -1025,6 +1026,13 @@ const int registerAll(std::shared_ptr<Container> handle) {
       []() -> ArcProblem { return std::make_shared<PMapOfHighestPeak>(); });
   handle->registerSolution(
       []() -> ArcSolution { return std::make_shared<SMapOfHighestPeak>(); });
+
+  handle->registerProblem([]() -> ArcProblem {
+    return std::make_shared<PCountServersThatCommunicate>();
+  });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<SCountServersThatCommunicate>();
+  });
 
   return 0;
 }
