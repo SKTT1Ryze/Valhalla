@@ -141,6 +141,7 @@
 #include "../leetcode-cc/ThreeSum.hpp"
 #include "../leetcode-cc/ThreeSumClosest.hpp"
 #include "../leetcode-cc/Triangle.hpp"
+#include "../leetcode-cc/TupleWithSameProduct.hpp"
 #include "../leetcode-cc/TwoSumIIInputArraySorted.hpp"
 #include "../leetcode-cc/UglyNumberII.hpp"
 #include "../leetcode-cc/UniqueBinarySearchTrees.hpp"
@@ -1040,6 +1041,12 @@ const int registerAll(std::shared_ptr<Container> handle) {
   });
   handle->registerSolution([]() -> ArcSolution {
     return std::make_shared<SCheckIfOneStringSwapCanMakeStringsEqual>();
+  });
+
+  handle->registerProblem(
+      []() -> ArcProblem { return std::make_shared<PTupleWithSameProduct>(); });
+  handle->registerSolution([]() -> ArcSolution {
+    return std::make_shared<STupleWithSameProduct>();
   });
 
   return 0;
